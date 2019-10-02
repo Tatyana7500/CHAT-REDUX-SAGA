@@ -21,6 +21,8 @@ module.exports = {
     DISCONNECT: 'disconnect',
     MESSAGEPRIVATE: 'privateMessage',
     LOCALHOST: 'http://localhost:8080',
-    SUBMIT_SIGN_IN_FORM: 'submitSignInForm',
     HANDLE_HIDE: 'handleHide',
+    REGISTER_USER_SUCCESS: 'REGISTER_USER_SUCCESS',
+    REGISTER_USER: 'REGISTER_USER',
+    REGISTER_USER_ERROR: 'REGISTER_USER_ERROR',
 };
