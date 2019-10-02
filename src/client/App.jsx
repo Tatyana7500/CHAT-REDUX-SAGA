@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import SignIn from './components/signIn/SignIn.jsx';
 
 class App extends Component {
     render() {
         return (
-            <h1>Saga-effects</h1>
+            <SignIn/>
         );
     }
 }

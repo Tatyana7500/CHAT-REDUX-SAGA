@@ -1,0 +1,46 @@
+@import './matrix.css';
+
+body[data-theme='light'] {
+    --color-btn: var(--color-01);
+    --color-body:var(--color-12);
+    --color-theme:var(--color-21);
+    --color-border:var(--color-13);
+    --color-shadow:var(--color-13);
+    --color-bottom:var(--color-11);
+    --color-active:var(--color-10);
+    --color-textNav:var(--color-12);
+    --color-language:var(--color-18);
+    --color-wrapper: var(--color-03);
+    --color-btnHover:var(--color-19);
+    --color-btnActive:var(--color-12);
+    --color-btnShadow:var(--color-20);
+    --color-navShadow:var(--color-19);
+    --color-textForm: var(--color-04);
+    --color-headerUser:var(--color-05);
+    --color-textActive:var(--color-18);
+    --color-backMessage:var(--color-12);
+    --color-fieldButtons:var(--color-05);
+    --color-textNotActive:var(--color-12);
+    --color-loginBackground:var(--color-12);
+}
+
+body[data-theme='dark'] {
+    --color-body:var(--color-17);
+    --color-theme:var(--color-22);
+    --color-bottom:var(--color-12);
+    --color-shadow:var(--color-14);
+    --color-border:var(--color-14);
+    --color-textNav:var(--color-04);
+    --color-language:var(--color-12);
+    --color-btnHover:var(--color-19);
+    --color-textForm: var(--color-12);
+    --color-btnActive:var(--color-12);
+    --color-btnShadow:var(--color-20);
+    --color-navShadow:var(--color-12);
+    --color-headerUser:var(--color-19);
+    --color-textActive:var(--color-18);
+    --color-backMessage:var(--color-18);
+    --color-fieldButtons:var(--color-11);
+    --color-textNotActive:var(--color-12);
+    --color-loginBackground:var(--color-15);
+}

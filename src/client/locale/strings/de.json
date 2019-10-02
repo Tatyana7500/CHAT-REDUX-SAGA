@@ -1,0 +1,22 @@
+{
+  "de": {
+    "eMail": "Mail",
+    "send": "Senden",
+    "yes": "JA",
+    "emoji": "EMOJI",
+    "theme": "THEMA",
+    "name": "Vorname",
+    "chat": "Plaudern",
+    "users": "Benutzer",
+    "language": "SPRACHE",
+    "logOut": "Ausloggen",
+    "password": "Passwort",
+    "login": "Benutzername",
+    "yourEmail": "Deine Mail",
+    "signIn": "Registrierung",
+    "yourPassword": "Dein Passwort",
+    "yourMessage": "Deine Nachricht",
+    "default": "Standardeinstellungen",
+    "confirmPassword": "Wiederholen Sie das Passwort"
+  }
+}

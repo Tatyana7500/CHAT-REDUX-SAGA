@@ -21,4 +21,6 @@ module.exports = {
     DISCONNECT: 'disconnect',
     MESSAGEPRIVATE: 'privateMessage',
     LOCALHOST: 'http://localhost:8080',
+    SUBMIT_SIGN_IN_FORM: 'submitSignInForm',
+    HANDLE_HIDE: 'handleHide',
 };
