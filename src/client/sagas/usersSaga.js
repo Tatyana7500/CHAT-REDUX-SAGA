@@ -1,25 +1,40 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
-import { registerUserService } from '../selectors/logic';
-
-import { CREATE_USER, LOCALHOST, REGISTER_USER_SUCCESS, REGISTER_USER_ERROR, IS_OPEN_MODAL, HANDLE_HIDE } from '../../constants';
+import {takeEvery, put, call, apply} from 'redux-saga/effects';
+import * as constants from '../../constants';
+import requestHelper from "../utils/requestHelper";
+import { showModalAction, closeModalAction } from "../actions";
+import logic from '../components/login/logic';
 
 export default function* watchSaga() {
-    yield takeEvery(CREATE_USER, handleCreateUser);
-    yield takeEvery(HANDLE_HIDE, handleHide);
+    yield takeEvery(constants.CREATE_USER, handleCreateUser);
+    yield takeEvery(constants.HANDLE_HIDE_MODAL, handleHide);
+    yield takeEvery(constants.ENTER_USER, handleEnterUser);
 }
 
 export function* handleCreateUser(action) {
+    const url = `${constants.LOCALHOST}/signin`;
+    const response = yield call(requestHelper.sendPost, url, action.payload);
 
-        const response = yield call(registerUserService, action);
+    if (response.status === 200) {
+        window.location.href = '/login';
+    } else {
+        const errorText = yield apply(response, response.text);
+        yield put(showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
+    }
+}
 
-        if (response.status === 200) {
-            yield put({type: REGISTER_USER_SUCCESS, response});
-        } else {
-            yield put({type: REGISTER_USER_ERROR, response});
-        }
+export function* handleEnterUser(action) {
+    const url = `${constants.LOCALHOST}/auth`;
+    const response = yield call(requestHelper.sendPost, url, action.payload);
+
+    if (response.status === 200) {
+        logic.setToLocalStorage(response.json());
+        window.location.href = '/main';
+    } else {
+        const errorText = yield apply(response, response.text);
+        yield put(showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
+    }
 }
 
 export function* handleHide(action) {
-    const isOpen = false;
-    yield put ({ type: IS_OPEN_MODAL, isOpen })
+    yield put(closeModalAction({ modalType: '', content: '' }))
 }

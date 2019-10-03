@@ -1,17 +1,12 @@
 import SettingLanguage from '../common/languageDropdown/LanguageDropdown.jsx';
 import util from '../../utils/requestHelper';
 import React, { Component } from 'react';
-import constants from '../../../constants';
 import '../../theme/index.css';
 import PropTypes from 'prop-types';
 
 class LoginForm extends Component {
     static propTypes = {
-        handleHide: PropTypes.func.isRequired,
         enterUser: PropTypes.func.isRequired,
-        isModalOpen: PropTypes.bool.isRequired,
-        errorText: PropTypes.string.isRequired,
-        isSuccessRegister: PropTypes.bool.isRequired,
     };
 
     submitLoginForm = (event) => {
@@ -28,42 +23,41 @@ class LoginForm extends Component {
     };
 
     render() {
-        const { translate, defaultCountry, changeLanguage } = this.props;
-
         return (
             <div>
-                <div className='header__settings'>
+                {/*<div className='header__settings'>*/}
                     {/* <SettingLanguage
                         defaultCountry={defaultCountry}
                         changeLanguage={changeLanguage}
                     /> */}
-                </div>
+                {/*</div>*/}
                 <div className='login-wrapper'>
                     <div className='buttons'>
                         <a
                             id='loginBtn'
                             href='/login'
                             className='btn buttons__btn'>
-                            {/ {translate('login')} /}
+                            {/*{/ {translate('login')} /}*/}
                             login
                         </a>
                         <a
                             id='singInBtn'
                             href='/signIn'
                             className='btn buttons__btn buttons__btn_active'>
-                            {/ {translate('signIn')} /}
+                            {/*{/ {translate('signIn')} /}*/}
                             signIn
                         </a>
                     </div>
-                    <div className='login-form'>
+                    <form onSubmit={this.submitLoginForm} className='login-form'>
                         <label
                             name='Email'
                             htmlFor='loginPageEmailInput'
                             className='login-form__label'>
-                            {/ {translate('yourEmail')} /}
+                            {/*{/ {translate('yourEmail')} /}*/}
                             yourEmail
                         </label>
                         <input
+                            name='email'
                             required
                             type='text'
                             maxLength='16'
@@ -77,10 +71,11 @@ class LoginForm extends Component {
                             name='password'
                             htmlFor='loginPagePasswordInput'
                             className='login-form__label' >
-                            {/ {translate('yourPassword')} /}
+                            {/*{/ {translate('yourPassword')} /}*/}
                             yourPassword
                         </label>
                         <input
+                            name='password'
                             required
                             maxLength='16'
                             type='password'
@@ -94,10 +89,9 @@ class LoginForm extends Component {
                             type='submit'
                             id='enterAccount'
                             value='login'
-                            onClick={this.submitLoginForm}
                             className='btn login-form__btn'
                         />
-                    </div>
+                    </form>
                 </div>
             </div>
         );

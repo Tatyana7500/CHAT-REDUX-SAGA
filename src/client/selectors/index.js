@@ -1,4 +1,3 @@
-// export const getUsers = state => state.users;
+export const getModalType = state => state.modal.type;
 export const getIsModalOpen = state => state.modal.isOpen;
-export const getErrorText = state => state.modal.errorText;
-export const getIsSuccessRegister = state => state.user.isSuccessRegister;
+export const getModalContent = state => state.modal.content;

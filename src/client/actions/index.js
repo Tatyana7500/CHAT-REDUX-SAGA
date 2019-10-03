@@ -1,8 +1,4 @@
-import { REGISTER_USER } from '../../constants';
+import * as constants from '../../constants';
 
-export const signInUserAction = (user) => {
-    return {
-        type: REGISTER_USER,
-        user
-    }
-};
+export const showModalAction = payload => ({ type: constants.SHOW_MODAL, payload });
+export const closeModalAction = payload => ({ type: constants.CLOSE_MODAL, payload });

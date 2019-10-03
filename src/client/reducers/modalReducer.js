@@ -1,16 +1,23 @@
-import { REGISTER_USER_ERROR, IS_OPEN_MODAL } from "../../constants";
+import * as constants from "../../constants";
 
 const initialState = {
     isOpen: false,
-    errorText: 'Error',
+    content: '',
+    type: '',
 };
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case REGISTER_USER_ERROR:
-            return { ...state, isOpen: true };
-        case IS_OPEN_MODAL:
-            return { ...state, isOpen: false };
+        case constants.SHOW_MODAL:
+            return {
+                ...state,
+                isOpen: true, content: action.payload.content, type: action.payload.modalType
+            };
+        case constants.CLOSE_MODAL:
+            return {
+                ...state,
+                isOpen: false, content: action.payload.content, type: action.payload.modalType
+            };
         default:
             return state;
     }

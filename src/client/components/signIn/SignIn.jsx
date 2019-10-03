@@ -1,18 +1,11 @@
 import SettingLanguage from '../common/languageDropdown/LanguageDropdown.jsx';
-import ErrorWindow from '../common/errorWindow/ErrorWindow';
-import Modal from '../../libs/modal/Modal.jsx';
-import { Redirect } from "react-router-dom";
 import React from 'react';
 import './SignIn.css';
 import PropTypes from 'prop-types';
 
 class SignInForm extends React.Component {
     static propTypes = {
-        handleHide: PropTypes.func.isRequired,
         createUser: PropTypes.func.isRequired,
-        isModalOpen: PropTypes.bool.isRequired,
-        errorText: PropTypes.string.isRequired,
-        isSuccessRegister: PropTypes.bool.isRequired,
     };
 
     submitSignInForm = (event) => {
@@ -30,24 +23,14 @@ class SignInForm extends React.Component {
     };
 
     render() {
-        const {
-            errorText,
-            handleHide,
-            isModalOpen,
-            isSuccessRegister
-        } = this.props;
-
-        console.log(isSuccessRegister);
         return (
             <div>
-                {/*{!isSuccess ? null : window.location.href='/login'}*/}
                 {/*<div className='header__settings'>*/}
                 {/*    <SettingLanguage*/}
                 {/*        defaultCountry={defaultCountry}*/}
                 {/*        changeLanguage={changeLanguage}*/}
                 {/*    />*/}
                 {/*</div>*/}
-                {!isSuccessRegister ? null : <Redirect to='login' />}
                 <div className='signin'>
                     <div className='buttons'>
                         <a
@@ -143,17 +126,6 @@ class SignInForm extends React.Component {
                         />
                     </form>
                 </div>
-                {isModalOpen ?
-                    <Modal>
-                        <div className='modal'>
-                            <ErrorWindow
-                                error={errorText}
-                                handleHide={handleHide}
-                            >
-                            </ErrorWindow>
-                        </div>
-                    </Modal> : null
-                }
             </div>
         );
     }
