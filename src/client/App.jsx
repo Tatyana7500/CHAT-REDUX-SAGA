@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './hocs/privateRoute.jsx';
-import SignIn from './components/signIn/index.jsx';
-import Login from './components/login';
+import SignIn from './components/signIn';
+import Login from './components/login/index.jsx';
 import Main from './components/main';
+import './theme/matrix.css';
 
 class App extends Component {
     render() {

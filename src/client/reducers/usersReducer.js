@@ -1,13 +1,13 @@
-import { REGISTER_USER_SUCCESS, REGISTER_USER_ERROR } from '../../constants';
+import {REGISTER_USER_SUCCESS, REGISTER_USER_ERROR, CREATE_USER} from '../../constants';
 
-export default function(state = [], action) {
-    const response = action.response;
+const initialState = {
+    isSuccessRegister: false,
+};
 
+export default function(state = initialState, action) {
     switch(action.type) {
         case REGISTER_USER_SUCCESS:
-            return { ...state, response };
-        case REGISTER_USER_ERROR:
-            return { ...state, response };
+            return { ...state, isSuccessRegister: true };
         default:
             return state;
     }

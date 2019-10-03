@@ -1,110 +1,77 @@
 import SettingLanguage from '../common/languageDropdown/LanguageDropdown.jsx';
 import ErrorWindow from '../common/errorWindow/ErrorWindow';
 import Modal from '../../libs/modal/Modal.jsx';
-import util from '../../utils/requestHelper';
-import constants from '../../../constants';
 import { Redirect } from "react-router-dom";
-import { connect } from 'react-redux';
 import React from 'react';
 import './SignIn.css';
-
-import  { signInUserAction } from '../../actions';
+import PropTypes from 'prop-types';
 
 class SignInForm extends React.Component {
-    handleHide = () => {
-        this.props.dispatch(handleHide(false));
-        //this.setState({ isOpenErrorWindow: false });
+    static propTypes = {
+        handleHide: PropTypes.func.isRequired,
+        createUser: PropTypes.func.isRequired,
+        isModalOpen: PropTypes.bool.isRequired,
+        errorText: PropTypes.string.isRequired,
+        isSuccessRegister: PropTypes.bool.isRequired,
     };
 
     submitSignInForm = (event) => {
         event.preventDefault();
-        const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        const confirmPassword = event.target.confirmPassword.value;
+        let name = event.target.name.value;
+        let email = event.target.email.value;
+        let password = event.target.password.value;
+        let confirmPassword = event.target.confirmPassword.value;
 
         const data = {
-            name, email, password, confirmPassword
+            name, email, password
         };
 
-        this.props.dispatch(signInUserAction(data));
+       this.props.createUser(data);
     };
 
-        // if (password === confirmPassword) {
-        //     await this.setState({
-        //         name: this.nameInputRef.current.value,
-        //         email: this.emailInputRef.current.value,
-        //         password: this.passwordInputRef.current.value,
-        //     });
-        //
-        //     const data = {
-        //         name: this.nameInputRef.current.value,
-        //         email: this.emailInputRef.current.value,
-        //         password: this.passwordInputRef.current.value,
-        //     };
-        //
-        //     const response = await util.sendPost(`${constants.LOCALHOST}/signin`, data);
-        //
-        //     if (response.status !== 200) {
-        //         const errorText = await response.text();
-        //
-        //         this.setState(state => ({
-        //             ...state,
-        //             errorText,
-        //             isOpenErrorWindow: true,
-        //         }));
-        //     } else {
-        //         window.location.href = '/login';
-        //     }
-        // } else {
-        //     const errorText = 'Passwords do not match!';
-        //
-        //     this.setState(state => ({
-        //         ...state,
-        //         errorText,
-        //         isOpenErrorWindow: true,
-        //     }));
-        // }
-
     render() {
-        let isSuccess, errorText, isOpenErrorWindow;
+        const {
+            errorText,
+            handleHide,
+            isModalOpen,
+            isSuccessRegister
+        } = this.props;
 
-        if (this.props.response.signin.hasOwnProperty('response')) {
-            isSuccess = this.props.response.register.response.success;
-            errorText = this.props.response.register.response.errorText;
-            isOpenErrorWindow = this.props.response.register.response.isOpenErrorWindow;
-        }
-        const { translate, defaultCountry, changeLanguage } = this.props;
-
+        console.log(isSuccessRegister);
         return (
             <div>
-                <div className='header__settings'>
-                    <SettingLanguage
-                        defaultCountry={defaultCountry}
-                        changeLanguage={changeLanguage}
-                    />
-                </div>
+                {/*{!isSuccess ? null : window.location.href='/login'}*/}
+                {/*<div className='header__settings'>*/}
+                {/*    <SettingLanguage*/}
+                {/*        defaultCountry={defaultCountry}*/}
+                {/*        changeLanguage={changeLanguage}*/}
+                {/*    />*/}
+                {/*</div>*/}
+                {!isSuccessRegister ? null : <Redirect to='login' />}
                 <div className='signin'>
                     <div className='buttons'>
                         <a
                             href='/login'
                             id='singin_loginBtn'
                             className='btn buttons__btn'>
-                            {translate('login')}
+                            login
+                            {/*{translate('login')}*/}
                         </a>
                         <a
                             href='/signIn'
                             id='singin_singInBtn'
                             className='btn buttons__btn buttons__btn  buttons__btn_active'>
-                            {translate('signIn')}
+                            signIn
+                            {/*{translate('signIn')}*/}
                         </a>
                     </div>
-                    <div className='signin-form'>
+                    <form onSubmit={this.submitSignInForm} className='signin-form'>
                         <label
                             name='email'
                             htmlFor='loginPageEmailInput'
                             className='login-form__label'>
-                            {translate('yourEmail')}
+                            yourEmail
+                            {/*{translate('yourEmail')}*/}
                         </label>
                         <input
                             name = 'email'
@@ -113,12 +80,15 @@ class SignInForm extends React.Component {
                             ref={this.emailInputRef}
                             id='singinPageEmailInput'
                             className='login-form__input'
-                            placeholder={translate('eMail')}
+                            placeholder= 'eMail'
+                            // placeholder={translate('eMail')}
                         />
                         <label
                             name='name'
                             htmlFor='singinPageNameInput'
-                            className='login-form__label'>{translate('name')}
+                            className='login-form__label'>
+                            name
+                            {/*{translate('name')}*/}
                         </label>
                         <input
                             name='name'
@@ -127,12 +97,15 @@ class SignInForm extends React.Component {
                             ref={this.nameInputRef}
                             id='singinPageNameInput'
                             className='login-form__input'
-                            placeholder={translate('name')}
+                            placeholder='name'
+                            // placeholder={translate('name')}
                         />
                         <label
                             name='password'
                             htmlFor='loginPagePasswordInput'
-                            className='login-form__label'>{translate('yourPassword')}
+                            className='login-form__label'>
+                            yourPassword
+                            {/*{translate('yourPassword')}*/}
                         </label>
                         <input
                             name='password'
@@ -141,37 +114,41 @@ class SignInForm extends React.Component {
                             ref={this.passwordInputRef}
                             id='singinPagePasswordInput'
                             className='login-form__input'
-                            placeholder={translate('password')}
+                            placeholder='password'
+                            // placeholder={translate('password')}
                         />
                         <label
                             name='confirmPassword'
                             htmlFor='singinPageComfirmPasswordInput'
-                            className='login-form__label'>{translate('confirmPassword')}
+                            className='login-form__label'>
+                            confirmPassword
+                            {/*{translate('confirmPassword')}*/}
                         </label>
                         <input
-                            name='confrimPassword'
+                            name='confirmPassword'
                             maxLength='16'
                             type='password'
                             className='login-form__input'
                             ref={this.confirmPasswordInputRef}
                             id='singinPageComfirmPasswordInput'
-                            placeholder={translate('confirmPassword')}
+                            placeholder='confirmPassword'
+                            // placeholder={translate('confirmPassword')}
                         />
                         <input
                             type='submit'
                             id='regAccount'
-                            value={translate('signIn')}
+                            value='signIn'
+                            // value={translate('signIn')}
                             className='btn signin-form__btn'
-                            onClick={this.submitSignInForm}
                         />
-                    </div>
+                    </form>
                 </div>
-                {isOpenErrorWindow ?
+                {isModalOpen ?
                     <Modal>
                         <div className='modal'>
                             <ErrorWindow
                                 error={errorText}
-                                handleHide={this.handleHide}
+                                handleHide={handleHide}
                             >
                             </ErrorWindow>
                         </div>
@@ -182,8 +159,4 @@ class SignInForm extends React.Component {
     }
 }
 
-const mapStateToProps = (response) => ({
-    response
-});
-
-export default connect(mapStateToProps)(SignInForm);
+export default SignInForm;
