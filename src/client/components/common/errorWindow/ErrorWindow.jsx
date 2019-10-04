@@ -8,8 +8,6 @@ const ErrorWindow = (props) => {
         hideModal,
     } = props;
 
-    console.log(hideModal);
-
     return (
         <Fragment>
             <button className='settings close' onClick={hideModal}>

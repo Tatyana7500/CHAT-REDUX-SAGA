@@ -1,5 +1,4 @@
 import { getIsModalOpen, } from '../../selectors';
-import constants from '../../../constants';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import SignIn from './SignIn.jsx';
@@ -10,8 +9,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-    hideModal: payload => dispatch({ type: constants.HANDLE_HIDE_MODAL, payload}),
-    createUser: payload => dispatch({ type: constants.CREATE_USER, payload }),
+    hideModal: payload => dispatch(actions.handleHideModal(payload)),
+    createUser: payload => dispatch(actions.createUser(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

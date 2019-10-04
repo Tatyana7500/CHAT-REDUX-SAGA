@@ -1,7 +1,7 @@
-import {REGISTER_USER_SUCCESS, REGISTER_USER_ERROR, CREATE_USER} from '../../constants';
+import * as constants from '../../constants';
 
 const initialState = {
-    isSuccessRegister: false,
+    users: [],
 };
 
 export default function(state = initialState, action) {

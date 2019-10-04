@@ -3,17 +3,17 @@ import './ButtonSettings.css';
 import React from 'react';
 
 const ButtonSettings = (props) => {
-    const { handleShow } = props;
+    const { openModal } = props;
 
     return (
-        <button className='settings' onClick={handleShow}>
+        <button className='settings' onClick={openModal}>
             <img src='src/client/assets/icons/settings.png' width='50' height='50'/>
         </button>
     );
 };
 
 ButtonSettings.propTypes = {
-    handleShow: PropTypes.func.isRequired,
+    openModal: PropTypes.func.isRequired,
 };
 
 export default ButtonSettings;

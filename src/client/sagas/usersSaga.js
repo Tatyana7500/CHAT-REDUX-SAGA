@@ -1,13 +1,13 @@
 import {takeEvery, put, call, apply} from 'redux-saga/effects';
-import * as constants from '../../constants';
 import requestHelper from "../utils/requestHelper";
-import { showModalAction, closeModalAction } from "../actions";
 import logic from '../components/login/logic';
+import * as constants from '../../constants';
+import * as actions from "../actions";
 
 export default function* watchSaga() {
     yield takeEvery(constants.CREATE_USER, handleCreateUser);
     yield takeEvery(constants.HANDLE_HIDE_MODAL, handleHide);
-    yield takeEvery(constants.ENTER_USER, handleEnterUser);
+    yield takeEvery(constants.AUTH_USER, handleAuthUser);
 }
 
 export function* handleCreateUser(action) {
@@ -18,23 +18,27 @@ export function* handleCreateUser(action) {
         window.location.href = '/login';
     } else {
         const errorText = yield apply(response, response.text);
-        yield put(showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
+        yield put(actions.showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
     }
 }
 
-export function* handleEnterUser(action) {
+export function* handleAuthUser(action) {
     const url = `${constants.LOCALHOST}/auth`;
     const response = yield call(requestHelper.sendPost, url, action.payload);
+    console.log(response);
+    console.log(response.json());
 
     if (response.status === 200) {
-        logic.setToLocalStorage(response.json());
+        const user = response.json();
+        logic.setToLocalStorage(user);
         window.location.href = '/main';
     } else {
         const errorText = yield apply(response, response.text);
-        yield put(showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
+        yield put(actions.showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
     }
 }
 
 export function* handleHide(action) {
-    yield put(closeModalAction({ modalType: '', content: '' }))
+    console.log('handleHide');
+    yield put(actions.closeModalAction({ modalType: '', content: '' }))
 }

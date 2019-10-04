@@ -1,12 +1,11 @@
 import SettingLanguage from '../common/languageDropdown/LanguageDropdown.jsx';
-import util from '../../utils/requestHelper';
 import React, { Component } from 'react';
-import '../../theme/index.css';
 import PropTypes from 'prop-types';
+import '../../theme/index.css';
 
 class LoginForm extends Component {
     static propTypes = {
-        enterUser: PropTypes.func.isRequired,
+        authUser: PropTypes.func.isRequired,
     };
 
     submitLoginForm = (event) => {
@@ -19,17 +18,17 @@ class LoginForm extends Component {
             passwordInput: password,
         };
 
-        this.props.enterUser(data);
+        this.props.authUser(data);
     };
 
     render() {
-        return (
+       return (
             <div>
                 {/*<div className='header__settings'>*/}
-                    {/* <SettingLanguage
-                        defaultCountry={defaultCountry}
-                        changeLanguage={changeLanguage}
-                    /> */}
+                {/*    <SettingLanguage*/}
+                {/*        lang={lang}*/}
+                {/*        changeLanguage={changeLanguage}*/}
+                {/*    />*/}
                 {/*</div>*/}
                 <div className='login-wrapper'>
                     <div className='buttons'>

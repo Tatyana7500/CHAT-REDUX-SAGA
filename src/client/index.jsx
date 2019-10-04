@@ -4,7 +4,6 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import App from './App';
-import './components/signIn/SignIn.css';
 
 import rootReducer from '../client/reducers';
 import rootSaga from '../client/sagas';
@@ -19,6 +18,8 @@ const configureStore = () => {
 };
 
 const store =  configureStore();
+export default store;
+
 window.store = store;
 
 ReactDOM.render(
