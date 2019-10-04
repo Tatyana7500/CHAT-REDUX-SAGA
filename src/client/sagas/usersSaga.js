@@ -26,7 +26,7 @@ export function* handleAuthUser(action) {
     const url = `${constants.LOCALHOST}/auth`;
     const response = yield call(requestHelper.sendPost, url, action.payload);
     console.log(response);
-    console.log(response.json());
+  //  console.log(response.json());
 
     if (response.status === 200) {
         const user = response.json();

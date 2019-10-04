@@ -11,16 +11,14 @@ class App extends Component {
     render() {
               return (
             <BrowserRouter>
-                <div>
-                    <Switch>
-                        <Route path='/' exact={true} render={props => <Login {...props} /> } />
-                        <Route path='/login' render={props => <Login {...props} /> } />
-                        <Route path='/signin' render={props => <SignIn {...props} /> } />
-                        <Route path='/main' render={props => <Main {...props} /> }/>
-                        {/*<PrivateRoute path='/main' render={props => <Main {...props} /> }/>*/}
-                    </Switch>
-                    <ModalContainer/>
-                </div>
+                <Switch>
+                    <Route path='/' exact={true} render={props => <Login {...props} /> } />
+                    <Route path='/login' render={props => <Login {...props} /> } />
+                    <Route path='/signin' render={props => <SignIn {...props} /> } />
+                    <Route path='/main' render={props => <Main {...props} /> }/>
+                    {/*<PrivateRoute path='/main' render={props => <Main {...props} /> }/>*/}
+                </Switch>
+                <ModalContainer/>
             </BrowserRouter>
         );
     }

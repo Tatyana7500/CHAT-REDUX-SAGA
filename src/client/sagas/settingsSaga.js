@@ -1,7 +1,7 @@
 import {takeEvery, put, call, apply} from 'redux-saga/effects';
+import * as selectors from '././../selectors';
 import requestHelper from "../utils/requestHelper";
 import logic from '../components/login/logic';
-import store from '../index.jsx';
 import * as constants from '../../constants';
 import * as actions from "../actions";
 
@@ -10,15 +10,12 @@ export default function* watchSaga() {
     yield takeEvery(constants.CHANGE_LANGUAGE, changeLanguage);
     yield takeEvery(constants.APPLY_DEFAULT_SETTINGS, applyDefaultSettings);
     // yield takeEvery(constants.CHANGE_THEME, changeTheme);
-    // yield takeEvery(constants.SAVE_SETTINGS, saveSettings);
-    // yield takeEvery(constants.APPLY_THEME, applyTheme);
     // yield takeEvery(constants.GET_SAVED_SETTINGS, getSavedSettings);
-    // yield takeEvery(constants.APPLY_RTL, applyRtl);
     // yield takeEvery(constants.SET_DEFAULT_SETTINGS, setDefaultSettings);
 }
 
 export function* changeTheme(action) {
-    const theme = store.getState().settings.theme === constants.LIGHT ? constants.DARK : constants.LIGHT;
+    const theme = selectors.getIsTheme === constants.LIGHT ? constants.DARK : constants.LIGHT;
     document.body.setAttribute('data-theme', theme);
     yield put(actions.changeThemeAction({ theme: theme }));
     setSettingsLocalStorage();
