@@ -1,27 +1,35 @@
 import PropTypes from 'prop-types';
+import logic from './logic';
 import React from 'react';
 import './ChatCloud.css';
 
-const HatCloud = props => {
-    const { name, email, text, date, nameSender } = props;
-    const float = name === nameSender ? 'massage messageSender' : 'massage messageReceiver';
+const ChatCloud = props => {
+    const { messages, name } = props;
 
     return (
-            <div className={ float }>
-                <p className='massage__name'>{name}</p>
-                <p className='massage__email'>{email}</p>
-                <span className='massage__text'>{text}</span>
-                <p className='massage__time'>{date}</p>
-            </div>
+        <div className='massageField' id='massageField'>
+            {
+                messages.map((item, index) => {
+                    const float = item.name === name ? 'massage messageSender' : 'massage messageReceiver';
+                    const date = logic.parseDate(item.date);
+
+                    return (
+                        <div className={ float } key={index}>
+                            <p className='massage__name'>{item.name}</p>
+                            <p className='massage__email'>{item.email}</p>
+                            <span className='massage__text'>{item.message}</span>
+                            <p className='massage__time'>{date}</p>
+                        </div>
+                    )
+                })
+            }
+        </div>
     );
 };
 
-HatCloud.propTypes = {
+ChatCloud.propTypes = {
     name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    nameSender: PropTypes.string.isRequired,
+    messages: PropTypes.array.isRequired,
 };
 
-export default HatCloud;
+export default ChatCloud;

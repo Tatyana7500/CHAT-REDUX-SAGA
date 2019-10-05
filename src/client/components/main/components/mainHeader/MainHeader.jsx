@@ -3,22 +3,22 @@ import './MainHeader.css';
 import React from 'react';
 
 const MainHeader = (props) => {
-    const { name, email, translate, clickButtonLogOut } = props;
-    
+    const { leaveAccount, name, email } = props;
+
     return (
         <div className='header'>
             <div className='wrapper header__wrapper'>
                 <div className='info'>
                     <div>
-                        <span>{translate('name')}:</span>
+                        <span>name:</span>
                         <span className='info__name'>{name}</span>
                     </div>
                     <div>
-                        <span>{translate('eMail')}:</span>
+                        <span>email:</span>
                         <span className='info__email'>{email}</span>
                     </div>
                 </div>
-                <a href='/login' onClick={clickButtonLogOut} className='btn_logout btn-main logout' id='logOut'>{translate('logOut')}</a>
+                <a onClick={leaveAccount} className='btn_logout btn-main logout' id='logOut'>logOut</a>
             </div>
         </div>
     );
@@ -27,8 +27,8 @@ const MainHeader = (props) => {
 MainHeader.propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    translate: PropTypes.func.isRequired,
-    clickButtonLogOut: PropTypes.func.isRequired,
+    leaveAccount: PropTypes.func.isRequired,
+    // translate: PropTypes.func.isRequired,
 };
 
 export default MainHeader;

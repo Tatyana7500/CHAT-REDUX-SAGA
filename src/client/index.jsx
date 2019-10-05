@@ -18,6 +18,7 @@ const configureStore = () => {
 };
 
 const store =  configureStore();
+window.store = store;
 
 ReactDOM.render(
     <Provider store={store}>

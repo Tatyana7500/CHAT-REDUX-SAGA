@@ -1,6 +1,6 @@
 import React from 'react';
 import ChatBlock from '../ChatBlock.jsx';
-import logic from '../logic';
+import logic from '../../chatCloud/logic';
 import {mock} from "sinon";
 
 const mockProps = {
