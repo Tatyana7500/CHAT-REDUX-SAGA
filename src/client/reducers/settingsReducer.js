@@ -3,8 +3,8 @@ import * as constants from "../../constants";
 const initialState = {
     privateChat: true,
     emoji: true,
-    theme: 'light',
-    lang: 'US',
+    theme: '',
+    lang: '',
 };
 
 export default function(state = initialState, action) {
@@ -19,11 +19,21 @@ export default function(state = initialState, action) {
                 ...state,
                 lang: action.payload.lang
             };
-        case constants.DEFAULT_SETTINGS:
+        case constants.EMOJI:
+            return {
+                ...state,
+                emoji: action.payload.emoji
+            };
+        case constants.PRIVATE_CHAT:
+            return {
+                ...state,
+                privateChat: action.payload.privateChat
+            };
+        case constants.SETTINGS:
             return {
                 ...state,
                 lang: action.payload.lang,
-                privateChat: action.payload.private,
+                privateChat: action.payload.privateChat,
                 emoji: action.payload.emoji,
                 theme: action.payload.theme,
             };

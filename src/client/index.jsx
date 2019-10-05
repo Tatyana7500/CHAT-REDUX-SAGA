@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
-import App from './App';
+import App from './app/App';
 
 import rootReducer from '../client/reducers';
 import rootSaga from '../client/sagas';

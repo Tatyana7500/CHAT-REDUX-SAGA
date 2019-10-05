@@ -18,7 +18,7 @@ export function* handleCreateUser(action) {
         window.location.href = '/login';
     } else {
         const errorText = yield apply(response, response.text);
-        yield put(actions.showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
+        yield put(actions.showModalAction({ isOpen: true, modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
     }
 }
 
@@ -32,11 +32,10 @@ export function* handleAuthUser(action) {
         window.location.href = '/main';
     } else {
         const errorText = yield apply(response, response.text);
-        yield put(actions.showModalAction({ modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
+        yield put(actions.showModalAction({ isOpen: true, modalType: constants.ERROR_MODAL_TYPE, content: errorText }));
     }
 }
 
 export function* handleHide(action) {
-    console.log('handleHide');
-    yield put(actions.closeModalAction({ modalType: '', content: '' }))
+    yield put(actions.showModalAction({ isOpen: false, modalType: '', content: '' }))
 }

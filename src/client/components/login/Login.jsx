@@ -1,4 +1,4 @@
-import SettingLanguage from '../common/languageDropdown/LanguageDropdown.jsx';
+import SettingLanguage from '../common/languageDropdown';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../../theme/index.css';
@@ -24,12 +24,9 @@ class LoginForm extends Component {
     render() {
        return (
             <div>
-                {/*<div className='header__settings'>*/}
-                {/*    <SettingLanguage*/}
-                {/*        lang={lang}*/}
-                {/*        changeLanguage={changeLanguage}*/}
-                {/*    />*/}
-                {/*</div>*/}
+                <div className='header__settings'>
+                    <SettingLanguage />
+                </div>
                 <div className='login-wrapper'>
                     <div className='buttons'>
                         <a

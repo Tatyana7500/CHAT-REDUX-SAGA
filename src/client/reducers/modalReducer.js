@@ -11,12 +11,7 @@ export default function(state = initialState, action) {
         case constants.SHOW_MODAL:
             return {
                 ...state,
-                isOpen: true, content: action.payload.content, type: action.payload.modalType
-            };
-        case constants.CLOSE_MODAL:
-            return {
-                ...state,
-                isOpen: false, content: action.payload.content, type: action.payload.modalType
+                isOpen: action.payload.isOpen, content: action.payload.content, type: action.payload.modalType
             };
         default:
             return state;

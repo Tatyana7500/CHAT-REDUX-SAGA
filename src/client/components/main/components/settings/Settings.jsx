@@ -1,11 +1,11 @@
 import './Settings.css';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
-import SettingEmoji from './components/emojiCheckbox/EmojisCheckbox.jsx';
+import SettingEmoji from './components/emojiCheckbox';
 import SettingTheme from '../../../common/themeDropdown';
 import SettingDefault from './components/defaultSettings';
 import SettingLanguage from '../../../common/languageDropdown';
-import SettingPrivateChat from './components/privateChatCheckbox/PrivateCheckbox.jsx';
+import SettingPrivateChat from './components/privateChatCheckbox';
 
 const Settings = (props) => {
     const {
@@ -30,20 +30,16 @@ const Settings = (props) => {
                     </div>
                 </div>
                 <div className='modal__settings'>
-                    {/*<div className='modal__settings-emoji'>*/}
-                    {/*    <p>{translate('emoji')}</p>*/}
-                    {/*    <SettingEmoji*/}
-                    {/*        emoji={emoji}*/}
-                    {/*        changeActiveEmoji={changeActiveEmoji}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
-                    {/*<div className='modal__settings-private'>*/}
-                    {/*    <p>{translate('chat')}</p>*/}
-                    {/*    <SettingPrivateChat*/}
-                    {/*        privateChat={privateChat}*/}
-                    {/*        changeActivePrivateChat={changeActivePrivateChat}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
+                    <div className='modal__settings-emoji'>
+                        {/*<p>{translate('emoji')}</p>*/}
+                        <p>emoji</p>
+                        <SettingEmoji />
+                    </div>
+                    <div className='modal__settings-private'>
+                        {/*<p>{translate('chat')}</p>*/}
+                        <p>chat</p>
+                        <SettingPrivateChat />
+                    </div>
                 </div>
                 <div className='modal__settings'>
                     {/*<p>{translate('default')}</p>*/}
