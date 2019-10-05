@@ -17,7 +17,7 @@ export default function* watchSaga() {
 export function* changeTheme(action) {
     let currentTheme = yield select(selectors.getCurrentTheme);
     const theme = currentTheme === constants.LIGHT ? constants.DARK : constants.LIGHT;
-    yield document.body.setAttribute('data-theme', theme);
+    yield call(setAttributeDataTheme, theme);
     yield put(actions.changeThemeAction({ theme: theme }));
     yield call(setSettingsLocalStorage);
 }
@@ -26,9 +26,9 @@ export function* changeLanguage(action) {
     const lang = action.payload;
 
     if (lang === 'AE') {
-        yield document.body.setAttribute('style', 'direction:rtl');
+        yield call(setAttributeStyleDirection, 'rtl');
     } else {
-        yield document.body.setAttribute('style', 'direction:ltr');
+        yield call(setAttributeStyleDirection, 'ltr');
     }
 
     yield put(actions.changeLanguageAction({ lang: lang }));
@@ -36,7 +36,7 @@ export function* changeLanguage(action) {
 }
 
 export function* applyDefaultSettings(action) {
-    yield document.body.setAttribute('data-theme', 'light');
+    yield call(setAttributeDataTheme, 'light');
     yield put(actions.settingsAction({ lang: 'US', emoji: true, theme: 'light', privateChat: true }));
     yield call(setSettingsLocalStorage);
 }
@@ -63,7 +63,11 @@ export function* getSavedSettings(action) {
             theme: settings.theme,
             privateChat: settings.privateChat
         }));
-        yield document.body.setAttribute('data-theme', settings.theme);
+        yield call(setAttributeDataTheme, settings.theme);
+
+        if (settings.lang === 'AE') {
+            yield call(setAttributeStyleDirection, 'rtl');
+        }
         //установить язык
     } else {
         yield put(actions.settingsAction({
@@ -72,7 +76,7 @@ export function* getSavedSettings(action) {
             theme: 'light',
             privateChat: true
         }));
-        yield document.body.setAttribute('data-theme', 'light');
+        yield call(setAttributeDataTheme, 'light');
         //установить язык
     }
 }
@@ -80,4 +84,12 @@ export function* getSavedSettings(action) {
 export function* setSettingsLocalStorage () {
     const settings = yield select(selectors.getSettings);
     localStorage.setItem('settings', JSON.stringify(settings));
+}
+
+export function* setAttributeDataTheme(theme) {
+    yield document.body.setAttribute('data-theme', theme);
+}
+
+export function* setAttributeStyleDirection(direction) {
+    yield document.body.setAttribute('style', `direction:${direction}`);
 }
