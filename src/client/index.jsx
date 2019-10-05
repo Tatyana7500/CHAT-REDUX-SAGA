@@ -12,14 +12,12 @@ const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware();
 
   return {
-      ...createStore(rootReducer, applyMiddleware(sagaMiddleware)),
+      ...createStore(rootReducer, applyMiddleware(sagaMiddleware), window.__REDUX_DEVTOOLS_EXTENSION_ && window.__REDUX_DEVTOOLS_EXTENSION_()),
       runSaga: sagaMiddleware.run(rootSaga)
   }
 };
 
 const store =  configureStore();
-
-window.store = store;
 
 ReactDOM.render(
     <Provider store={store}>

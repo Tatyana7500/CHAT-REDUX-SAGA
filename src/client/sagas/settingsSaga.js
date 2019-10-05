@@ -1,4 +1,4 @@
-import {takeEvery, put, call, apply} from 'redux-saga/effects';
+import {takeEvery, put, call, apply, select} from 'redux-saga/effects';
 import * as selectors from '././../selectors';
 import requestHelper from "../utils/requestHelper";
 import logic from '../components/login/logic';
@@ -9,20 +9,17 @@ export default function* watchSaga() {
     yield takeEvery(constants.CHANGE_THEME, changeTheme);
     yield takeEvery(constants.CHANGE_LANGUAGE, changeLanguage);
     yield takeEvery(constants.APPLY_DEFAULT_SETTINGS, applyDefaultSettings);
-    // yield takeEvery(constants.CHANGE_THEME, changeTheme);
-    // yield takeEvery(constants.GET_SAVED_SETTINGS, getSavedSettings);
-    // yield takeEvery(constants.SET_DEFAULT_SETTINGS, setDefaultSettings);
 }
 
 export function* changeTheme(action) {
-    const theme = selectors.getIsTheme === constants.LIGHT ? constants.DARK : constants.LIGHT;
+    let theme = yield select(selectors.getCurrentTheme);
+    theme = theme === constants.LIGHT ? constants.DARK : constants.LIGHT;
     document.body.setAttribute('data-theme', theme);
     yield put(actions.changeThemeAction({ theme: theme }));
     setSettingsLocalStorage();
 }
 
 export function* changeLanguage(action) {
-    console.log(action);
     const lang = action.payload;
 
     if (lang === 'AE') {
@@ -36,14 +33,12 @@ export function* changeLanguage(action) {
 }
 
 export function* applyDefaultSettings(action) {
-    console.log('defaultSettings');
     document.body.setAttribute('data-theme', 'light');
     yield put(actions.defaultSettingsAction({ lang: 'US', emoji: true, theme: 'light', privateChat: true }));
     setSettingsLocalStorage();
 }
 
 const setSettingsLocalStorage = () => {
-    console.log('setSettings');
     const settings = store.getState().settings;
     localStorage.setItem('settings', JSON.stringify(settings));
 };

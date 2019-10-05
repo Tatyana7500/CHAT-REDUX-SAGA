@@ -4,7 +4,7 @@ import Component from './ThemeDropdown';
 import constants from "../../../../constants";
 
 export const mapStateToProps = state => ({
-    theme: selectors.getIsTheme(state),
+    theme: selectors.getCurrentTheme(state),
 });
 
 export const mapDispatchToProps = dispatch => ({

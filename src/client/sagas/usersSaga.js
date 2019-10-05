@@ -25,11 +25,9 @@ export function* handleCreateUser(action) {
 export function* handleAuthUser(action) {
     const url = `${constants.LOCALHOST}/auth`;
     const response = yield call(requestHelper.sendPost, url, action.payload);
-    console.log(response);
-  //  console.log(response.json());
 
     if (response.status === 200) {
-        const user = response.json();
+        const user = yield response.json();
         logic.setToLocalStorage(user);
         window.location.href = '/main';
     } else {
