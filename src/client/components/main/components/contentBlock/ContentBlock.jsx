@@ -1,101 +1,65 @@
-import UsersList from '../usersList/UsersList.jsx';
-import HatBlock from '../chatBlock/ChatBlock.jsx';
+import UsersList from '../usersList/';
+import ChatBlock from '../chatBlock/';
 import constants from '../../../../../constants';
 import PropTypes from 'prop-types';
 import './ContentBlock.css';
 import React from 'react';
 
 const ContentBlock = props => {
-    const {
-        name,
-        emoji,
-        usersOnline,
-        messages,
-        addEmoji,
-        clickChat,
-        usersList,
-        closeMenu,
-        userState,
-        translate,
-        clickUsers,
-        emojiMenu,
-        showEmoji,
-        windowState,
-        privateChat,
-        clickButtonSend,
-        messageAreaValue,
-        updateMessageValue,
-        openPrivateChat,
-    } = props;
+    // const {
+    //     name,
+    //     emoji,
+    //     usersOnline,
+    //     messages,
+    //     addEmoji,
+    //     clickChat,
+    //     usersList,
+    //     closeMenu,
+    //     userState,
+    //     translate,
+    //     clickUsers,
+    //     emojiMenu,
+    //     showEmoji,
+    //     windowState,
+    //     privateChat,
+    //     clickButtonSend,
+    //     messageAreaValue,
+    //     updateMessageValue,
+    //     openPrivateChat,
+    // } = props;
 
+    const { getUsers, getChat, windowState  } = props;
+    
     return (
         <div className='mainWindow'>
             <div className='wrapper mainWindow__wrapper'>
                 <div className='nav-main'>
                     <button
-                        onClick={clickUsers}
+                        onClick = { getUsers }
                         className='buttons-main__btn buttons-main__btn_user'
                         id='getUsers'>
-                        {translate('users')}
+                        users
                     </button>
                     <button
-                        onClick={clickChat}
+                        onClick={getChat}
                         className='buttons-main__btn buttons-main__btn_chat'
                         id='getChat'>
-                        {translate('chat')}
+                        Chat
                     </button>
                 </div>
             </div>
 
-            {windowState === constants.USERS &&
-                <UsersList
-                    usersOnline={usersOnline}
-                    usersList={usersList}
-                    userState={userState}
-                    translate={translate}
-                    openPrivateChat={openPrivateChat}
-                />
-            }
-            {windowState === constants.MESSAGE &&
-                <HatBlock
-                    name={name}
-                    emoji={emoji}
-                    messages={messages}
-                    addEmoji={addEmoji}
-                    closeMenu={closeMenu}
-                    translate={translate}
-                    emojiMenu={emojiMenu}
-                    showEmoji={showEmoji}
-                    privateChat = {privateChat}
-                    clickButtonSend={clickButtonSend}
-                    messageAreaValue={messageAreaValue}
-                    updateMessageValue={updateMessageValue}
-                />
-            }
+            {windowState === constants.USERS && <UsersList />}
+            {windowState === constants.CHAT && <ChatBlock/>}
+            
         </div>
     );
 };
 
 ContentBlock.propTypes = {
-    emoji: PropTypes.bool.isRequired,
-    name: PropTypes.string.isRequired,
-    usersOnline: PropTypes.array.isRequired,
-    addEmoji: PropTypes.func.isRequired,
-    messages: PropTypes.array.isRequired,
-    clickChat: PropTypes.func.isRequired,
-    translate: PropTypes.func.isRequired,
-    closeMenu: PropTypes.func.isRequired,
-    usersList: PropTypes.array.isRequired,
-    clickUsers: PropTypes.func.isRequired,
-    showEmoji: PropTypes.func.isRequired,
-    emojiMenu: PropTypes.bool.isRequired,
-    userState: PropTypes.string.isRequired,
+    getUsers: PropTypes.func.isRequired,
+    getChat: PropTypes.func.isRequired,
     windowState: PropTypes.string.isRequired,
-    clickButtonSend: PropTypes.func.isRequired,
-    updateMessageValue: PropTypes.func.isRequired,
-    messageAreaValue: PropTypes.string.isRequired,
-    privateChat: PropTypes.bool.isRequired,
-    openPrivateChat: PropTypes.func.isRequired,
 };
 
 export default ContentBlock;

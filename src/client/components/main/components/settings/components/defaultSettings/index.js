@@ -7,7 +7,7 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-    setDefaultSettings: payload => dispatch({type: constants.APPLY_DEFAULT_SETTINGS, payload}),
+    setDefaultSettings: payload => dispatch({type: constants.APPLY_DEFAULT_SETTINGS, payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

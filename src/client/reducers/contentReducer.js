@@ -1,15 +1,15 @@
 import * as constants from '../../constants';
 
 const initialState = {
-    messageList: [],
+    windowState: '',
 };
 
 export default function (state = initialState, action) {
-    switch (action.type) {
-        case constants.MESSAGE_LIST:
+    switch (action.type) { 
+        case constants.USER_LIST:
             return {
                 ...state,
-                messageList: action.payload.messageList,
+                windowState: action.payload.state,
             }
         default: {
             return state;
