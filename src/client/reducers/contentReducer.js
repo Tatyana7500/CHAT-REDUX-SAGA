@@ -1,7 +1,7 @@
 import * as constants from '../../constants';
 
 const initialState = {
-    windowState: '',
+    windowState: constants.USERS,
 };
 
 export default function (state = initialState, action) {

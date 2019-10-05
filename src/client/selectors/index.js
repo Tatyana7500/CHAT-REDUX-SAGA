@@ -13,10 +13,11 @@ export const getEmail = state => state.user.email;
 export const getUsers = state => state.user.users;
 export const getIdSender = state => state.user.idSender;
 export const getIdReceiver = state => state.user.idReceiver;
+export const getUsersOnline = state => state.user.usersOnline;
 
+export const getStateChat = state => state.messages.chat;
 export const getEmojiMenu = state => state.messages.emojiMenu;
 export const getMessage = state => state.messages.messageAreaValue;
 export const getMessagesList = state => state.messages.messageList;
-export const getStateChat = state => state.messages.chat;
 
 export const getWindowState = state => state.content.windowState;

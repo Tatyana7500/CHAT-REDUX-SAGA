@@ -1,11 +1,11 @@
 import {takeEvery, put, call, apply} from 'redux-saga/effects';
 import requestHelper from "../utils/requestHelper";
-import logic from '../components/login/logic';
 import * as constants from '../../constants';
 import * as actions from "../actions";
 
 export default function* watchSaga() {
     yield call(setNameAndEmailAction);
+    yield call(drawUsers);
     yield takeEvery(constants.USERS, drawUsers);
     yield takeEvery(constants.LEAVE, leaveAccount);
     yield takeEvery(constants.AUTH_USER, handleAuthUser);
@@ -30,7 +30,7 @@ export function* handleAuthUser(action) {
 
     if (response.status === 200) {
         const user = yield response.json();
-        logic.setToLocalStorage(user);
+        localStorage.setItem('chat', JSON.stringify(user));
         yield call(windowLocation, '/main');
     } else {
         const errorText = yield apply(response, response.text);

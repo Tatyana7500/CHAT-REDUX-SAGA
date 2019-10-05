@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import Component from './UsersList';
 
 export const mapStateToProps = state => ({
+    id: selectors.getIdSender(state),
     users: selectors.getUsers(state),
+    usersOnline: selectors.getUsersOnline(state),
 });
 
 export const mapDispatchToProps = dispatch => ({

@@ -73,7 +73,7 @@ export function* clickButtonSend(action) {
     yield put(actions.updateMessageListAction({ messageList : messageList }));
 }
 
-export function* openPrivateChat (action, e) {
+export function* openPrivateChat (action) {
     const activePrivateChat = yield select(selectors.getActivePrivateChat);
 
     if (!activePrivateChat) {

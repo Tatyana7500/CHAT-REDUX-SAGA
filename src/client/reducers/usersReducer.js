@@ -5,6 +5,7 @@ const initialState = {
     email: '',
     users: [],
     idSender: '',
+    usersOnline: [],
     idReceiver: constants.ALL,
 };
 
