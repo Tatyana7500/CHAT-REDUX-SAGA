@@ -11,3 +11,9 @@ export const changeThemeAction = payload => ({ type: constants.THEME, payload })
 export const changeLanguageAction = payload => ({ type: constants.LANGUAGE, payload });
 export const changeActiveEmojiAction = payload => ({ type: constants.EMOJI, payload });
 export const changeActivePrivateChatAction = payload => ({ type: constants.PRIVATE_CHAT, payload });
+
+export const leaveAccountAction = payload => ({ type: constants.LEAVE_ACCOUNT, payload });
+export const setNameAndEmailAction = payload => ({ type: constants.SET_NAME_AND_EMAIL, payload });
+export const setToUserListAction = payload => ({ type: constants.SET_TO_USER_LIST, payload });
+export const changeWindowState = payload => ({ type: constants.USER_LIST, payload });
+export const setToMessagesListAction = payload => ({ type: constants.MESSAGE_LIST, payload });

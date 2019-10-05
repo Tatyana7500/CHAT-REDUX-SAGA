@@ -10,52 +10,47 @@ export default function* watchSaga() {
     yield takeEvery(constants.APPLY_DEFAULT_SETTINGS, applyDefaultSettings);
     yield takeEvery(constants.CHANGE_ACTIVE_EMOJI, changeActiveEmoji);
     yield takeEvery(constants.CHANGE_ACTIVE_PRIVATE_CHAT, changeActivePrivateChat);
+    // yield takeEvery(constants.SET_LANGUAGE, setLanguage);
+    // yield takeEvery(constants.TRANSLATE, translate);
 }
 
 export function* changeTheme(action) {
-    let theme = yield select(selectors.getCurrentTheme);
-    theme = theme === constants.LIGHT ? constants.DARK : constants.LIGHT;
-    document.body.setAttribute('data-theme', theme);
+    let currentTheme = yield select(selectors.getCurrentTheme);
+    const theme = currentTheme === constants.LIGHT ? constants.DARK : constants.LIGHT;
+    yield document.body.setAttribute('data-theme', theme);
     yield put(actions.changeThemeAction({ theme: theme }));
-    const settings = yield select(selectors.getSettings);
-    setSettingsLocalStorage(settings);
+    yield call(setSettingsLocalStorage);
 }
 
 export function* changeLanguage(action) {
     const lang = action.payload;
 
     if (lang === 'AE') {
-        document.body.setAttribute('style', 'direction:rtl');
+        yield document.body.setAttribute('style', 'direction:rtl');
     } else {
-        document.body.setAttribute('style', 'direction:ltr');
+        yield document.body.setAttribute('style', 'direction:ltr');
     }
 
     yield put(actions.changeLanguageAction({ lang: lang }));
-    const settings = yield select(selectors.getSettings);
-    setSettingsLocalStorage(settings);
+    yield call(setSettingsLocalStorage);
 }
 
 export function* applyDefaultSettings(action) {
-    document.body.setAttribute('data-theme', 'light');
+    yield document.body.setAttribute('data-theme', 'light');
     yield put(actions.settingsAction({ lang: 'US', emoji: true, theme: 'light', privateChat: true }));
-    const settings = yield select(selectors.getSettings);
-    setSettingsLocalStorage(settings);
+    yield call(setSettingsLocalStorage);
 }
 
 export function* changeActiveEmoji(action) {
     let emoji = yield select(selectors.getActiveEmoji);
-    emoji = !emoji;
-    yield put(actions.changeActiveEmojiAction({ emoji: emoji }));
-    const settings = yield select(selectors.getSettings);
-    setSettingsLocalStorage(settings);
+    yield put(actions.changeActiveEmojiAction({ emoji: !emoji }));
+    yield call(setSettingsLocalStorage);
 }
 
 export function* changeActivePrivateChat(action) {
     let privateChat = yield select(selectors.getActivePrivateChat);
-    privateChat = !privateChat;
-    yield put(actions.changeActivePrivateChatAction({ privateChat: privateChat }));
-    const settings = yield select(selectors.getSettings);
-    setSettingsLocalStorage(settings);
+    yield put(actions.changeActivePrivateChatAction({ privateChat: !privateChat }));
+    yield call(setSettingsLocalStorage);
 }
 
 export function* getSavedSettings(action) {
@@ -68,7 +63,7 @@ export function* getSavedSettings(action) {
             theme: settings.theme,
             privateChat: settings.privateChat
         }));
-        document.body.setAttribute('data-theme', settings.theme);
+        yield document.body.setAttribute('data-theme', settings.theme);
         //установить язык
     } else {
         yield put(actions.settingsAction({
@@ -77,11 +72,12 @@ export function* getSavedSettings(action) {
             theme: 'light',
             privateChat: true
         }));
-        document.body.setAttribute('data-theme', 'light');
+        yield document.body.setAttribute('data-theme', 'light');
         //установить язык
     }
 }
 
-const setSettingsLocalStorage = settings => {
+export function* setSettingsLocalStorage () {
+    const settings = yield select(selectors.getSettings);
     localStorage.setItem('settings', JSON.stringify(settings));
-};
+}
