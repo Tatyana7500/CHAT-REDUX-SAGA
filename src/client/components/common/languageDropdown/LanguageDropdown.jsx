@@ -5,13 +5,13 @@ import './LanguageDropdown.css';
 import React from 'react';
 
 const SettingLanguage = (props) => {
-    const { defaultCountry, changeLanguage } = props;
+    const { defaultLanguage, changeLanguage } = props;
 
     return (
             <ReactFlagsSelect
                 className = 'ReactFlagsSelect'
                 onSelect = {changeLanguage}
-                defaultCountry = {defaultCountry}
+                defaultCountry = {defaultLanguage}
                 countries = {['US', 'DE', 'AE', 'UA']}
                 customLabels = {{ 'US': 'EN', 'DE': 'DE', 'AE': 'AE', 'UA': 'UA' }}
             />
@@ -19,7 +19,7 @@ const SettingLanguage = (props) => {
 };
 
 SettingLanguage.propTypes = {
-    defaultCountry: PropTypes.string.isRequired,
+    defaultLanguage: PropTypes.string.isRequired,
     changeLanguage: PropTypes.func.isRequired,
 };
 

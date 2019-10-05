@@ -92,6 +92,7 @@ app.post('/auth', urlencodedParser, async (request, res) => {
 
 app.post('/signin', jsonParser, async (request, res) => {
     try {
+        console.log(request.body);
         await chatDal.createUser(request.body);
         res.status(200).send('OK');
     } catch (e) {
