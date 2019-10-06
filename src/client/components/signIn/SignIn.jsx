@@ -1,6 +1,5 @@
 import SettingLanguage from '../common/languageDropdown';
 import React from 'react';
-import './SignIn.css';
 import PropTypes from 'prop-types';
 
 class SignInForm extends React.Component {

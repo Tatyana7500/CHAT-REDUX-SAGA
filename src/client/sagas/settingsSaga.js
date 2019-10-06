@@ -10,8 +10,7 @@ export default function* watchSaga() {
     yield takeEvery(constants.APPLY_DEFAULT_SETTINGS, applyDefaultSettings);
     yield takeEvery(constants.CHANGE_ACTIVE_EMOJI, changeActiveEmoji);
     yield takeEvery(constants.CHANGE_ACTIVE_PRIVATE_CHAT, changeActivePrivateChat);
-    // yield takeEvery(constants.SET_LANGUAGE, setLanguage);
-    // yield takeEvery(constants.TRANSLATE, translate);
+    yield takeEvery(constants.TRANSLATE, translate);
 }
 
 export function* changeTheme(action) {
@@ -79,6 +78,10 @@ export function* getSavedSettings(action) {
         yield call(setAttributeDataTheme, 'light');
         //установить язык
     }
+}
+
+export function* translate(action) {
+    console.log('translate');
 }
 
 export function* setSettingsLocalStorage () {

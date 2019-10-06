@@ -22,7 +22,7 @@ class UsersList extends React.Component {
                         <div className='users__info'>email</div>
                     </div>
                     { users.map((item, index) => {
-                        if (users.lenght !== 1) {
+                        if (users.length !== 1) {
                             if (id !== item._id) {
                                 const isOnline = usersOnline.includes(item._id);
 
@@ -36,10 +36,12 @@ class UsersList extends React.Component {
                                 </div>
                                 );
                             }
-                        }  else {
-                            <div className="lonely">
-                                You're lonely!
-                            </div>
+                        } else {
+                            return (
+                                <div className="lonely" key={index}>
+                                    You're lonely!
+                                </div>
+                            );
                         }
                     })
                     }

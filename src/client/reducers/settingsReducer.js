@@ -1,10 +1,12 @@
+import { getBrowserInfo } from '../utils/common';
 import * as constants from "../../constants";
 
 const initialState = {
+    device: getBrowserInfo(),
     privateChat: true,
     emoji: true,
-    theme: '',
-    lang: '',
+    theme: 'light',
+    lang: 'US',
 };
 
 export default function(state = initialState, action) {

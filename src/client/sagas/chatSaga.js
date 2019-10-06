@@ -27,8 +27,12 @@ export function* drawChat() {
 }
 
 export function* addEmoji(action) {
-    console.log(yield select(selectors.getMessage));
-    const message = `${yield select(selectors.getMessage)} ${action.payload.native}`;
+    const { native: emoji } = action.payload;
+    console.log(action.payload.native);
+    // console.log(yield select(selectors.getMessage));
+    // const mes = yield select(selectors.getMessage);
+    const messageValue = document.getElementById('textMassage').value;
+    const message = `${messageValue}${emoji}`;
     yield put(actions.addEmojiAction({ message: message }));
 }
 
@@ -37,14 +41,13 @@ export function* showMenuEmoji() {
     document.addEventListener('click', closeMenuEmoji);
 }
 
-export function* closeMenuEmoji() {
-    yield put(actions.showEmojiAction({ emojiMenu: false }));
+export function closeMenuEmoji() {
+    put(actions.showEmojiAction({ emojiMenu: false }));
     document.addEventListener('click', closeMenuEmoji);
 }
 
 export function* updateMessageValue(action) {
-    const messageValue = document.getElementById('textMassage').value;
-    const message = `${messageValue}`;
+    const message = action.payload.target.value;
     yield put(actions.updateMessageValueAction({ message: message }));
 }
 
@@ -80,14 +83,14 @@ export function* openPrivateChat (action) {
         return;
     }
 
-    yield put(actions.changeWindowState({ state: constants.CHAT }));
-    yield put(actions.idReceiverAction({ idReceiver: '2' }));
-    yield put(actions.changeStateChat({ chat: constants.PRIVATE }));
+    const idReceiver = action.payload.target.id;
 
+    yield put(actions.changeWindowState({ state: constants.CHAT }));
+    yield put(actions.idReceiverAction({ idReceiver: idReceiver }));
+    yield put(actions.changeStateChat({ chat: constants.PRIVATE }));
 
     const chat = yield select(selectors.getStateChat);
     const idSender = yield select(selectors.getIdSender);
-    const idReceiver = yield select(selectors.getIdReceiver);
     const url = `${constants.LOCALHOST}/messages?chat=${chat}&sender=${idSender}&receiver=${idReceiver}`;
     const messages = yield call(requestHelper.sendGet, url);
     yield put(actions.setToMessagesListAction({ messageList: messages }));

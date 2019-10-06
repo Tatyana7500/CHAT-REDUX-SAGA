@@ -3,6 +3,7 @@ export const getIsModalOpen = state => state.modal.isOpen;
 export const getModalContent = state => state.modal.content;
 
 export const getSettings = state => state.settings;
+export const getDevice = state => state.settings.device;
 export const getActiveEmoji = state => state.settings.emoji;
 export const getCurrentTheme = state => state.settings.theme;
 export const getDefaultLanguage = state => state.settings.lang;

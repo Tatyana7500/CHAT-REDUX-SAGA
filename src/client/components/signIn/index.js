@@ -2,7 +2,6 @@ import { getIsModalOpen, } from '../../selectors';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import SignIn from './SignIn.jsx';
-import './SignIn.css';
 
 export const mapStateToProps = state => ({
     isModalOpen: getIsModalOpen(state),
