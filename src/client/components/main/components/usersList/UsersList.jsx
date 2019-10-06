@@ -4,40 +4,46 @@ import './UsersList.css';
 
 class UsersList extends React.Component {
     static propTypes = {
+        // translate: PropTypes.func.isRequired,
+        id: PropTypes.string.isRequired,
+        users: PropTypes.array.isRequired,
         usersOnline: PropTypes.array.isRequired,
-        translate: PropTypes.func.isRequired,
-        usersList: PropTypes.array.isRequired,
         openPrivateChat: PropTypes.func.isRequired,
     };
 
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        const { usersList, translate, usersOnline, openPrivateChat } = this.props;
+        const { id, users, openPrivateChat, usersOnline } = this.props;
 
         return (
             <div className='content'>
                 <div className='user'>
                     <div className='users__title'>
-                        <div className='users__info'>{translate('name')}</div>
-                        <div className='users__info'>{translate('eMail')}</div>
+                        <div className='users__info'>name</div>
+                        <div className='users__info'>email</div>
                     </div>
-                    {
-                        usersList.map((item, index) => {
+                    { users.map((item, index) => {
+                        if (users.length !== 1) {
+                            if (id !== item._id) {
+                                const isOnline = usersOnline.includes(item._id);
 
-                            const isOnline = usersOnline.includes(item._id);
-                            return (
+                                return (
                                 <div
-                                    key={index}
-                                    id={item._id}
-                                    className={`users__card ${isOnline ? 'online' : ''}`}>
-                                    <p className='users__info' id={item._id} onClick={openPrivateChat}>{item.name}</p>
-                                    <p className='users__info' id={item._id} onClick={openPrivateChat}>{item.email}</p>
+                                key={index}
+                                id={item._id}
+                                className={`users__card ${isOnline ? 'online' : ''}`}>
+                                <p className='users__info' id={item._id} onClick={openPrivateChat}>{item.name} </p>
+                                <p className='users__info' id={item._id} onClick={openPrivateChat}>{item.email}</p>
+                                </div>
+                                );
+                            }
+                        } else {
+                            return (
+                                <div className="lonely" key={index}>
+                                    You're lonely!
                                 </div>
                             );
-                        })
+                        }
+                    })
                     }
                 </div>
             </div>

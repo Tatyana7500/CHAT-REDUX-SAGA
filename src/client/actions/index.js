@@ -12,8 +12,15 @@ export const changeLanguageAction = payload => ({ type: constants.LANGUAGE, payl
 export const changeActiveEmojiAction = payload => ({ type: constants.EMOJI, payload });
 export const changeActivePrivateChatAction = payload => ({ type: constants.PRIVATE_CHAT, payload });
 
-export const leaveAccountAction = payload => ({ type: constants.LEAVE_ACCOUNT, payload });
-export const setNameAndEmailAction = payload => ({ type: constants.SET_NAME_AND_EMAIL, payload });
-export const setToUserListAction = payload => ({ type: constants.SET_TO_USER_LIST, payload });
 export const changeWindowState = payload => ({ type: constants.USER_LIST, payload });
+export const idReceiverAction = payload => ({ type: constants.ID_RECEIVER, payload });
+export const leaveAccountAction = payload => ({ type: constants.LEAVE_ACCOUNT, payload });
+export const setToUserListAction = payload => ({ type: constants.SET_TO_USER_LIST, payload });
 export const setToMessagesListAction = payload => ({ type: constants.MESSAGE_LIST, payload });
+export const setNameAndEmailAction = payload => ({ type: constants.SET_NAME_AND_EMAIL, payload });
+
+export const addEmojiAction = payload => ({ type: constants.ADD_EMOJI, payload });
+export const changeStateChat = payload => ({ type: constants.STATE_CHAT, payload });
+export const showEmojiAction = payload => ({ type: constants.OPEN_MENU_EMOJI, payload });
+export const updateMessageListAction = payload => ({ type: constants.MESSAGE_LIST, payload });
+export const updateMessageValueAction = payload => ({ type: constants.MESSAGE_VALUE, payload });
