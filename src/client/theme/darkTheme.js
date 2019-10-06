@@ -22,10 +22,17 @@ export default {
     desktop: {
         app: {},
         login: {
-            borderColor: colors.color_01,
-            shadowColor: colors.color_09,
-            backgroundLogin: colors.color_08,
-            buttonsWrapperColor: colors.color_04,
+            borderColor: colors.color_03,
+            shadowColor: colors.color_03,
+            backgroundLogin: colors.color_15,
+            buttonsWrapperColor: colors.color_03,
+            settingsBorderBottom: colors.color_07,
+            buttonHover: colors.color_15,
+            textNotActive: colors.color_08,
+            buttonShadow: colors.color_16,
+            textForm: colors.color_03,
+            buttonActive: colors.color_08,
+            textActive: colors.color_14,
         },
     },
 };

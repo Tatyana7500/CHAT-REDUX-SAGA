@@ -2,10 +2,12 @@ import {takeEvery, put, call, apply} from 'redux-saga/effects';
 import requestHelper from "../utils/requestHelper";
 import * as constants from '../../constants';
 import * as actions from "../actions";
+import { initTheme } from './managers/themeManager/saga';
 
 export default function* watchSaga() {
     yield call(setNameAndEmailAction);
     yield call(drawUsers);
+    yield call(initTheme);
     yield takeEvery(constants.USERS, drawUsers);
     yield takeEvery(constants.LEAVE, leaveAccount);
     yield takeEvery(constants.AUTH_USER, handleAuthUser);

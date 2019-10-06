@@ -6,6 +6,7 @@ export const getSettings = state => state.settings;
 export const getDevice = state => state.settings.device;
 export const getActiveEmoji = state => state.settings.emoji;
 export const getCurrentTheme = state => state.settings.theme;
+export const getTheme = state => state.theme;
 export const getDefaultLanguage = state => state.settings.lang;
 export const getActivePrivateChat = state => state.settings.privateChat;
 

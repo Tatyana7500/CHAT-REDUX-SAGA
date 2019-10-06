@@ -7,7 +7,7 @@ const minWrapperHeight = 390;
 export const Buttons = styled.div.attrs(props => ({
 }))`
     padding: ${buttonsIndent}px 0;
-    background-color: ${props => props.theme.buttonsWrapperColor};
+    background-color: ${props => props.theme.login.buttonsWrapperColor};
     text-align: center;
     flex:1;
 `;
@@ -17,9 +17,9 @@ export const Wrapper = styled.div.attrs(props => ({}))`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 5px ${props => props.theme.shadowColor};
-    border: 1px solid ${props => props.theme.borderColor};
-    background-color: ${props => props.theme.backgroundLogin};
+    box-shadow: 0 0 5px ${props => props.theme.login.shadowColor};
+    border: 1px solid ${props => props.theme.login.borderColor};
+    background-color: ${props => props.theme.login.backgroundLogin};
     display: flex;
     flex-direction: column;
     width: 23%;
@@ -28,7 +28,6 @@ export const Wrapper = styled.div.attrs(props => ({}))`
     min-width: ${minWrapperWidth}px;
     min-height: ${minWrapperHeight}px;
 `;
-
 
 Wrapper.Buttons = Buttons;
 
@@ -44,9 +43,9 @@ export const Button = styled.a.attrs(props => ({
     cursor: pointer;
     
     &:hover {
-        background-color: ${props => props.theme.buttonHover};
-        color: var(--color-textNotActive)${props => props.theme.textNotActive};
-        box-shadow: 0 0 5px var(--color-btnShadow)${props => props.theme.buttonShadow};
+        background-color: ${props => props.theme.login.buttonHover};
+        color: var(--color-textNotActive)${props => props.theme.login.textNotActive};
+        box-shadow: 0 0 5px var(--color-btnShadow)${props => props.theme.login.buttonShadow};
     }
 `;
 
@@ -58,7 +57,7 @@ export const btn = styled(Button)`
     display: inline-block;
     text-decoration: none;
     margin: 0 5px 20px 5px;
-    background-color: ${props => props.theme.buttonHover};
+    background-color: ${props => props.theme.login.buttonHover};
 `;
 
 Button.btn = btn;
@@ -69,17 +68,16 @@ export const Settings = styled.div`
     padding: 10px 0;
     display: flex;
     justify-content: flex-end;
-    border-bottom: 1px solid ${props => props.theme.settingsBorderBottom};
+    
 `;
 
 export const Form = styled.form.attrs(props => ({
-    // onSubmit: this.submitLoginForm,
 }))`
     display: flex;
     flex-direction: column;
     height: 60%;
     padding:20px 40px 20px 40px;
-    color: ${props => props.theme.textForm};
+    color: ${props => props.theme.login.textForm};
 `;
 
 Wrapper.form = Form;
@@ -148,8 +146,8 @@ export const InputPassword = styled.input.attrs(() => ({
     height: 30px;
 `;
 
-export const InputSubmit = styled(Button).attrs(props => ({
-    type: 'submit',
+export const InputSubmit = styled.input.attrs(props => ({
+    type: 'button',
     id: 'enterAccount',
     value: 'login',
 }))`
@@ -157,6 +155,6 @@ export const InputSubmit = styled(Button).attrs(props => ({
     margin:0 auto;
     position: relative;
     top:10%;
-    background-color: ${props => props.theme.buttonActive};
-    color: ${props => props.theme.textActive};
+    background-color: ${props => props.theme.login.buttonActive};
+    color: ${props => props.theme.login.textActive};
 `;

@@ -6,7 +6,7 @@ import Login from './Login.jsx';
 
 export const mapStateToProps = state => ({
     isModalOpen: selectors.getIsModalOpen(state),
-    theme: selectors.getCurrentTheme(state),
+    theme: selectors.getTheme(state),
 });
 
 export const mapDispatchToProps = dispatch => ({

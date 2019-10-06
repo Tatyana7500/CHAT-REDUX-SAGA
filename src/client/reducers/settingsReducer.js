@@ -5,7 +5,7 @@ const initialState = {
     device: getBrowserInfo(),
     privateChat: true,
     emoji: true,
-    theme: 'light',
+    theme: '',
     lang: 'US',
 };
 

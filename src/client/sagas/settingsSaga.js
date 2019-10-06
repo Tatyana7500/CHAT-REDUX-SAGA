@@ -2,6 +2,7 @@ import {takeEvery, put, call, apply, select} from 'redux-saga/effects';
 import * as selectors from '././../selectors';
 import * as constants from '../../constants';
 import * as actions from "../actions";
+import { initTheme } from './managers/themeManager/saga';
 
 export default function* watchSaga() {
     yield call(getSavedSettings);
@@ -18,6 +19,7 @@ export function* changeTheme(action) {
     const theme = currentTheme === constants.LIGHT ? constants.DARK : constants.LIGHT;
     yield call(setAttributeDataTheme, theme);
     yield put(actions.changeThemeAction({ theme: theme }));
+    yield call(initTheme);
     yield call(setSettingsLocalStorage);
 }
 
