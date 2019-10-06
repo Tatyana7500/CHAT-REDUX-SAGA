@@ -2,7 +2,6 @@ import HatCloud from '../chatCloud/';
 import Emoji from '../emoji/';
 import PropTypes from 'prop-types';
 import React from 'react';
-import './ChatBlock.css';
 
 const ChatBlock = props => {
     const {

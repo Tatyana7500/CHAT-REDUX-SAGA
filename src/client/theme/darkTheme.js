@@ -34,5 +34,18 @@ export default {
             buttonActive: colors.color_08,
             textActive: colors.color_14,
         },
+        signIn: {
+            borderColor: colors.color_03,
+            shadowColor: colors.color_03,
+            backgroundLogin: colors.color_15,
+            buttonsWrapperColor: colors.color_03,
+            settingsBorderBottom: colors.color_07,
+            buttonHover: colors.color_15,
+            textNotActive: colors.color_08,
+            buttonShadow: colors.color_16,
+            textForm: colors.color_03,
+            buttonActive: colors.color_08,
+            textActive: colors.color_14,
+        },
     },
 };

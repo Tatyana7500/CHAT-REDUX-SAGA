@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import './MainHeader.css';
 import React from 'react';
 
 const MainHeader = (props) => {

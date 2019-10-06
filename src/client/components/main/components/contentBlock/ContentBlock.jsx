@@ -2,7 +2,6 @@ import constants from '../../../../../constants';
 import UsersList from '../usersList/';
 import ChatBlock from '../chatBlock/';
 import PropTypes from 'prop-types';
-import './ContentBlock.css';
 import React from 'react';
 
 const ContentBlock = props => {

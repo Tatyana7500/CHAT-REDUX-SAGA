@@ -1,9 +1,13 @@
 import SettingLanguage from '../common/languageDropdown';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Wrapper, Button, Settings, LabelEmail, InputEmail, LabelPassword, InputPassword, LabelConfirmPassword,
+         InputConfirmPassword, LabelName, InputName, InputSubmit } from './styledComponent';
+import { ThemeProvider } from 'styled-components';
 
 class SignInForm extends React.Component {
     static propTypes = {
+        theme: PropTypes.object.isRequired,
         createUser: PropTypes.func.isRequired,
     };
 
@@ -15,114 +19,50 @@ class SignInForm extends React.Component {
         let confirmPassword = event.target.confirmPassword.value;
 
         const data = {
-            name, email, password
+            name, email, password,
         };
 
        this.props.createUser(data);
     };
 
     render() {
+        const { theme } = this.props;
+
         return (
-            <div>
-                <div className='header__settings'>
+            <ThemeProvider theme={ theme }>
+                <Settings>
                     <SettingLanguage />
-                </div>
-                <div className='signin'>
-                    <div className='buttons'>
-                        <a
-                            href='/login'
-                            id='singin_loginBtn'
-                            className='btn buttons__btn'>
+                </Settings>
+                <Wrapper>
+                    <Wrapper.buttons>
+                        <Button.logIn>
                             login
-                            {/*{translate('login')}*/}
-                        </a>
-                        <a
-                            href='/signIn'
-                            id='singin_singInBtn'
-                            className='btn buttons__btn buttons__btn  buttons__btn_active'>
+                        </Button.logIn>
+                        <Button.signIn>
                             signIn
-                            {/*{translate('signIn')}*/}
-                        </a>
-                    </div>
-                    <form onSubmit={this.submitSignInForm} className='signin-form'>
-                        <label
-                            name='email'
-                            htmlFor='loginPageEmailInput'
-                            className='login-form__label'>
+                        </Button.signIn>
+                    </Wrapper.buttons>
+                    <Wrapper.form>
+                        <LabelName>
+                            yourName
+                        </LabelName>
+                        <InputName/>
+                        <LabelEmail>
                             yourEmail
-                            {/*{translate('yourEmail')}*/}
-                        </label>
-                        <input
-                            name = 'email'
-                            type='text'
-                            maxLength='25'
-                            ref={this.emailInputRef}
-                            id='singinPageEmailInput'
-                            className='login-form__input'
-                            placeholder= 'eMail'
-                            // placeholder={translate('eMail')}
-                        />
-                        <label
-                            name='name'
-                            htmlFor='singinPageNameInput'
-                            className='login-form__label'>
-                            name
-                            {/*{translate('name')}*/}
-                        </label>
-                        <input
-                            name='name'
-                            type='text'
-                            maxLength='16'
-                            ref={this.nameInputRef}
-                            id='singinPageNameInput'
-                            className='login-form__input'
-                            placeholder='name'
-                            // placeholder={translate('name')}
-                        />
-                        <label
-                            name='password'
-                            htmlFor='loginPagePasswordInput'
-                            className='login-form__label'>
+                        </LabelEmail>
+                        <InputEmail/>
+                        <LabelPassword>
                             yourPassword
-                            {/*{translate('yourPassword')}*/}
-                        </label>
-                        <input
-                            name='password'
-                            maxLength='16'
-                            type='password'
-                            ref={this.passwordInputRef}
-                            id='singinPagePasswordInput'
-                            className='login-form__input'
-                            placeholder='password'
-                            // placeholder={translate('password')}
-                        />
-                        <label
-                            name='confirmPassword'
-                            htmlFor='singinPageComfirmPasswordInput'
-                            className='login-form__label'>
+                        </LabelPassword>
+                        <InputPassword/>
+                        <LabelConfirmPassword>
                             confirmPassword
-                            {/*{translate('confirmPassword')}*/}
-                        </label>
-                        <input
-                            name='confirmPassword'
-                            maxLength='16'
-                            type='password'
-                            className='login-form__input'
-                            ref={this.confirmPasswordInputRef}
-                            id='singinPageComfirmPasswordInput'
-                            placeholder='confirmPassword'
-                            // placeholder={translate('confirmPassword')}
-                        />
-                        <input
-                            type='submit'
-                            id='regAccount'
-                            value='signIn'
-                            // value={translate('signIn')}
-                            className='btn signin-form__btn'
-                        />
-                    </form>
-                </div>
-            </div>
+                        </LabelConfirmPassword>
+                        <InputConfirmPassword/>
+                        <InputSubmit onClick={this.submitSignInForm}/>
+                    </Wrapper.form>
+                </Wrapper>
+            </ThemeProvider>
         );
     }
 }

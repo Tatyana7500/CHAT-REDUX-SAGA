@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import './UsersList.css';
 
 class UsersList extends React.Component {
     static propTypes = {

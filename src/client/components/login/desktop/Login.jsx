@@ -1,7 +1,6 @@
 import SettingLanguage from '../../common/languageDropdown';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../../../theme/index.css';
 import { Wrapper, Settings, Button, LabelEmail, LabelPassword, InputEmail, InputPassword, InputSubmit } from './styledComponent';
 import { ThemeProvider } from 'styled-components';
 
@@ -29,23 +28,22 @@ class LoginForm extends Component {
         const { theme } = this.props;
 
         return (
-            <div>
                 <ThemeProvider theme={theme}>
                     <Settings>
                         <SettingLanguage />
                     </Settings>
                     <Wrapper>
                         <Wrapper.Buttons>
-                            <Button>
+                            <Button.logIn>
                                 <Button.btn>
                                     login
                                 </Button.btn>
-                            </Button>
-                            <Button>
+                            </Button.logIn>
+                            <Button.signIn>
                                 <Button.btn>
                                     signIn
                                 </Button.btn>
-                            </Button>
+                            </Button.signIn>
                         </Wrapper.Buttons>
                         <Wrapper.form>
                             <LabelEmail>
@@ -60,7 +58,6 @@ class LoginForm extends Component {
                         </Wrapper.form>
                     </Wrapper>
                 </ThemeProvider>
-            </div>
         );
     }
 }

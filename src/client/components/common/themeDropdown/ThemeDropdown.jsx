@@ -1,6 +1,5 @@
 import constants from '../../../../constants';
 import PropTypes from 'prop-types';
-import './ThemeDropdown.css';
 import React from 'react';
 
 const SettingTheme = (props) => {

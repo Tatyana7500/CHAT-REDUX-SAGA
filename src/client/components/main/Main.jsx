@@ -2,7 +2,6 @@ import ButtonSettings from './components/buttonSettings';
 import ContentBlock from './components/contentBlock';
 import MainHeader from './components/mainHeader';
 import React from 'react';
-import './Main.css';
 
 class MainPage extends React.Component {
     render() {
@@ -16,7 +15,7 @@ class MainPage extends React.Component {
                     <ContentBlock />
                 </div>
             </div>
-        )
+        );
     }
 }
 

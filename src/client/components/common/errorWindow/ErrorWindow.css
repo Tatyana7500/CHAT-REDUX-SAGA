@@ -1,7 +1,0 @@
-@import '../../../theme/index.css';
-
-h3 {
-    margin-top: 70px;
-    text-align: center;
-    color: var(--color-textForm);
-}
