@@ -1,4 +1,4 @@
-import SettingLanguage from '../../common/languageDropdown';
+import SettingLanguage from '../../common/languageDropdown/desktop';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../../../theme/index.css';
@@ -7,7 +7,6 @@ import { ThemeProvider } from 'styled-components';
 
 class LoginForm extends Component {
     static propTypes = {
-        // t: PropTypes.func.isRequired,
         theme: PropTypes.object.isRequired,
         authUser: PropTypes.func.isRequired,
     };
@@ -29,38 +28,36 @@ class LoginForm extends Component {
         const { theme } = this.props;
 
         return (
-            <div>
-                <ThemeProvider theme={theme}>
-                    <Settings>
-                        <SettingLanguage />
-                    </Settings>
-                    <Wrapper>
-                        <Wrapper.Buttons>
-                            <Button>
-                                <Button.btn>
-                                    login
-                                </Button.btn>
-                            </Button>
-                            <Button>
-                                <Button.btn>
-                                    signIn
-                                </Button.btn>
-                            </Button>
-                        </Wrapper.Buttons>
-                        <Wrapper.form>
-                            <LabelEmail>
-                                yourEmail
-                            </LabelEmail>
-                            <InputEmail/>
-                            <LabelPassword>
-                                yourPassword
-                            </LabelPassword>
-                            <InputPassword/>
-                            <InputSubmit onClick={this.submitLoginForm}/>
-                        </Wrapper.form>
-                    </Wrapper>
-                </ThemeProvider>
-            </div>
+            <ThemeProvider theme={theme}>
+                <Settings>
+                    <SettingLanguage />
+                </Settings>
+                <Wrapper>
+                    <Wrapper.Buttons>
+                        <Button.logIn>
+                            <Button.btn>
+                                login
+                            </Button.btn>
+                        </Button.logIn>
+                        <Button.signIn>
+                            <Button.btn>
+                                signIn
+                            </Button.btn>
+                        </Button.signIn>
+                    </Wrapper.Buttons>
+                    <Wrapper.form>
+                        <LabelEmail>
+                            yourEmail
+                        </LabelEmail>
+                        <InputEmail/>
+                        <LabelPassword>
+                            yourPassword
+                        </LabelPassword>
+                        <InputPassword/>
+                        <InputSubmit onClick={this.submitLoginForm}/>
+                    </Wrapper.form>
+                </Wrapper>
+            </ThemeProvider>
         );
     }
 }

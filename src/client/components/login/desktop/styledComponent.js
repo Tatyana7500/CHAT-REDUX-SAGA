@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 const buttonsIndent = 5;
@@ -31,12 +32,10 @@ export const Wrapper = styled.div.attrs(props => ({}))`
 
 Wrapper.Buttons = Buttons;
 
-export const Button = styled.a.attrs(props => ({
-    id: 'loginBtn',
-    href: '/login',
-}))`
+export const Button = styled.a`
     border: none;
-    width: 35%;
+    width: 40%;
+    height: 50%;
     text-transform: uppercase;
     border-radius: 16px; 
     display: inline-block;
@@ -44,10 +43,15 @@ export const Button = styled.a.attrs(props => ({
     
     &:hover {
         background-color: ${props => props.theme.login.buttonHover};
-        color: var(--color-textNotActive)${props => props.theme.login.textNotActive};
-        box-shadow: 0 0 5px var(--color-btnShadow)${props => props.theme.login.buttonShadow};
+        color: ${props => props.theme.login.textNotActive};
+        box-shadow: 0 0 5px ${props => props.theme.login.buttonShadow};
     }
 `;
+
+export const logIn = styled(Button).attrs(() => ({
+    id: 'loginBtn',
+    href: '/login',
+}))``;
 
 export const btn = styled(Button)`
     width: 35%;
@@ -60,6 +64,14 @@ export const btn = styled(Button)`
     background-color: ${props => props.theme.login.buttonHover};
 `;
 
+export const signIn = styled(Button).attrs(() => ({
+    id: 'signInBtn',
+    href: '/signIn',
+}))``;
+
+Button.logIn = logIn;
+Button.signIn = signIn;
+
 Button.btn = btn;
 
 export const Settings = styled.div`
@@ -68,10 +80,9 @@ export const Settings = styled.div`
     padding: 10px 0;
     display: flex;
     justify-content: flex-end;
-    
 `;
 
-export const Form = styled.form.attrs(props => ({
+export const Form = styled.form.attrs(() => ({
 }))`
     display: flex;
     flex-direction: column;
@@ -146,7 +157,7 @@ export const InputPassword = styled.input.attrs(() => ({
     height: 30px;
 `;
 
-export const InputSubmit = styled.input.attrs(props => ({
+export const InputSubmit = styled.input.attrs(() => ({
     type: 'button',
     id: 'enterAccount',
     value: 'login',

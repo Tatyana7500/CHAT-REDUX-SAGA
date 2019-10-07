@@ -3,6 +3,7 @@ import * as constants from '../../constants';
 export const authUser = payload => ({ type: constants.AUTH_USER, payload });
 export const createUser = payload => ({ type: constants.CREATE_USER, payload });
 export const showModalAction = payload => ({ type: constants.SHOW_MODAL, payload });
+export const showMenuAction = payload => ({ type: constants.SHOW_MENU, payload});
 export const handleHideModal = payload => ({ type: constants.HANDLE_HIDE_MODAL, payload});
 export const handleOpenModal = payload => ({ type: constants.HANDLE_OPEN_MODAL, payload});
 

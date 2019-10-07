@@ -1,10 +1,9 @@
-import './Settings.css';
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import SettingEmoji from './components/emojiCheckbox';
-import SettingTheme from '../../../common/themeDropdown';
+import SettingTheme from '../../../common/themeDropdown/desktop';
 import SettingDefault from './components/defaultSettings';
-import SettingLanguage from '../../../common/languageDropdown';
+import SettingLanguage from '../../../common/languageDropdown/desktop';
 import SettingPrivateChat from './components/privateChatCheckbox';
 
 const Settings = (props) => {

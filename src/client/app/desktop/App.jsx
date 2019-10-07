@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ModalContainer from '../../components/modalContainer';
+import ModalContainer from '../../components/modalContainer/desktop';
 import PrivateRoute from '../../hocs/privateRoute';
 import React, { Component } from 'react';
-import SignIn from '../../components/signIn';
+import SignIn from '../../components/signIn/desktop';
 import Login from '../../components/login/desktop';
-import Main from '../../components/main';
+import Main from '../../components/main/desktop';
 import '../../theme/matrix.css';
+import '../../theme/index.css';
 
 class App extends Component {
     render() {

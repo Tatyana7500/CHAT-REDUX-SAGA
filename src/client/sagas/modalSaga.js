@@ -4,6 +4,7 @@ import * as actions from "../actions";
 
 export default function* watchSaga() {
     yield takeEvery(constants.HANDLE_HIDE_MODAL, handleHide);
+    yield takeEvery(constants.HANDLE_OPEN_MENU, handleOpenMenu);
     yield takeEvery(constants.HANDLE_OPEN_MODAL, handleOpenModal);
 }
 
@@ -13,4 +14,12 @@ export function* handleOpenModal(action) {
 
 export function* handleHide(action) {
     yield put(actions.showModalAction({ isOpen: false, modalType: '', content: '' }))
+}
+
+export function* handleOpenMenu(action) {
+    yield put(actions.showMenuAction({ isOpenMenu: true }));
+}
+
+export function* handleCloseMenu(action) {
+    yield put(actions.showMenuAction({ isOpenMenu: false }));
 }
