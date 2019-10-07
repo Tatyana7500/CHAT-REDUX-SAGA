@@ -5,46 +5,42 @@ import SettingTheme from '../../../common/themeDropdown';
 import SettingDefault from './components/defaultSettings';
 import SettingLanguage from '../../../common/languageDropdown';
 import SettingPrivateChat from './components/privateChatCheckbox';
+import { Close, Img, ModalSettings } from './styledComponent';
 
-const Settings = (props) => {
+const Settings = props => {
     const {
         hideModal,
     } = props;
 
     return (
         <Fragment>
-                <button className='settings close' onClick={hideModal}>
-                    <img src='src/client/assets/icons/close.png' width='20' height='20' />
-                </button>
-                <div className='modal__settings'>
-                    <div className='modal__settings-theme'>
-                        {/*<p>{translate('theme')}</p>*/}
-                        <p>theme</p>
-                        <SettingTheme />
-                    </div>
-                    <div className='modal__settings-language'>
-                        {/*<p>{translate('language')}</p>*/}
-                        <p>language</p>
-                        <SettingLanguage />
-                    </div>
-                </div>
-                <div className='modal__settings'>
-                    <div className='modal__settings-emoji'>
-                        {/*<p>{translate('emoji')}</p>*/}
-                        <p>emoji</p>
-                        <SettingEmoji />
-                    </div>
-                    <div className='modal__settings-private'>
-                        {/*<p>{translate('chat')}</p>*/}
-                        <p>chat</p>
-                        <SettingPrivateChat />
-                    </div>
-                </div>
-                <div className='modal__settings'>
-                    {/*<p>{translate('default')}</p>*/}
-                    <p>Default settings</p>
-                    <SettingDefault />
-                </div>
+            <Close onClick={hideModal}>
+                <Img/>
+            </Close>
+            <ModalSettings>
+                <ModalSettings.item>
+                    <ModalSettings.p>theme</ModalSettings.p>
+                    <SettingTheme />
+                </ModalSettings.item>
+                <ModalSettings.item>
+                    <ModalSettings.p>language</ModalSettings.p>
+                    <SettingLanguage />
+                </ModalSettings.item>
+            </ModalSettings>
+            <ModalSettings>
+                <ModalSettings.item>
+                    <ModalSettings.p>emoji</ModalSettings.p>
+                    <SettingEmoji />
+                </ModalSettings.item>
+                <ModalSettings.item>
+                    <ModalSettings.p>chat</ModalSettings.p>
+                    <SettingPrivateChat />
+                </ModalSettings.item>
+            </ModalSettings>
+            <ModalSettings>
+                <ModalSettings.p>Default settings</ModalSettings.p>
+                <SettingDefault/>
+            </ModalSettings>
         </Fragment>
     );
 };

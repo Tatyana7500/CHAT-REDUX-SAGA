@@ -1,25 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Header, SpanTitle, SpanValue, LogOut, GlobalStyles } from './styledComponent';
 
-const MainHeader = (props) => {
+const MainHeader = props => {
     const { leaveAccount, name, email } = props;
 
     return (
-        <div className='header'>
-            <div className='wrapper header__wrapper'>
-                <div className='info'>
-                    <div>
-                        <span>name:</span>
-                        <span className='info__name'>{name}</span>
-                    </div>
-                    <div>
-                        <span>email:</span>
-                        <span className='info__email'>{email}</span>
-                    </div>
-                </div>
-                <a onClick={leaveAccount} className='btn_logout btn-main logout' id='logOut'>logOut</a>
-            </div>
-        </div>
+        //<GlobalStyles>
+            <Header>
+                <Header.info>
+                    <Header.infoItem>
+                        <SpanTitle>name:</SpanTitle>
+                        <SpanValue>{name}</SpanValue>
+                    </Header.infoItem>
+                    <Header.infoItem>
+                        <SpanTitle>email:</SpanTitle>
+                        <SpanValue>{email}</SpanValue>
+                    </Header.infoItem>
+                </Header.info>
+                <LogOut onClick={leaveAccount}>logOut</LogOut>
+            </Header>
+        //</GlobalStyles>
     );
 };
 

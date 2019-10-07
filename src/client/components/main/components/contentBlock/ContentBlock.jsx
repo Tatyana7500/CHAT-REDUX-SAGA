@@ -3,34 +3,27 @@ import UsersList from '../usersList/';
 import ChatBlock from '../chatBlock/';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { MainWindow, NavMain, User, Chat } from './styledComponent';
 
 const ContentBlock = props => {
-    const { getUsers, getChat, windowState  } = props;
+    const { getUsers, getChat, windowState } = props;
 
     return (
-        <div className='mainWindow'>
-            <div className='wrapper mainWindow__wrapper'>
-                <div className='nav-main'>
-                    <button
-                        onClick = { getUsers }
-                        className='buttons-main__btn buttons-main__btn_user'
-                        id='getUsers'>
+        <MainWindow>
+            <MainWindow.wrapper>
+                <NavMain>
+                    <User onClick = { getUsers } id='getUsers'>
                         users
-                        {/*{translate('users')}*/}
-                    </button>
-                    <button
-                        onClick={getChat}
-                        className='buttons-main__btn buttons-main__btn_chat'
-                        id='getChat'>
+                    </User>
+                    <Chat onClick={getChat} id='getChat'>
                         chat
-                        {/*{translate('chat')}*/}
-                    </button>
-                </div>
-            </div>
+                    </Chat>
+                </NavMain>
+            </MainWindow.wrapper>
 
             {windowState === constants.USERS && <UsersList />}
             {windowState === constants.CHAT && <ChatBlock/>}
-        </div>
+        </MainWindow>
     );
 };
 

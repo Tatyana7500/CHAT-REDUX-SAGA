@@ -1,20 +1,30 @@
 import ButtonSettings from './components/buttonSettings';
 import ContentBlock from './components/contentBlock';
 import MainHeader from './components/mainHeader';
+import { HeaderSettings, Main } from './styledComponent';
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import PropTypes from 'prop-types';
 
 class MainPage extends React.Component {
+
+    static propTypes = {
+        theme: PropTypes.object.isRequired,
+    };
+
     render() {
+        const { theme } = this.props;
+
         return (
-            <div>
-                <div className='header__settings'>
+            <ThemeProvider theme={ theme }>
+                <HeaderSettings>
                     <ButtonSettings />
-                </div>
-                <div className='main'>
+                </HeaderSettings>
+                <Main>
                     <MainHeader />
                     <ContentBlock />
-                </div>
-            </div>
+                </Main>
+            </ThemeProvider>
         );
     }
 }

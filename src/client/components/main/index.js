@@ -5,6 +5,7 @@ import Main from './Main.jsx';
 
 export const mapStateToProps = state => ({
     isModalOpen: selectors.getIsModalOpen(state),
+    theme: selectors.getTheme(state),
 });
 
 export const mapDispatchToProps = dispatch => ({

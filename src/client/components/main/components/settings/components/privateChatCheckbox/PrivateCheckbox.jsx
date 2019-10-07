@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Input } from './styledComponent';
 
-const SettingPrivateChat = (props) => {
+const SettingPrivateChat = props => {
     const { changeActivePrivateChat, privateChat } = props;
     const isChecked = privateChat === true;
 
     return (
-        <input className='radio-privateChat' type='checkbox' onChange={changeActivePrivateChat} checked={isChecked}/>
+        <Input type='checkbox' onChange={changeActivePrivateChat} checked={isChecked}/>
     );
 };
 

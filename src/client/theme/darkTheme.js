@@ -47,5 +47,14 @@ export default {
             buttonActive: colors.color_08,
             textActive: colors.color_14,
         },
+        main: {
+            body: colors.color_13,
+            border: colors.color_15,
+            shadow: colors.color_16,
+            headerUser: colors.color_13,
+            fieldButtons: colors.color_13,
+            buttonHover: colors.color_07,
+            navShadow: colors.color_09,
+        },
     },
 };

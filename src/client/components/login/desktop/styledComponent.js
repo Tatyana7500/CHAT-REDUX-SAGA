@@ -4,15 +4,14 @@ const buttonsIndent = 5;
 const minWrapperWidth = 460;
 const minWrapperHeight = 390;
 
-export const Buttons = styled.div.attrs(props => ({
-}))`
+export const Buttons = styled.div`
     padding: ${buttonsIndent}px 0;
     background-color: ${props => props.theme.login.buttonsWrapperColor};
     text-align: center;
     flex:1;
 `;
 
-export const Wrapper = styled.div.attrs(props => ({}))`
+export const Wrapper = styled.div`
     position: absolute;
     left: 50%;
     top: 50%;

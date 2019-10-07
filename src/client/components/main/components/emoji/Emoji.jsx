@@ -1,8 +1,9 @@
 import { Picker } from 'emoji-mart';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { EmojiDiv, EmojiPicker, P } from './styledComponent';
 
-const Emoji = (props) => {
+const Emoji = props => {
     const {
         addEmoji,
         emojiMenu,
@@ -10,23 +11,18 @@ const Emoji = (props) => {
     } = props;
 
     return (
-        <div>
+        <EmojiDiv>
             {emojiMenu ?
-                <span className='emojiPicker'>
-                                <Picker
-                                    title='weChat'
-                                    onSelect={addEmoji}
-                                    emojiTooltip={true}
-                                />
-                            </span>
+                <EmojiPicker>
+                    <Picker
+                        title='weChat'
+                        onSelect={addEmoji}
+                        emojiTooltip={true}/>
+                </EmojiPicker>
                 :
-                <p
-                    onClick={showEmoji}
-                    className='getEmojiButton' >
-                    {String.fromCodePoint(0x1f60a)}
-                </p>
+                <P onClick={showEmoji}>{String.fromCodePoint(0x1f60a)}</P>
             }
-        </div>
+        </EmojiDiv>
     );
 };
 
