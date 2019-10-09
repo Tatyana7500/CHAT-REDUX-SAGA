@@ -26,7 +26,7 @@ const options = {
         },
     },
 
-    fallbackLng: 'en',
+    fallbackLng: 'EN',
 
     ns: ['common'],
 

@@ -1,21 +1,22 @@
 import ButtonSettings from '../components/buttonSettings/desktop';
 import ContentBlock from '../components/contentBlock/desktop';
 import MainHeader from '../components/mainHeader/desktop';
+import { Wrapper } from './styledComponent';
 import React from 'react';
 
 class MainPage extends React.Component {
     render() {
         return (
-            <div>
-                <div className='header__settings'>
+            <Wrapper>
+                <Wrapper.settings>
                     <ButtonSettings />
-                </div>
-                <div className='main'>
+                </Wrapper.settings>
+                <Wrapper.main>
                     <MainHeader />
                     <ContentBlock />
-                </div>
-            </div>
-        )
+                </Wrapper.main>
+            </Wrapper>
+        );
     }
 }
 

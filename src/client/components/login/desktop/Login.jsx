@@ -2,8 +2,7 @@ import SettingLanguage from '../../common/languageDropdown/desktop';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../../../theme/index.css';
-import { Wrapper, Settings, Button, LabelEmail, LabelPassword, InputEmail, InputPassword, InputSubmit } from './styledComponent';
-import { ThemeProvider } from 'styled-components';
+import { Wrapper, Submit, Email, Navigation, Form, Login, Password, Signin } from './styledComponent';
 
 class LoginForm extends Component {
     static propTypes = {
@@ -25,39 +24,35 @@ class LoginForm extends Component {
     };
 
     render() {
-        const { theme } = this.props;
+        const { t, theme } = this.props;
 
         return (
-            <ThemeProvider theme={theme}>
-                <Settings>
-                    <SettingLanguage />
-                </Settings>
-                <Wrapper>
-                    <Wrapper.Buttons>
-                        <Button.logIn>
-                            <Button.btn>
-                                login
-                            </Button.btn>
-                        </Button.logIn>
-                        <Button.signIn>
-                            <Button.btn>
-                                signIn
-                            </Button.btn>
-                        </Button.signIn>
-                    </Wrapper.Buttons>
-                    <Wrapper.form>
-                        <LabelEmail>
-                            yourEmail
-                        </LabelEmail>
-                        <InputEmail/>
-                        <LabelPassword>
-                            yourPassword
-                        </LabelPassword>
-                        <InputPassword/>
-                        <InputSubmit onClick={this.submitLoginForm}/>
-                    </Wrapper.form>
-                </Wrapper>
-            </ThemeProvider>
+            <Wrapper>
+                <Wrapper.settings>
+                    <SettingLanguage/>
+                </Wrapper.settings>
+                <Wrapper.Navigation>
+                        <Navigation.Login>
+                            <Login.button children={t('login')}/>
+                        </Navigation.Login>
+                        <Navigation.Signin>
+                            <Signin.button children={t('signIn')}/>
+                        </Navigation.Signin>
+                </Wrapper.Navigation>
+                <Wrapper.Form>
+                    <Form.Email>
+                        <Email.label children={t('yourEmail')}/>
+                        <Email.input/>
+                    </Form.Email>
+                    <Form.Password>
+                        <Password.label children={t('yourPassword')}/>
+                        <Password.input/>
+                    </Form.Password>
+                    <Form.Submit>
+                        <Submit.button onClick={this.submitLoginForm} children={t('login')}/>
+                    </Form.Submit>
+                </Wrapper.Form>
+            </Wrapper>
         );
     }
 }

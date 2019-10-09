@@ -1,22 +1,21 @@
 import SettingLanguage from '../../common/languageDropdown/desktop';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, Button, Settings, LabelEmail, InputEmail, LabelPassword, InputPassword, LabelConfirmPassword,
-    InputConfirmPassword, LabelName, InputName, InputSubmit } from './styledComponent';
-import { ThemeProvider } from 'styled-components';
+import { Wrapper, Navigation, LogIn, SignIn, Form, Name, Email, Password, ConfirmPassword } from './styledComponent';
 
 class SignInForm extends React.Component {
     static propTypes = {
+        t: PropTypes.func.isRequired,
         theme: PropTypes.object.isRequired,
         createUser: PropTypes.func.isRequired,
     };
 
     submitSignInForm = (event) => {
         event.preventDefault();
-        let name = document.getElementById('singInPageNameInput').value;
-        let email = document.getElementById('singInPageEmailInput').value;
-        let password = document.getElementById('loginPagePasswordInput').value;
-        let confirmPassword = document.getElementById('singInPageConfirmPasswordInput').value;
+        let name = event.target.name.value;
+        let email = event.target.email.value;
+        let password = event.target.password.value;
+        let confirmPassword = event.target.confirmPassword.value;
 
         const data = {
             name, email, password,
@@ -26,43 +25,41 @@ class SignInForm extends React.Component {
     };
 
     render() {
-        const { theme } = this.props;
+        const { t } = this.props;
 
         return (
-            <ThemeProvider theme={ theme }>
-                <Settings>
+            <Wrapper>
+                <Wrapper.settings>
                     <SettingLanguage />
-                </Settings>
-                <Wrapper>
-                    <Wrapper.buttons>
-                        <Button.logIn>
-                            login
-                        </Button.logIn>
-                        <Button.signIn>
-                            signIn
-                        </Button.signIn>
-                    </Wrapper.buttons>
-                    <Wrapper.form>
-                        <LabelName>
-                            yourName
-                        </LabelName>
-                        <InputName/>
-                        <LabelEmail>
-                            yourEmail
-                        </LabelEmail>
-                        <InputEmail/>
-                        <LabelPassword>
-                            yourPassword
-                        </LabelPassword>
-                        <InputPassword/>
-                        <LabelConfirmPassword>
-                            confirmPassword
-                        </LabelConfirmPassword>
-                        <InputConfirmPassword/>
-                        <InputSubmit onClick={this.submitSignInForm}/>
-                    </Wrapper.form>
-                </Wrapper>
-            </ThemeProvider>
+                </Wrapper.settings>
+                <Wrapper.Navigation>
+                    <Navigation.LogIn>
+                        <LogIn.button children={t('login')}/>
+                    </Navigation.LogIn>
+                    <Navigation.SingIn>
+                        <SignIn.button children={t('signIn')}/>
+                    </Navigation.SingIn>
+                </Wrapper.Navigation>
+                <Wrapper.Form>
+                    <Form.Name>
+                        <Name.label children={t('yourName')}/>
+                        <Name.input/>
+                    </Form.Name>
+                    <Form.Email>
+                        <Email.label children={t('yourEmail')}/>
+                        <Email.input/>
+                    </Form.Email>
+                    <Form.Password>
+                        <Password.label children={t('yourPassword')}/>
+                        <Password.input/>
+                    </Form.Password>
+                    <Form.ConfirmPassword>
+                        <ConfirmPassword.label children={t('yourConfirmPassword')}/>
+                        <ConfirmPassword.input/>
+                    </Form.ConfirmPassword>
+                    <Form.submit onClick={this.submitSignInForm}/>
+                </Wrapper.Form>
+            </Wrapper>
         );
     }
 }

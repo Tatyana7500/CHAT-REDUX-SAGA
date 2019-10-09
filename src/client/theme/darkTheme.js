@@ -80,7 +80,7 @@ export default {
             borderColor: colors.color_03,
             shadowColor: colors.color_03,
             backgroundLogin: colors.color_15,
-            buttonsWrapperColor: colors.color_03,
+            buttonsWrapperColor: colors.color_15,
             settingsBorderBottom: colors.color_07,
             buttonHover: colors.color_15,
             textNotActive: colors.color_08,

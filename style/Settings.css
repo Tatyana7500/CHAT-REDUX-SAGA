@@ -1,0 +1,27 @@
+.close {
+    margin: 10px;
+    position: relative;
+}
+
+.settings {
+    background-color: transparent;
+    border:none;
+}
+
+.modal__settings {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.modal__settings p {
+    text-align: center;
+    color: var(--color-textForm);
+}
+
+.button {
+    padding: 5px 30px;
+    border-radius: 19px;
+    margin-left: -10px;
+    cursor: pointer;
+}

@@ -11,6 +11,7 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
     showEmoji: payload => dispatch({ type: constants.SHOW_MENU_EMOJI, payload }),
     addEmoji: payload => dispatch({ type: constants.ADD_EMOJI_TO_MESSAGE, payload }),
+    hideEmoji: payload => dispatch({type: constants.HIDE_EMOJI_MENU, payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

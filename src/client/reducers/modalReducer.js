@@ -2,7 +2,7 @@ import * as constants from "../../constants";
 
 const initialState = {
     isOpen: false,
-    isOpenMenu: false,
+    isOpenMenu: true,
     content: '',
     type: '',
 };

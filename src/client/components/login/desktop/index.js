@@ -3,6 +3,7 @@ import constants from '../../../../constants';
 import * as actions from '../../../actions';
 import { connect } from 'react-redux';
 import Login from './Login.jsx';
+import { withTranslation } from 'react-i18next';
 
 export const mapStateToProps = state => ({
     isModalOpen: selectors.getIsModalOpen(state),
@@ -15,4 +16,4 @@ export const mapDispatchToProps = dispatch => ({
     // translate: payload => dispatch({ type: constants.TRANSLATE, payload }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Login));

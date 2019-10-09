@@ -11,6 +11,7 @@ export default function* watchSaga() {
     yield takeEvery(constants.UPDATE_MESSAGE_VALUE, updateMessageValue);
     yield takeEvery(constants.CLICK_BUTTON_SEND, clickButtonSend);
     yield takeEvery(constants.OPEN_PRIVATE_CHAT, openPrivateChat);
+    yield takeEvery(constants.HIDE_EMOJI_MENU, closeMenuEmoji);
 }
 
 export function* drawChat() {
@@ -29,21 +30,19 @@ export function* drawChat() {
 export function* addEmoji(action) {
     const { native: emoji } = action.payload;
     console.log(action.payload.native);
-    // console.log(yield select(selectors.getMessage));
-    // const mes = yield select(selectors.getMessage);
-    const messageValue = document.getElementById('textMassage').value;
+    console.log(yield select(selectors.getMessage));
+    const messageValue = yield select(selectors.getMessage);
     const message = `${messageValue}${emoji}`;
-    yield put(actions.addEmojiAction({ message: message }));
+    console.log(message);
+    yield put(actions.updateMessageValueAction({ message: message }));
 }
 
 export function* showMenuEmoji() {
     yield put(actions.showEmojiAction({ emojiMenu: true }));
-    document.addEventListener('click', closeMenuEmoji);
 }
 
-export function closeMenuEmoji() {
-    put(actions.showEmojiAction({ emojiMenu: false }));
-    document.addEventListener('click', closeMenuEmoji);
+export function* closeMenuEmoji() {
+    yield put(actions.showEmojiAction({ emojiMenu: false }));
 }
 
 export function* updateMessageValue(action) {

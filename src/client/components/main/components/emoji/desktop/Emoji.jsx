@@ -1,42 +1,63 @@
-import { ThemeProvider } from 'styled-components';
 import 'emoji-mart/css/emoji-mart.css';
 import { Picker } from 'emoji-mart';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 
-const Emoji = (props) => {
-    const {
-        addEmoji,
-        emojiMenu,
-        showEmoji,
-    } = props;
+class Emoji extends Component {
+    static propTypes = {
+        theme: PropTypes.object.isRequired,
+        addEmoji: PropTypes.func.isRequired,
+        emojiMenu: PropTypes.bool.isRequired,
+        showEmoji: PropTypes.func.isRequired,
+        hideEmoji: PropTypes.func.isRequired,
+    };
 
-    return (
-        <div>
-            {emojiMenu ?
-                <span className='emojiPicker'>
+    onEmojiClick = () => {
+        const {
+            showEmoji,
+        } = this.props;
+
+        showEmoji();
+
+        document.addEventListener('click', this.onEmojiClose);
+    };
+
+    onEmojiClose = () => {
+        const {
+            hideEmoji,
+        } = this.props;
+
+        hideEmoji();
+
+        document.removeEventListener('click', this.onEmojiClose);
+    };
+
+    render() {
+        const {
+            addEmoji,
+            emojiMenu,
+        } = this.props;
+
+        return (
+            <div>
+                {emojiMenu ?
+                    <span className='emojiPicker'>
                                 <Picker
                                     title='weChat'
                                     onSelect={addEmoji}
                                     emojiTooltip={true}
                                 />
                             </span>
-                :
-                <p
-                    onClick={showEmoji}
-                    className='getEmojiButton' >
-                    {String.fromCodePoint(0x1f60a)}
-                </p>
-            }
-        </div>
-    );
-};
-
-Emoji.propTypes = {
-    theme: PropTypes.object.isRequired,
-    addEmoji: PropTypes.func.isRequired,
-    emojiMenu: PropTypes.bool.isRequired,
-    showEmoji: PropTypes.func.isRequired,
-};
+                    :
+                    <p
+                        onClick={this.onEmojiClick}
+                        className='getEmojiButton' >
+                        {String.fromCodePoint(0x1f60a)}
+                    </p>
+                }
+            </div>
+        );
+    }
+}
 
 export default Emoji;
