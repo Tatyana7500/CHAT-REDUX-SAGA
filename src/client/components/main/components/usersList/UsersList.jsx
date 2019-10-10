@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Content, Users, Lonely } from './styledComponent';
+
+import { Content, User, Lonely, Wrapper } from './styledComponent';
 
 class UsersList extends React.Component {
     static propTypes = {
@@ -9,19 +10,15 @@ class UsersList extends React.Component {
         users: PropTypes.array.isRequired,
         usersOnline: PropTypes.array.isRequired,
         openPrivateChat: PropTypes.func.isRequired,
-        theme: PropTypes.object.isRequired,
+        //theme: PropTypes.object.isRequired,
     };
 
     render() {
-        const { id, users, openPrivateChat, usersOnline, theme } = this.props;
+        const {id, users, openPrivateChat, usersOnline, theme} = this.props;
 
         return (
-            <Content>
-                <Users>
-                    <Users.title>
-                        <Users.info>name</Users.info>
-                        <Users.info>email</Users.info>
-                    </Users.title>
+            <Wrapper>
+                <Wrapper.Users>
                     { users.map((item, index) => {
                         if (users.length !== 1) {
                             if (id !== item._id) {
@@ -29,32 +26,26 @@ class UsersList extends React.Component {
 
                                 if (isOnline) {
                                     return (
-                                        <Users.card>
-                                            <Users.online>
-                                                <Users.info id={item._id} onClick={openPrivateChat}>{item.name}</Users.info>
-                                                <Users.info id={item._id} onClick={openPrivateChat}>{item.email}</Users.info>
-                                            </Users.online>
-                                        </Users.card>
+                                        <User id={item._id}>
+                                            <User.name>{item.name}</User.name>
+                                            <User.email>{item.email}</User.email>
+                                        </User>
                                     );
                                 } else {
                                     return (
-                                        <Users.card>
-                                            <Users.info id={item._id} onClick={openPrivateChat}>{item.name} </Users.info >
-                                            <Users.info id={item._id} onClick={openPrivateChat}>{item.email}</Users.info >
-                                        </Users.card>
+                                        <User id={item._id}
+                                              onClick={openPrivateChat}>
+                                            <User.name id={item._id}>{item.name}</User.name>
+                                            <User.email id={item._id}>{item.email}</User.email>
+                                        </User>
+
                                     );
                                 }
                             }
-                        } else {
-                            return (
-                                <Lonely key={ index }>
-                                    You're lonely!
-                                </Lonely>
-                            );
                         }
                     })}
-                </Users>
-            </Content>
+                    </Wrapper.Users>
+            </Wrapper>
         );
     }
 }

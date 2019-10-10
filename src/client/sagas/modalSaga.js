@@ -8,6 +8,7 @@ export default function* watchSaga() {
 }
 
 export function* handleOpenModal(action) {
+
     yield put(actions.showModalAction({ isOpen: true, modalType: constants.SETTINGS_MODAL_TYPE}));
 }
 

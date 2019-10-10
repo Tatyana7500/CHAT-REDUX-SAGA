@@ -1,26 +1,31 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Header, SpanTitle, SpanValue, LogOut, GlobalStyles } from './styledComponent';
+import Logo from './components/Logo';
+import ButtonSettings from './../buttonSettings/ButtonSettings';
+import { Wrapper, Button, Nav, UserInfo } from './styledComponent';
 
 const MainHeader = props => {
-    const { leaveAccount, name, email } = props;
+    const { leaveAccount,getChat,getUsers, name, email, openModal } = props;
 
     return (
-        //<GlobalStyles>
-            <Header>
-                <Header.info>
-                    <Header.infoItem>
-                        <SpanTitle>name:</SpanTitle>
-                        <SpanValue>{name}</SpanValue>
-                    </Header.infoItem>
-                    <Header.infoItem>
-                        <SpanTitle>email:</SpanTitle>
-                        <SpanValue>{email}</SpanValue>
-                    </Header.infoItem>
-                </Header.info>
-                <LogOut onClick={leaveAccount}>logOut</LogOut>
-            </Header>
-        //</GlobalStyles>
+        <Wrapper>
+            <Logo />
+            <Wrapper.UserInfo>
+                <UserInfo.name children ={`Name:${name}`} />
+                <UserInfo.name children = {`Email:${email}`} />
+            </Wrapper.UserInfo>
+            <Wrapper.Nav>
+                <Nav.users children = {'USERS'} onClick = {getUsers}/>
+                <Nav.chat children = {'CHAT'} onClick = {getChat}/>
+            </Wrapper.Nav>
+            <Wrapper.Settings>
+                <ButtonSettings />
+            </Wrapper.Settings>
+
+            <Wrapper.Button>
+                <Button.logout href = '#' children = {'LOGOUT'}/>
+            </Wrapper.Button>
+        </Wrapper>
     );
 };
 
@@ -29,6 +34,8 @@ MainHeader.propTypes = {
     email: PropTypes.string.isRequired,
     leaveAccount: PropTypes.func.isRequired,
     // translate: PropTypes.func.isRequired,
+    getChat: PropTypes.func.isRequired,
+    getUsers: PropTypes.func.isRequired,
 };
 
 export default MainHeader;

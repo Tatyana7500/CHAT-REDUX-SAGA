@@ -1,7 +1,7 @@
 import * as constants from '../../constants';
 
 const initialState = {
-    windowState: constants.USERS,
+    windowState: constants.CHAT,
 };
 
 export default function (state = initialState, action) {
