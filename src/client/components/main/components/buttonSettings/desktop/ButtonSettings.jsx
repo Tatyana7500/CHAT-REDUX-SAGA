@@ -7,7 +7,6 @@ const ButtonSettings = (props) => {
     const { openModal } = props;
 
     return (
-
         <Wrapper>
             <Wrapper.setting src={img} onClick = {openModal}/>
         </Wrapper>

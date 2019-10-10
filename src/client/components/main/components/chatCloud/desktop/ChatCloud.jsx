@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import logic from './logic';
 import React from 'react';
-import {Message, Wrapper }  from './styledComponent'
+import { Message, Wrapper } from './styledComponent';
 
 const ChatCloud = props => {
     const { messages, name } = props;

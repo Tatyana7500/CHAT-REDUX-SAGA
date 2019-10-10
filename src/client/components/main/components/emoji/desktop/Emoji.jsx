@@ -17,7 +17,8 @@ const Emoji = props => {
                     <Picker
                         title='weChat'
                         onSelect={addEmoji}
-                        emojiTooltip={true}/>
+                        emojiTooltip={true}
+                    />
                 </EmojiPicker>
                 :
                 <P onClick={showEmoji}>{String.fromCodePoint(0x1f60a)}</P>
