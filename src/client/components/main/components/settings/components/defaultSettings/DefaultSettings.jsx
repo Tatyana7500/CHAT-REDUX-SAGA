@@ -1,20 +1,17 @@
-import './defaultSettings.css';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Button } from './styledComponent';
 
-const SettingDefault = (props) => {
-    const { setDefaultSettings,
-        // translate
-    } = props;
+const SettingDefault = props => {
+    const { setDefaultSettings } = props;
 
     return (
-        <button className='button' onClick={setDefaultSettings}>yes</button>
+        <Button onClick={setDefaultSettings}>yes</Button>
     );
 };
 
 SettingDefault.propTypes = {
     setDefaultSettings: PropTypes.func.isRequired,
-    // translate: PropTypes.func.isRequired,
 };
 
 export default SettingDefault;

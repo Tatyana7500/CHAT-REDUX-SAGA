@@ -1,21 +1,17 @@
-import SettingLanguage from '../../common/languageDropdown';
+import SettingLanguage from '../../common/languageDropdown/desktop';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../../../theme/index.css';
-import { Wrapper, Settings, Button, LabelEmail, LabelPassword, InputEmail, InputPassword, InputSubmit } from './styledComponent';
-import { ThemeProvider } from 'styled-components';
+import { Wrapper, Submit, Email, Navigation, Form, Login, Password, Signin, Root } from './styledComponent';
 
 class LoginForm extends Component {
     static propTypes = {
-        // t: PropTypes.func.isRequired,
-        theme: PropTypes.object.isRequired,
-        authUser: PropTypes.func.isRequired,
+       authUser: PropTypes.func.isRequired,
     };
 
-    submitLoginForm = (event) => {
-        event.preventDefault();
-        let email = document.getElementById('loginPageEmailInput').value;
-        let password = document.getElementById('loginPagePasswordInput').value;
+    submitLoginForm = () => {
+        let email = document.getElementById('emailInput').value;
+        let password = document.getElementById('passwordInput').value;
 
         const data = {
             emailInput: email,
@@ -25,42 +21,42 @@ class LoginForm extends Component {
         this.props.authUser(data);
     };
 
+    hrefToSignIn = () => {
+        window.location.href = '/signin';
+    };
+
     render() {
-        const { theme } = this.props;
+        const { t } = this.props;
 
         return (
-            <div>
-                <ThemeProvider theme={theme}>
-                    <Settings>
-                        <SettingLanguage />
-                    </Settings>
-                    <Wrapper>
-                        <Wrapper.Buttons>
-                            <Button>
-                                <Button.btn>
-                                    login
-                                </Button.btn>
-                            </Button>
-                            <Button>
-                                <Button.btn>
-                                    signIn
-                                </Button.btn>
-                            </Button>
-                        </Wrapper.Buttons>
-                        <Wrapper.form>
-                            <LabelEmail>
-                                yourEmail
-                            </LabelEmail>
-                            <InputEmail/>
-                            <LabelPassword>
-                                yourPassword
-                            </LabelPassword>
-                            <InputPassword/>
-                            <InputSubmit onClick={this.submitLoginForm}/>
-                        </Wrapper.form>
-                    </Wrapper>
-                </ThemeProvider>
-            </div>
+            <Root>
+                <Wrapper>
+                    <Wrapper.settings>
+                        <SettingLanguage/>
+                    </Wrapper.settings>
+                    <Wrapper.Navigation>
+                            <Navigation.Login>
+                                <Login.button children={t('login')}/>
+                            </Navigation.Login>
+                            <Navigation.Signin>
+                                <Signin.button children={t('signIn')} onClick={this.hrefToSignIn}/>
+                            </Navigation.Signin>
+                    </Wrapper.Navigation>
+                    <Wrapper.Form>
+                        <Form.Email>
+                            <Email.label children={t('yourEmail')}/>
+                            <Email.input id='emailInput' type='email'/>
+                        </Form.Email>
+                        <Form.Password>
+                            <Password.label children={t('yourPassword')}/>
+                            <Password.input id='passwordInput' type='password'/>
+                        </Form.Password>
+                        <Form.Submit>
+                            <Submit.button onClick={this.submitLoginForm} children={t('login')}/>
+                        </Form.Submit>
+                    </Wrapper.Form>
+                </Wrapper>
+            </Root>
         );
     }
 }

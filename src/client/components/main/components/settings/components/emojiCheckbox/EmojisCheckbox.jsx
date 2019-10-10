@@ -1,13 +1,13 @@
-import './EmojisCheckbox.css';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Input } from './styledComponent';
 
-const SettingEmoji = (props) => {
+const SettingEmoji = props => {
     const { changeActiveEmoji, emoji } = props;
     const isChecked = emoji === true;
 
     return (
-        <input className='radio-emoji' type='checkbox' onChange={changeActiveEmoji} checked={isChecked}/>
+        <Input type='checkbox' onChange={changeActiveEmoji} checked={isChecked}/>
     );
 };
 

@@ -15,13 +15,85 @@ const colors = {
     color_14: '#333333',
     color_15: '#383875',
     color_16: '#212147',
+    color_17: '#D2DADF'
 };
 
 export default {
-    mobile: {},
+    mobile: {
+        login: {
+            backgroundFrom: colors._08,
+            backgroundLogin: colors.color_08,
+            textNotActive: colors.color_08,
+            textForm: colors.color_03,
+            buttonActive: colors.color_16,
+            textActive: colors.color_02,
+            colorText: colors.color_15,
+            borderForm: colors.color_15,
+            backgroundButton: colors.color_16,
+            colorButton: colors.color_08,
+            borderButton: colors.color_08,
+        },
+        signIn: {
+            backgroundLogin: colors.color_08,
+            buttonsWrapperColor: colors.color_04,
+            textNotActive: colors.color_08,
+            textForm: colors.color_03,
+            buttonActive: colors.color_16,
+            textActive: colors.color_02,
+            textParagraph: colors.color_03,
+        },
+        modalContainer: {
+            backgroundModal: colors.color_08,
+        },
+        errorWindow: {
+            colorText: colors.color_11,
+        },
+        mainHeader: {
+            colorText: colors.color_04,
+            backgroundColor: colors._13,
+        },
+        main: {
+            backgroundColor: colors.color_04,
+        },
+        contentBlock: {
+            backgroundColor: colors.color_06,
+            border: colors.color_08,
+            colorText: colors.color_03,
+        },
+        usersList: {
+            backgroundColorTitle: colors.color_01,
+            border: colors.color_13,
+        },
+        chatBlock: {
+            backgroundColor: colors.color_08,
+            sendBottom: colors.color_16,
+        },
+        chatCloud: {
+            colorText: colors.color_03,
+            messageBackground: colors.color_08,
+        },
+        menu: {
+            buttonActive: colors.color_16,
+            textActive: colors.color_02,
+            backgroundColor: colors.color_05,
+        }
+    },
     desktop: {
         app: {},
         login: {
+            borderColor: colors.color_01,
+            shadowColor: colors.color_09,
+            backgroundLogin: colors.color_15,
+            buttonsWrapperColor: colors.color_05,
+            settingsBorderBottom: colors.color_07,
+            buttonHover: colors.color_15,
+            textNotActive: colors.color_08,
+            buttonShadow: colors.color_16,
+            textForm: colors.color_02,
+            buttonActive: colors.color_08,
+            textActive: colors.color_14,
+        },
+        signIn: {
             borderColor: colors.color_01,
             shadowColor: colors.color_09,
             backgroundLogin: colors.color_15,
@@ -33,6 +105,20 @@ export default {
             textForm: colors.color_03,
             buttonActive: colors.color_08,
             textActive: colors.color_14,
+        },
+        chatBlock: {
+            backgroundChatBlock: colors.color_17,
+            sendBotton: colors.color_15,
+        },
+        chatCloud: {
+            messgaeBackground: colors.color_08,
+            colorText: colors.color_03,
+        },
+        errorWindow: {
+            colorText: colors.color_11,
+        },
+        modalContainer: {
+            backgroundModal: colors.color_08,
         },
     },
 };

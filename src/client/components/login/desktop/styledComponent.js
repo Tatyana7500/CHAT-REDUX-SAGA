@@ -1,160 +1,168 @@
 import styled from 'styled-components';
 
-const buttonsIndent = 5;
-const minWrapperWidth = 460;
-const minWrapperHeight = 390;
-
-export const Buttons = styled.div.attrs(props => ({
-}))`
-    padding: ${buttonsIndent}px 0;
-    background-color: ${props => props.theme.login.buttonsWrapperColor};
-    text-align: center;
-    flex:1;
+export const Root = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-image: url('/src/client/assets/icons/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 `;
 
-export const Wrapper = styled.div.attrs(props => ({}))`
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 5px ${props => props.theme.login.shadowColor};
-    border: 1px solid ${props => props.theme.login.borderColor};
-    background-color: ${props => props.theme.login.backgroundLogin};
+export const Wrapper = styled.div`
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+    width: 30%;
+    height: 40%;
     display: flex;
     flex-direction: column;
-    width: 23%;
-    height: 25%;
-    justify-content: space-around;
-    min-width: ${minWrapperWidth}px;
-    min-height: ${minWrapperHeight}px;
+    justify-content: center;
+    min-width: 500px;
+    min-height: 250px;
+    align-self: center;
+    border-radius: 10px;
+    position: relative;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 `;
 
-Wrapper.Buttons = Buttons;
+Root.Wrapper = Wrapper;
 
-export const Button = styled.a.attrs(props => ({
-    id: 'loginBtn',
-    href: '/login',
-}))`
-    border: none;
-    width: 35%;
+Wrapper.settings = styled.div`
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+`;
+
+export const Navigation = styled.div`
+    display: flex;
+    flex: 0.5;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin: 5% 5% 0 5%;
+    align-self: center;
+`;
+
+export const Login = styled.div`
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+`;
+
+Login.button = styled.button`
+    width: 100%;
+    margin: 0;
+    background-color: steelblue;
     text-transform: uppercase;
-    border-radius: 16px; 
-    display: inline-block;
-    cursor: pointer;
+    color: #fff;
+    border: none;
+    height: 100%;
     
-    &:hover {
-        background-color: ${props => props.theme.login.buttonHover};
-        color: var(--color-textNotActive)${props => props.theme.login.textNotActive};
-        box-shadow: 0 0 5px var(--color-btnShadow)${props => props.theme.login.buttonShadow};
+    &:hover{
+        background-color: khaki;
+        color: #000;
     }
 `;
 
-export const btn = styled(Button)`
-    width: 35%;
-    position: relative;
-    border-radius: 20px;
-    transform: translate(0,50%);
-    display: inline-block;
-    text-decoration: none;
-    margin: 0 5px 20px 5px;
-    background-color: ${props => props.theme.login.buttonHover};
+export const Signin = styled.div`
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
 `;
 
-Button.btn = btn;
-
-export const Settings = styled.div`
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 10px 0;
-    display: flex;
-    justify-content: flex-end;
+Signin.button = styled.button`
+    width: 100%;
+    margin: 0;
+    background-color: steelblue;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    height: 100%;
     
+    &:hover{
+        background-color: khaki;
+        color: #000;
+    }
 `;
 
-export const Form = styled.form.attrs(props => ({
-}))`
+Navigation.Login = Login;
+Navigation.Signin = Signin;
+
+export const Form = styled.div`
     display: flex;
+    flex: 5;
     flex-direction: column;
-    height: 60%;
-    padding:20px 40px 20px 40px;
-    color: ${props => props.theme.login.textForm};
+    justify-content: center;
+    width: 90%;
+    align-self: center;
+    align-items: center;
 `;
 
-Wrapper.form = Form;
+export const Email = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 5%;
+`;
 
-export const LabelEmail = styled.label.attrs(props => ({
-    name: 'Email',
-    htmlFor: 'loginPageEmailInput',
-}))`
-    display: inline-block;
-    position: relative;
-    text-align: center;
+Email.input = styled.input`
     width: 50%;
-    margin: 0 auto;
+    height: 100%;
 `;
 
-export const LabelPassword = styled.label.attrs(() => ({
-    name: 'password',
-    htmlFor: 'loginPagePasswordInput',
-}))`
-    display: inline-block;
-    position: relative;
-    text-align: center;
+Email.label = styled.label``;
+Form.Email = Email;
+
+export const Password = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 5%;
+`;
+
+Password.input = styled.input`
     width: 50%;
-    margin: 0 auto;
+    height: 100%;
 `;
 
-export const InputEmail = styled.input.attrs(() => ({
-    name: 'email',
-    required: 'required',
-    type: 'text',
-    maxLength: '16',
-    id: 'loginPageEmailInput',
-    placeholder: 'email',
-}))`
-    display: block;
-    position: relative;
-    background-color: #b3bcc9;
-    border: 0;
-    padding: 10px;
-    box-shadow: inset 0 0 3px #000;
-    border-radius: 6px;
-    outline: none;
-    width: 50%;
-    margin: 0 auto;
-    height: 30px;
+Password.label = styled.label``;
+Form.Password = Password;
+
+export const Submit = styled.div`
+    width: 20%;
+    padding: 0;
+    margin: 0;
 `;
 
-export const InputPassword = styled.input.attrs(() => ({
-    name: 'password',
-    required: 'required',
-    type: 'password',
-    maxLength: '16',
-    id: 'loginPagePasswordInput',
-    placeholder: 'password',
-}))`
-    display: block;
-    position: relative;
-    background-color: #b3bcc9;
-    border: 0;
-    padding: 10px;
-    box-shadow: inset 0 0 3px #000;
-    border-radius: 6px;
-    outline: none;
-    width: 50%;
-    margin: 0 auto;
-    height: 30px;
+Submit.button = styled.button`
+    width: 100%;
+    margin: 0;
+    background-color: steelblue;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    height: 100%;
+    
+    &:hover{
+        background-color: khaki;
+        color: #000;
+    }
 `;
 
-export const InputSubmit = styled.input.attrs(props => ({
-    type: 'button',
-    id: 'enterAccount',
-    value: 'login',
-}))`
-    width: 35%;
-    margin:0 auto;
-    position: relative;
-    top:10%;
-    background-color: ${props => props.theme.login.buttonActive};
-    color: ${props => props.theme.login.textActive};
-`;
+Form.Submit = Submit;
+
+Wrapper.Navigation = Navigation;
+Wrapper.Form = Form;

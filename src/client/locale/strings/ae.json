@@ -8,6 +8,7 @@
     "theme": "موضوع",
     "language": "لغة",
     "signIn": "تسجيل",
+    "yourName": "اسمك",
     "emoji": "رمز تعبيري",
     "name": "الاسم الأول",
     "yourEmail": "بريدك",
@@ -17,6 +18,8 @@
     "password": "كلمة المرور",
     "yourPassword": "كلمة مرورك",
     "default": "الإعدادات الافتراضية",
-    "confirmPassword": "أعد كتابة كلمة المرور"
+    "confirmPassword": "أعد كتابة كلمة المرور",
+    "notAccount": "ليس لديك حساب?",
+    "yesAccount": "!لدي حساب!"
   }
 }

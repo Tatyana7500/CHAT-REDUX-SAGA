@@ -1,5 +1,6 @@
 import themeManager from './managers/themeManager/saga';
 import { all } from 'redux-saga/effects';
+import socketSaga from './socketsSaga';
 import settings from './settingsSaga';
 import modal from './modalSaga';
 import user from './usersSaga';
@@ -11,6 +12,7 @@ export default function* rootSaga() {
         chat(),
         modal(),
         settings(),
-        themeManager()
+        socketSaga(),
+        themeManager(),
     ])
 }

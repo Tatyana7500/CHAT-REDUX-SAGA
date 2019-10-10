@@ -3,6 +3,7 @@ import * as selectors from '././../selectors';
 import * as constants from '../../constants';
 import * as actions from "../actions";
 import { initTheme } from './managers/themeManager/saga';
+import i18n from 'i18next';
 
 export default function* watchSaga() {
     yield call(getSavedSettings);
@@ -33,6 +34,7 @@ export function* changeLanguage(action) {
     }
 
     yield put(actions.changeLanguageAction({ lang: lang }));
+    i18n.changeLanguage(lang);
     yield call(setSettingsLocalStorage);
 }
 
@@ -69,7 +71,7 @@ export function* getSavedSettings(action) {
         if (settings.lang === 'AE') {
             yield call(setAttributeStyleDirection, 'rtl');
         }
-        //установить язык
+        i18n.changeLanguage(settings.lang);
     } else {
         yield put(actions.settingsAction({
             lang: 'US',
@@ -78,7 +80,7 @@ export function* getSavedSettings(action) {
             privateChat: true
         }));
         yield call(setAttributeDataTheme, 'light');
-        //установить язык
+        i18n.changeLanguage('US');
     }
 }
 
