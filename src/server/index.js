@@ -105,6 +105,7 @@ app.get('/users', async (request, res) => {
 });
 
 app.get('/messages', async (request, res) => {
+    console.log('server');
     const { sender, receiver, chat } = request.query;
     let users = await chatDal.readAllUsers();
     let messages = [];
@@ -115,6 +116,7 @@ app.get('/messages', async (request, res) => {
         messages = await chatDal.readPrivateMessages(sender, receiver);
     }
 
+    console.log(messages);
     res.status(200).send(chatDal.mergeMessageAndUser(messages, users));
 });
 

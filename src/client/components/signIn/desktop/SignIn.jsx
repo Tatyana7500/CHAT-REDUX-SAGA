@@ -1,65 +1,75 @@
 import SettingLanguage from '../../common/languageDropdown/desktop';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, Navigation, LogIn, SignIn, Form, Name, Email, Password, ConfirmPassword } from './styledComponent';
+import { Root, Wrapper, Navigation, Login, Signin, Form, Name, Email, Password, ConfirmPassword, Submit } from './styledComponent';
 
 class SignInForm extends React.Component {
     static propTypes = {
-        t: PropTypes.func.isRequired,
-        theme: PropTypes.object.isRequired,
         createUser: PropTypes.func.isRequired,
+        handleOpenModal:PropTypes.func.isRequired,
     };
 
-    submitSignInForm = (event) => {
-        event.preventDefault();
-        let name = event.target.name.value;
-        let email = event.target.email.value;
-        let password = event.target.password.value;
-        let confirmPassword = event.target.confirmPassword.value;
+    submitSignInForm = () => {
+        let name = document.getElementById('loginInput').value;
+        let email = document.getElementById('emailInput').value;
+        let password = document.getElementById('passwordInput').value;
+        let confirmPassword = document.getElementById('confirmPasswordInput').value;
 
-        const data = {
-            name, email, password,
-        };
+        if(password !== confirmPassword) {
+            this.props.handleOpenModal('Passwords do not match!');
+        } else {
+            const data = {
+                name, email, password,
+            };
 
-        this.props.createUser(data);
+            this.props.createUser(data);
+        }
+    };
+
+    hrefToLogin = () => {
+        window.location.href = '/login';
     };
 
     render() {
         const { t } = this.props;
 
         return (
-            <Wrapper>
-                <Wrapper.settings>
-                    <SettingLanguage />
-                </Wrapper.settings>
-                <Wrapper.Navigation>
-                    <Navigation.LogIn>
-                        <LogIn.button children={t('login')}/>
-                    </Navigation.LogIn>
-                    <Navigation.SingIn>
-                        <SignIn.button children={t('signIn')}/>
-                    </Navigation.SingIn>
-                </Wrapper.Navigation>
-                <Wrapper.Form>
-                    <Form.Name>
-                        <Name.label children={t('yourName')}/>
-                        <Name.input/>
-                    </Form.Name>
-                    <Form.Email>
-                        <Email.label children={t('yourEmail')}/>
-                        <Email.input/>
-                    </Form.Email>
-                    <Form.Password>
-                        <Password.label children={t('yourPassword')}/>
-                        <Password.input/>
-                    </Form.Password>
-                    <Form.ConfirmPassword>
-                        <ConfirmPassword.label children={t('yourConfirmPassword')}/>
-                        <ConfirmPassword.input/>
-                    </Form.ConfirmPassword>
-                    <Form.submit onClick={this.submitSignInForm}/>
-                </Wrapper.Form>
-            </Wrapper>
+            <Root>
+                <Root.Wrapper>
+                    <Wrapper.settings>
+                        <SettingLanguage/>
+                    </Wrapper.settings>
+                    <Wrapper.Navigation>
+                        <Navigation.Login>
+                            <Login.button children={t('login')} onClick={this.hrefToLogin}/>
+                        </Navigation.Login>
+                        <Navigation.Signin>
+                            <Signin.button children={t('signIn')}/>
+                        </Navigation.Signin>
+                    </Wrapper.Navigation>
+                    <Wrapper.Form>
+                        <Form.Name>
+                            <Name.label children={t('yourName')}/>
+                            <Name.input id='loginInput' type='text'/>
+                        </Form.Name>
+                        <Form.Email>
+                            <Email.label children={t('yourEmail')}/>
+                            <Email.input id='emailInput' type='email'/>
+                        </Form.Email>
+                        <Form.Password>
+                            <Password.label children={t('yourPassword')}/>
+                            <Password.input id='passwordInput' type='password'/>
+                        </Form.Password>
+                        <Form.ConfirmPassword>
+                            <ConfirmPassword.label children={t('confirmPassword')}/>
+                            <ConfirmPassword.input id='confirmPasswordInput' type='password'/>
+                        </Form.ConfirmPassword>
+                        <Form.Submit>
+                            <Submit.button onClick={this.submitSignInForm} children={t('signIn')}/>
+                        </Form.Submit>
+                    </Wrapper.Form>
+                </Root.Wrapper>
+            </Root>
         );
     }
 }

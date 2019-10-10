@@ -13,10 +13,13 @@
     "logOut": "LOG OUT",
     "language": "LANGUAGE",
     "password": "Password",
+    "yourName": "Your name",
     "yourEmail": "Your email",
     "yourMessage": "Your message",
     "default": "Default settings",
     "yourPassword": "Your password",
-    "confirmPassword": "Confirm Password"
+    "confirmPassword": "Confirm Password",
+    "notAccount": "You have not account?",
+    "yesAccount": "Ich habe einen Account!"
   }
 }

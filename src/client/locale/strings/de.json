@@ -8,6 +8,7 @@
     "name": "Vorname",
     "chat": "Plaudern",
     "users": "Benutzer",
+    "yourName": "Dein Name",
     "language": "SPRACHE",
     "logOut": "Ausloggen",
     "password": "Passwort",
@@ -17,6 +18,8 @@
     "yourPassword": "Dein Passwort",
     "yourMessage": "Deine Nachricht",
     "default": "Standardeinstellungen",
-    "confirmPassword": "Wiederholen Sie das Passwort"
+    "confirmPassword": "Wiederholen Sie das Passwort",
+    "notAccount": "Sie haben kein Konto?",
+    "yesAccount": "I have account!"
   }
 }

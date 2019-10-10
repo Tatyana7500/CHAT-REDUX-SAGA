@@ -1,59 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, LabelName, LabelConfirmPassword,  Button, InputName, InputConfirmPassword, LabelEmail, LabelPassword, InputEmail, InputPassword, InputSubmit, Logo } from './styledComponent';
-import { ThemeProvider } from 'styled-components';
+import { Email, Form, Navigation, Password, Wrapper, Submit, Login, Name, ConfirmPassword } from './styledComponent';
 
 class SignInForm extends React.Component {
     static propTypes = {
-        theme: PropTypes.object.isRequired,
         createUser: PropTypes.func.isRequired,
+        handleOpenModal:PropTypes.func.isRequired,
     };
 
-    submitSignInForm = (event) => {
-        event.preventDefault();
-        let name = document.getElementById('singinPageNameInput').value;
-        let email = document.getElementById('loginPageEmailInput').value;
-        let password = document.getElementById('loginPagePasswordInput').value;
-        let confirmPassword = document.getElementById('singinPageComfirmPasswordInput').value;
+    submitSignInForm = () => {
+        let name = document.getElementById('nameInput').value;
+        let email = document.getElementById('emailInput').value;
+        let password = document.getElementById('passwordInput').value;
+        let confirmPassword = document.getElementById('confirmPasswordInput').value;
 
-        const data = {
-            name, email, password
-        };
+        if(password !== confirmPassword) {
+            this.props.handleOpenModal('Passwords do not match!');
+        } else {
+            const data = {
+                name, email, password,
+            };
 
-        this.props.createUser(data);
+            this.props.createUser(data);
+        }
     };
 
     render() {
-        const { theme } = this.props;
+        const { t } = this.props;
 
         return (
-            <div>
-                <ThemeProvider theme={theme}>
-                    <Wrapper>
-                        <Logo/>
-                        <Wrapper.form>
-                            <LabelEmail>
-                                Your Email
-                            </LabelEmail>
-                            <InputEmail/>
-                            <LabelName>
-                                Your Name
-                            </LabelName>
-                            <InputName/>
-                            <LabelPassword>
-                                Your Password
-                            </LabelPassword>
-                            <InputPassword/>
-                            <LabelConfirmPassword>
-                                Confirm Password
-                            </LabelConfirmPassword>
-                            <InputConfirmPassword/>
-                            <Button>I have account!</Button>
-                            <InputSubmit onClick={this.submitSignInForm}/>
-                        </Wrapper.form>
-                    </Wrapper>
-                </ThemeProvider>
-            </div>
+            <Wrapper>
+                <Wrapper.logo/>
+                <Wrapper.Form>
+                    <Form.Name>
+                        <Name.label children={t('yourName')}/>
+                        <Name.input id='nameInput' type='text'/>
+                    </Form.Name>
+                    <Form.Email>
+                        <Email.label children={t('yourEmail')}/>
+                        <Email.input id='emailInput' type='email'/>
+                    </Form.Email>
+                    <Form.Password>
+                        <Password.label children={t('yourPassword')}/>
+                        <Password.input id='passwordInput' type='password'/>
+                    </Form.Password>
+                    <Form.Email>
+                        <ConfirmPassword.label children={t('confirmPassword')}/>
+                        <ConfirmPassword.input id='confirmPasswordInput' type='password'/>
+                    </Form.Email>
+                    <Wrapper.Navigation>
+                        <Navigation.Login>
+                            <Login.button onClick={this.hrefToSignIn} children={t('notAccount')}/>
+                        </Navigation.Login>
+                    </Wrapper.Navigation>
+                    <Form.Submit>
+                        <Submit.button onClick={this.submitSignInForm} children={t('signIn')}/>
+                    </Form.Submit>
+                </Wrapper.Form>
+            </Wrapper>
         );
     }
 }

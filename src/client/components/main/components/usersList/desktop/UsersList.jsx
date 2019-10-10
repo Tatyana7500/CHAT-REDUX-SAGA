@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { User, Wrapper } from './styledComponent';
+
 class UsersList extends React.Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
@@ -10,41 +12,32 @@ class UsersList extends React.Component {
     };
 
     render() {
-        const { id, users, openPrivateChat, usersOnline } = this.props;
+        const {id, users, openPrivateChat, usersOnline, theme} = this.props;
 
         return (
-            <div className='content'>
-                <div className='user'>
-                    <div className='users__title'>
-                        <div className='users__info'>name</div>
-                        <div className='users__info'>email</div>
-                    </div>
+            <Wrapper>
+                <Wrapper.Users>
                     { users.map((item, index) => {
                         if (users.length !== 1) {
                             if (id !== item._id) {
                                 const isOnline = usersOnline.includes(item._id);
 
                                 return (
-                                <div
-                                key={index}
-                                id={item._id}
-                                className={`users__card ${isOnline ? 'online' : ''}`}>
-                                <p className='users__info' id={item._id} onClick={openPrivateChat}>{item.name} </p>
-                                <p className='users__info' id={item._id} onClick={openPrivateChat}>{item.email}</p>
-                                </div>
+                                    <User key={index}
+                                          id={item._id}
+                                          isOnline = { isOnline }
+                                          onClick={openPrivateChat}>
+                                        <User.name id={item._id}>{item.name}</User.name>
+                                        <User.email id={item._id}>{item.email}</User.email>
+                                    </User>
+
                                 );
                             }
-                        } else {
-                            return (
-                                <div className="lonely" key={index}>
-                                    You're lonely!
-                                </div>
-                            );
                         }
-                    })
-                    }
-                </div>
-            </div>
+
+                    })}
+                </Wrapper.Users>
+            </Wrapper>
         );
     }
 }

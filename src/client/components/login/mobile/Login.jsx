@@ -1,18 +1,16 @@
+import { Email, Form, Navigation, Password, Wrapper, Submit, Signin } from './styledComponent';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, Button, LabelEmail, LabelPassword, InputEmail, InputPassword, InputSubmit, Logo } from './styledComponent';
-import { ThemeProvider } from 'styled-components';
 
 class LoginForm extends Component {
     static propTypes = {
-        theme: PropTypes.object.isRequired,
         authUser: PropTypes.func.isRequired,
     };
 
     submitLoginForm = (event) => {
         event.preventDefault();
-        let email = document.getElementById('loginPageEmailInput').value;
-        let password = document.getElementById('loginPagePasswordInput').value;
+        let email = document.getElementById('emailInput').value;
+        let password = document.getElementById('passwordInput').value;
 
         const data = {
             emailInput: email,
@@ -22,29 +20,35 @@ class LoginForm extends Component {
         this.props.authUser(data);
     };
 
+    hrefToSignIn = () => {
+        window.location.href = '/signin';
+    };
+
     render() {
-        const { theme } = this.props;
+        const { t } = this.props;
 
         return (
-            <div>
-                <ThemeProvider theme={theme}>
-                    <Wrapper>
-                        <Logo/>
-                        <Wrapper.form>
-                            <LabelEmail>
-                                Your Email
-                            </LabelEmail>
-                            <InputEmail/>
-                            <LabelPassword>
-                                Your Password
-                            </LabelPassword>
-                            <InputPassword/>
-                            <Button>You have not account?</Button>
-                            <InputSubmit onClick={this.submitLoginForm}/>
-                        </Wrapper.form>
-                    </Wrapper>
-                </ThemeProvider>
-            </div>
+            <Wrapper>
+                <Wrapper.logo/>
+                <Wrapper.Form>
+                    <Form.Email>
+                        <Email.label children={t('yourEmail')}/>
+                        <Email.input id='emailInput' type='email'/>
+                    </Form.Email>
+                    <Form.Password>
+                        <Password.label children={t('yourPassword')}/>
+                        <Password.input id='passwordInput' type='password'/>
+                    </Form.Password>
+                    <Wrapper.Navigation>
+                        <Navigation.Signin>
+                           <Signin.button onClick={this.hrefToSignIn} children={t('notAccount')}/>
+                        </Navigation.Signin>
+                    </Wrapper.Navigation>
+                    <Form.Submit>
+                        <Submit.button onClick={this.submitLoginForm} children={t('login')}/>
+                    </Form.Submit>
+                </Wrapper.Form>
+            </Wrapper>
         );
     }
 }

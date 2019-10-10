@@ -9,7 +9,10 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
+    getChat: payload => dispatch({ type: constants.CHAT, payload }),
+    getUsers: payload => dispatch({ type: constants.USERS, payload }),
     leaveAccount: payload => dispatch({ type: constants.LEAVE, payload }),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Component);

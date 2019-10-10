@@ -1,18 +1,35 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+   position: relative;
+   width: 90vw;
+   height: 95vh ;
+   margin: 0 auto;
+   background-color: #D4493E;
+   border-radius: 30px;
+   display:flex;
+   flex-direction: column;
+`;
 
-Wrapper.settings = styled.div``;
-Wrapper.main = styled.div``;
+const Header = styled.div`
+   height: 15%;
+`;
 
-// export const HeaderSettings = styled.div``;
-//
-// export const Main = styled.div`
-//     background-color: ${props => props.theme.main.body};
-//     margin: 15px auto;
-//     width: 80%;
-//     height: 90%;
-//     border: ${props => props.theme.main.border};
-//     box-shadow: 0 0 5px ${props => props.theme.main.shadow};
-//     min-height: 735px;
-// `;
+const Content = styled.div`
+    width: 96%;
+    align-self:center;
+    background-color:#fff;
+    border-radius:30px;
+    height:80%;
+`;
+
+export const Window = styled.div`
+position:absolute;
+width:100%;
+height:100%;
+background-color: #FDDD83;
+`;
+
+
+Wrapper.Header = Header;
+Wrapper.Content = Content;

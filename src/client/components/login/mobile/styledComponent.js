@@ -1,125 +1,105 @@
 import styled from 'styled-components';
 
-export const Logo = styled.img.attrs(props => ({
+export const Wrapper = styled.div`
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      background-color: ${props => props.theme.login.backgroundLogin};
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+`;
+
+Wrapper.logo = styled.img.attrs(props => ({
     src: 'src/client/assets/icons/logo.png',
     width: '200px',
     height: '100px'
 }))`
-    text-align: center;
-    display: block;
-    margin: 30px auto;
 `;
 
-export const Wrapper = styled.div.attrs(props => ({}))`
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    margin-top: 50px;
-    padding: 0;
-    background-color: ${props => props.theme.login.backgroundLogin};
+export const Form = styled.div`
+     border: 1px solid ${props => props.theme.login.borderForm};
+     box-shadow: 0 0 1px ${props => props.theme.login.borderForm};
+     background-color: ${props => props.theme.login.backgroundFrom};
+     padding: 10px;
+     width: 80%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
 `;
 
-export const Form = styled.form.attrs(props => ({
-}))`
+export const Email = styled.div`
     display: flex;
     flex-direction: column;
-    height: 60%;
-    padding:20px 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+`;
+
+Email.input = styled.input`
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 5px;
+    border-bottom: 1px solid ${props => props.theme.login.borderForm};
+`;
+
+Email.label = styled.label`
     color: ${props => props.theme.login.textForm};
 `;
+Form.Email = Email;
 
-Wrapper.form = Form;
-
-export const LabelEmail = styled.label.attrs(props => ({
-    name: 'Email',
-    htmlFor: 'loginPageEmailInput',
-}))`
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    width: 50%;
-    margin: 0 auto;
-    font-size: 20px;
+export const Password = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 `;
 
-export const LabelPassword = styled.label.attrs(() => ({
-    name: 'password',
-    htmlFor: 'loginPagePasswordInput',
-}))`
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    width: 50%;
-    margin: 0 auto;
-    font-size: 20px;
-`;
-
-export const InputEmail = styled.input.attrs(() => ({
-    name: 'email',
-    required: 'required',
-    type: 'text',
-    maxLength: '16',
-    id: 'loginPageEmailInput',
-    placeholder: 'email',
-}))`
-    display: block;
-    position: relative;
+Password.input = styled.input`
+    border: none;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 5px;
     background-color: transparent;
-    border: none;
-    padding: 10px 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #000;
-    outline: none;
-    width: 80%;
-    margin: 10px auto;
-    height: 30px;
+    border-bottom: 1px solid ${props => props.theme.login.borderForm};
 `;
 
-export const InputPassword = styled.input.attrs(() => ({
-    name: 'password',
-    required: 'required',
-    type: 'password',
-    maxLength: '16',
-    id: 'loginPagePasswordInput',
-    placeholder: 'password',
-}))`
-    display: block;
-    position: relative;
+Password.label = styled.label`
+    color: ${props => props.theme.login.textForm};
+`;
+Form.Password = Password;
+
+export const Submit = styled.div``;
+
+Submit.button = styled.button`
+    padding: 5px 20px;
+    max-width: 150px;
+    background-color: ${props => props.theme.login.backgroundButton};
+    color: ${props => props.theme.login.colorButton};
+    border: 1px solid ${props => props.theme.login.borderButton};
+    border-radius: 15px;
+    margin-bottom: 20px;
+`;
+
+Form.Submit = Submit;
+
+export const Navigation = styled.div``;
+
+export const Signin = styled.div``;
+
+Signin.button = styled.button`
+    border: none;
     background-color: transparent;
-    border: none;
-    padding: 10px 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #000;
-    outline: none;
-    width: 80%;
-    margin: 10px auto;
-    height: 30px;
+    color: ${props => props.theme.login.colorText};
+    margin-bottom: 10px;
+    text-decoration: underline;
 `;
 
-export const InputSubmit = styled.input.attrs(props => ({
-    type: 'button',
-    id: 'enterAccount',
-    value: 'LOGIN',
-}))`
-    width: 50%;
-    margin: 0 auto;
-    position: relative;
-    margin-top: 15px;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    border-radius: 30px;
-    background-color: ${props => props.theme.login.buttonActive};
-    color: ${props => props.theme.login.textActive};  
-`;
+Navigation.Signin = Signin;
 
-export const Button = styled.a.attrs(props => ({
-    id: 'signinBtn',
-    href: '/signin',
-}))`
-    border: none;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 16px; 
-    display: inline-block;
-`;
+Wrapper.Navigation = Navigation;
+Wrapper.Form = Form;

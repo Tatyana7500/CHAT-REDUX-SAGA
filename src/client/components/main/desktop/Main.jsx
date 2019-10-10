@@ -1,21 +1,33 @@
-import ButtonSettings from '../components/buttonSettings/desktop';
 import ContentBlock from '../components/contentBlock/desktop';
 import MainHeader from '../components/mainHeader/desktop';
-import { Wrapper } from './styledComponent';
+import { Wrapper, Window } from './styledComponent';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class MainPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        const { initSockets } = props;
+
+        initSockets();
+    }
+    static propTypes = {
+        initSockets: PropTypes.func.isRequired,
+    };
+
     render() {
         return (
-            <Wrapper>
-                <Wrapper.settings>
-                    <ButtonSettings />
-                </Wrapper.settings>
-                <Wrapper.main>
-                    <MainHeader />
-                    <ContentBlock />
-                </Wrapper.main>
-            </Wrapper>
+            <Window>
+                <Wrapper>
+                    <Wrapper.Header>
+                        <MainHeader/>
+                    </Wrapper.Header>
+                    <Wrapper.Content>
+                        <ContentBlock/>
+                    </Wrapper.Content>
+                </Wrapper>
+            </Window>
         );
     }
 }

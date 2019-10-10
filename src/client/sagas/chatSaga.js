@@ -15,6 +15,7 @@ export default function* watchSaga() {
 }
 
 export function* drawChat() {
+    console.log('chat');
     yield put(actions.idReceiverAction({ idReceiver: constants.ALL }));
     yield put(actions.changeWindowState({ state: constants.CHAT }));
     yield put(actions.changeStateChat({ chat: constants.PUBLIC }));

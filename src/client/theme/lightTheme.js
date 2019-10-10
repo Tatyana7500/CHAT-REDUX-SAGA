@@ -21,13 +21,17 @@ const colors = {
 export default {
     mobile: {
         login: {
+            backgroundFrom: colors._08,
             backgroundLogin: colors.color_08,
-            buttonsWrapperColor: colors.color_04,
             textNotActive: colors.color_08,
             textForm: colors.color_03,
             buttonActive: colors.color_16,
             textActive: colors.color_02,
-            textParagraph: colors.color_03,
+            colorText: colors.color_15,
+            borderForm: colors.color_15,
+            backgroundButton: colors.color_16,
+            colorButton: colors.color_08,
+            borderButton: colors.color_08,
         },
         signIn: {
             backgroundLogin: colors.color_08,

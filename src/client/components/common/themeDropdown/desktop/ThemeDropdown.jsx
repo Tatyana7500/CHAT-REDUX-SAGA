@@ -1,4 +1,5 @@
 import constants from '../../../../../constants';
+import { Input } from './styledComponent';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -7,7 +8,7 @@ const SettingTheme = (props) => {
        const isChecked = theme === constants.LIGHT;
 
     return (
-        <input className='radio' type='checkbox' onChange={changeTheme} checked={isChecked}/>
+        <Input className='radio' type='checkbox' onChange={changeTheme} checked={isChecked}/>
     );
 };
 

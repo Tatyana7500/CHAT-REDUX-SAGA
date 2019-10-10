@@ -2,6 +2,7 @@ import HatCloud from '../../chatCloud/desktop';
 import Emoji from '../../emoji/desktop';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Wrapper, Footer } from './styledComponent';
 
 const ChatBlock = props => {
     const {
@@ -12,24 +13,24 @@ const ChatBlock = props => {
     } = props;
 
     return (
-        <div className='content'>
+
+        <Wrapper>
+
+            <Wrapper.Messages>
                 <HatCloud />
-            <div className='footer'>
-                <textarea
-                    id='textMassage'
-                    className='textMassage'
+            </Wrapper.Messages>
+
+            <Wrapper.Footer>
+                <Footer.textMessage
                     value={messageAreaValue}
                     onChange={updateMessageValue}
-                    placeholder='Your Message'
-                 >
-                 </textarea>
-                { emoji === true && <Emoji /> }
-                <button
+                />
+                <Footer.send
                     onClick={clickButtonSend}
-                    className='btn btn-main footer__send'>Send
-                </button>
-            </div>
-        </div>
+                    children ={'send'}/>
+                { emoji === true && <Emoji /> }
+            </Wrapper.Footer>
+        </Wrapper>
     );
 };
 

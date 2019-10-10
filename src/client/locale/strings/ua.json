@@ -9,6 +9,7 @@
     "eMail": "E-mail",
     "logOut": "Вихід",
     "language": "МОВА",
+    "yourName": "Ім'я",
     "emoji": "СМАЙЛИКИ",
     "password": "Пароль",
     "send": "Відправити",
@@ -17,6 +18,8 @@
     "yourPassword": "Пароль",
     "yourMessage": "Ваше повідомлення",
     "default": "Настройки за замовчуванням",
-    "confirmPassword": "Підтвердження паролю"
+    "confirmPassword": "Підтвердження паролю",
+    "notAccount": "Немає аккаунту?",
+    "yesAccount": "Я маю аакаунт!"
   }
 }

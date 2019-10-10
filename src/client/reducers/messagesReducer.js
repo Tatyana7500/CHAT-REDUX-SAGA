@@ -14,6 +14,11 @@ export default function (state = initialState, action) {
                 ...state,
                 messageList: action.payload.messageList,
             };
+        case constants.SOCKET_MESSAGE:
+            return {
+                ...state,
+                messageList: [...state.messageList, action.payload],
+            };
         case constants.OPEN_MENU_EMOJI:
             return {
                 ...state,

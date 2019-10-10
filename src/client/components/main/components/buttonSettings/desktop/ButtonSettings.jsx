@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import img from '../../../../../assets/icons/settings.png'
+import { Wrapper } from './styledComponent';
 
 const ButtonSettings = (props) => {
     const { openModal } = props;
 
     return (
-        <button className='settings' onClick={openModal}>
-            <img src='src/client/assets/icons/settings.png' width='50' height='50'/>
-        </button>
+
+        <Wrapper>
+            <Wrapper.setting src={img} onClick = {openModal}/>
+        </Wrapper>
     );
 };
 

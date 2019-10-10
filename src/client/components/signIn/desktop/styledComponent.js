@@ -1,288 +1,202 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Root = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-image: url('/src/client/assets/icons/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+`;
 
-Wrapper.settings = styled.div``;
+export const Wrapper = styled.div`
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+    width: 30%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 500px;
+    min-height: 250px;
+    align-self: center;
+    border-radius: 10px;
+    position: relative;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+`;
 
-export const Navigation = styled.div``;
+Root.Wrapper = Wrapper;
 
-export const LogIn = styled.div``;
+Wrapper.settings = styled.div`
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+`;
 
-LogIn.button = styled.button``;
+export const Navigation = styled.div`
+    display: flex;
+    flex: 0.5;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin: 5% 5% 0 5%;
+    align-self: center;
+`;
 
-Navigation.LogIn = LogIn;
+export const Login = styled.div`
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+`;
 
-export const SignIn = styled.div``;
+Login.button = styled.button`
+    width: 100%;
+    margin: 0;
+    background-color: steelblue;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    height: 100%;
+    
+    &:hover{
+        background-color: khaki;
+        color: #000;
+    }
+`;
 
-SignIn.button = styled.button``;
+export const Signin = styled.div`
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+`;
 
-Navigation.SignIn = SignIn;
+Signin.button = styled.button`
+    width: 100%;
+    margin: 0;
+    background-color: steelblue;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    height: 100%;
+    
+    &:hover{
+        background-color: khaki;
+        color: #000;
+    }
+`;
+
+Navigation.Login = Login;
+Navigation.Signin = Signin;
 
 Wrapper.Navigation = Navigation;
 
-export const Form = styled.form``;
+export const Form = styled.div`
+    display: flex;
+    flex: 5;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    align-self: center;
+    align-items: center;
+`;
 
-export const Name = styled.div``;
+export const Name = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 5%;
+`;
 
 Name.label = styled.label``;
-Name.input = styled.input``;
+Name.input = styled.input`
+    width: 50%;
+    height: 100%;
+`;
 
 Form.Name = Name;
 
-export const Email = styled.div``;
+export const Email = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 5%;
+`;
 
 Email.label = styled.label``;
-Email.input = styled.input``;
+Email.input = styled.input`
+    width: 50%;
+    height: 100%;
+`;
 
 Form.Email = Email;
 
-export const Password = styled.div``;
+export const Password = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 5%;
+`;
 
 Password.label = styled.label``;
-Password.input = styled.input``;
+Password.input = styled.input`
+    width: 50%;
+    height: 100%;
+`;
 
 Form.Password = Password;
 
-export const ConfirmPassword = styled.div``;
+export const ConfirmPassword = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 5%;
+`;
 
 ConfirmPassword.label = styled.label``;
-ConfirmPassword.input = styled.input``;
+ConfirmPassword.input = styled.input`
+    width: 50%;
+    height: 100%;
+`;
 
 Form.ConfirmPassword = ConfirmPassword;
 
-Form.submit = styled.input``;
+export const Submit = styled.div`
+    width: 20%;
+    padding: 0;
+    margin: 0;
+`;
+
+Submit.button = styled.button`
+    width: 100%;
+    margin: 0;
+    background-color: steelblue;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    height: 100%;
+    &:hover{
+        background-color: khaki;
+        color: #000;
+    }
+`;
+
+Form.Submit = Submit;
 
 Wrapper.Form = Form;
-//
-// const buttonsIndent = 5;
-// const minWrapperWidth = 460;
-// const minWrapperHeight = 490;
-//
-// export const Buttons = styled.div.attrs(() => ({
-// }))`
-//     padding: ${buttonsIndent}px 0;
-//     background-color: ${props => props.theme.signIn.buttonsWrapperColor};
-//     text-align: center;
-//     flex:1;
-// `;
-//
-// export const Wrapper = styled.div.attrs(() => ({}))`
-//     position: absolute;
-//     left: 50%;
-//     top: 50%;
-//     transform: translate(-50%, -50%);
-//     box-shadow: 0 0 5px ${props => props.theme.signIn.shadowColor};
-//     border: 1px solid ${props => props.theme.signIn.borderColor};
-//     background-color: ${props => props.theme.signIn.backgroundLogin};
-//     display: flex;
-//     flex-direction: column;
-//     width: 23%;
-//     height: 5%;
-//     justify-content: space-around;
-//     min-width: ${minWrapperWidth}px;
-//     min-height: ${minWrapperHeight}px;
-// `;
-//
-// Wrapper.buttons = Buttons;
-//
-// export const Button = styled.a`
-//     border: none;
-//     width: 40%;
-//     height: 50%;
-//     text-transform: uppercase;
-//     border-radius: 16px;
-//     display: inline-block;
-//     cursor: pointer;
-//
-//     &:hover {
-//         background-color: ${props => props.theme.signIn.buttonHover};
-//         color: ${props => props.theme.signIn.textNotActive};
-//         box-shadow: 0 0 5px ${props => props.theme.signIn.buttonShadow};
-//     }
-// `;
-//
-// export const logIn = styled(Button).attrs(() => ({
-//     id: 'loginBtn',
-//     href: '/login',
-// }))``;
-//
-// export const btn = styled(Button)`
-//     width: 35%;
-//     position: relative;
-//     border-radius: 20px;
-//     transform: translate(0,50%);
-//     display: inline-block;
-//     text-decoration: none;
-//     margin: 0 5px 20px 5px;
-//     background-color: ${props => props.theme.signIn.buttonHover};
-// `;
-//
-// export const signIn = styled(Button).attrs(() => ({
-//     id: 'signInBtn',
-//     href: '/signIn',
-// }))``;
-//
-// Button.logIn = logIn;
-// Button.signIn = signIn;
-//
-// Button.btn = btn;
-//
-// export const Settings = styled.div`
-//     max-width: 1280px;
-//     margin: 0 auto;
-//     padding: 10px 0;
-//     display: flex;
-//     justify-content: flex-end;
-// `;
-//
-// export const Form = styled.form.attrs(() => ({
-// }))`
-//     display: flex;
-//     flex-direction: column;
-//     height: 60%;
-//     padding:20px 40px 20px 40px;
-//     color: ${props => props.theme.signIn.textForm};
-// `;
-//
-// Wrapper.form = Form;
-//
-// export const LabelName = styled.label.attrs(() => ({
-//     name: 'text',
-//     htmlFor: 'singInPageNameInput',
-// }))`
-//     display: inline-block;
-//     position: relative;
-//     text-align: center;
-//     width: 50%;
-//     margin: 0 auto;
-// `;
-//
-// export const InputName = styled.input.attrs(() => ({
-//     name: 'text',
-//     required: 'required',
-//     type: 'text',
-//     maxLength: '16',
-//     id: 'singInPageNameInput',
-//     placeholder: 'email',
-// }))`
-//     display: block;
-//     position: relative;
-//     background-color: #b3bcc9;
-//     border: 0;
-//     padding: 10px;
-//     box-shadow: inset 0 0 3px #000;
-//     border-radius: 6px;
-//     outline: none;
-//     width: 50%;
-//     margin: 0 auto;
-//     height: 30px;
-// `;
-//
-// export const LabelEmail = styled.label.attrs(() => ({
-//     name: 'email',
-//     htmlFor: 'singInPageEmailInput',
-// }))`
-//     display: inline-block;
-//     position: relative;
-//     text-align: center;
-//     width: 50%;
-//     margin: 0 auto;
-// `;
-//
-// export const InputEmail = styled.input.attrs(() => ({
-//     name: 'email',
-//     required: 'required',
-//     type: 'text',
-//     maxLength: '16',
-//     id: 'singInPageEmailInput',
-//     placeholder: 'email',
-// }))`
-//     display: block;
-//     position: relative;
-//     background-color: #b3bcc9;
-//     border: 0;
-//     padding: 10px;
-//     box-shadow: inset 0 0 3px #000;
-//     border-radius: 6px;
-//     outline: none;
-//     width: 50%;
-//     margin: 0 auto;
-//     height: 30px;
-// `;
-//
-// export const LabelPassword = styled.label.attrs(() => ({
-//     name: 'password',
-//     htmlFor: 'loginPagePasswordInput',
-// }))`
-//     display: inline-block;
-//     position: relative;
-//     text-align: center;
-//     width: 50%;
-//     margin: 0 auto;
-// `;
-//
-// export const InputPassword = styled.input.attrs(() => ({
-//     name: 'password',
-//     required: 'required',
-//     type: 'password',
-//     maxLength: '16',
-//     id: 'loginPagePasswordInput',
-//     placeholder: 'password',
-// }))`
-//     display: block;
-//     position: relative;
-//     background-color: #b3bcc9;
-//     border: 0;
-//     padding: 10px;
-//     box-shadow: inset 0 0 3px #000;
-//     border-radius: 6px;
-//     outline: none;
-//     width: 50%;
-//     margin: 0 auto;
-//     height: 30px;
-// `;
-//
-// export const LabelConfirmPassword = styled.label.attrs(() => ({
-//     name: 'confirmPassword',
-//     htmlFor: 'singInPageConfirmPasswordInput',
-// }))`
-//     display: inline-block;
-//     position: relative;
-//     text-align: center;
-//     width: 50%;
-//     margin: 0 auto;
-// `;
-//
-// export const InputConfirmPassword = styled.input.attrs(() => ({
-//     name: 'confirmPassword',
-//     required: 'required',
-//     type: 'password',
-//     maxLength: '16',
-//     id: 'singInPageConfirmPasswordInput',
-//     placeholder: 'password',
-// }))`
-//     display: block;
-//     position: relative;
-//     background-color: #b3bcc9;
-//     border: 0;
-//     padding: 10px;
-//     box-shadow: inset 0 0 3px #000;
-//     border-radius: 6px;
-//     outline: none;
-//     width: 50%;
-//     margin: 0 auto;
-//     height: 30px;
-// `;
-//
-// export const InputSubmit = styled.input.attrs(() => ({
-//     type: 'button',
-//     id: 'regAccount',
-//     value: 'signIn',
-// }))`
-//     width: 35%;
-//     margin:0 auto;
-//     position: relative;
-//     top:10%;
-//     background-color: ${props => props.theme.signIn.buttonActive};
-//     color: ${props => props.theme.signIn.textActive};
-// `;

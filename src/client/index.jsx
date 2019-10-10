@@ -1,24 +1,10 @@
 import { createStore, applyMiddleware } from 'redux';
+import { Loader } from './loader/styledComponent';
 import { getBrowserInfo } from './utils/common';
 import React, { lazy, Suspense } from 'react';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import '../../style/ButtonSettings.css';
-import '../../style/Main.css';
-import '../../style/UsersList.css';
-import '../../style/MainHeader.css';
-import '../../style/Emoji.css';
-import '../../style/ContentBlock.css';
-import '../../style/ChatCloud.css';
-import '../../style/ChatBlock.css';
-import '../../style/Settings.css';
-import '../../style/LanguageDropdown.css';
-import '../../style/ThemeDropdown.css';
-import '../../style/ErrorWindow.css';
-import '../../style/defaultSettings.css';
-import '../../style/privateCheckbox.css';
-import '../../style/EmojisCheckbox.css';
 
 import i18n from './locale';
 import rootReducer from '../client/reducers';
@@ -36,8 +22,8 @@ const configureStore = () => {
 
 const getAppComponent = isMobile => {
     return isMobile
-        ? lazy(() => import (/*webpackChunkName: "App-mobile"*/'./app/mobile/App.jsx'))
-        : lazy(() => import (/*webpackChunkName: "App"*/'./app/desktop/App.jsx'));
+        ? lazy(() => import (/*webpackChunkName: "App-mobile"*/'./app/mobile'))
+        : lazy(() => import (/*webpackChunkName: "App"*/'./app/desktop'));
 };
 
 const store =  configureStore();
@@ -47,7 +33,7 @@ const Component = getAppComponent(getBrowserInfo().isMobile);
 
 ReactDOM.render(
     <Provider store={store}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader/>}>
             <I18nextProvider i18n={i18n}>
                 <Component/>
             </I18nextProvider>

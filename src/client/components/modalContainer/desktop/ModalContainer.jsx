@@ -1,5 +1,5 @@
 import ErrorWindow from '../../common/errorWindow/desktop';
-import Settings from "../../main/components/settings";
+import Settings from "../../main/components/settings/desktop";
 import * as constants from '../../../../constants';
 import Modal from "../../../libs/modal/desktop/Modal";
 import React from "react";
