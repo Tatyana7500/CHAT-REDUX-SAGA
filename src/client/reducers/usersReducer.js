@@ -10,6 +10,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+
     switch (action.type) {
         case constants.LEAVE_ACCOUNT:
             return {
@@ -34,6 +35,11 @@ export default function (state = initialState, action) {
                 ...state,
                 idReceiver: action.payload.idReceiver,
             };
+        case constants.USER_ONLINE:
+            return {
+                ...state,
+                usersOnline: action.payload,
+            }
         default:
             return state;
     }

@@ -24,16 +24,9 @@ class UsersList extends React.Component {
                             if (id !== item._id) {
                                 const isOnline = usersOnline.includes(item._id);
 
-                                if (isOnline) {
-                                    return (
-                                        <User id={item._id}>
-                                            <User.name>{item.name}</User.name>
-                                            <User.email>{item.email}</User.email>
-                                        </User>
-                                    );
-                                } else {
                                     return (
                                         <User id={item._id}
+                                              isOnline = { isOnline }
                                               onClick={openPrivateChat}>
                                             <User.name id={item._id}>{item.name}</User.name>
                                             <User.email id={item._id}>{item.email}</User.email>
@@ -42,7 +35,7 @@ class UsersList extends React.Component {
                                     );
                                 }
                             }
-                        }
+
                     })}
                     </Wrapper.Users>
             </Wrapper>

@@ -51,7 +51,7 @@ async function handleMessage(message) {
     const { receiver } = message;
 
     const user = await chatDal.readUserToId(message.sender);
-
+    console.log(message)
     const oneMessage = {
         message: message.message,
         date: message.date,
@@ -63,15 +63,15 @@ async function handleMessage(message) {
     if (receiver === constants.ALL) {
         io.sockets.emit(constants.MESSAGE, oneMessage);
     } else {
-        const socketIds = clients.filter(item => item.userId == receiver)
-             .map(client => client.socketId);
-
-        for (let socketId of socketIds) {
-            const socket = io.sockets.connected[socketId];
-            socket && socket.emit(constants.MESSAGEPRIVATE, oneMessage);
-        }
+        clients.map(item => {
+            if (item.userId == receiver) {
+                io.sockets.connected[item.socketId].emit(constants.MESSAGE_PRIVATE, oneMessage);
+            }
+        });
     }
 }
+
+
 
 app.post('/message', jsonParser, async (request, res) => {
     await handleMessage(request.body);

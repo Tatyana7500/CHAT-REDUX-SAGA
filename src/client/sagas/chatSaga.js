@@ -23,7 +23,7 @@ export function* drawChat() {
     const idReceiver = yield select(selectors.getIdReceiver);
     const url = `${constants.LOCALHOST}/messages?chat=${chat}&sender=${idSender}&receiver=${idReceiver}`;
     const messages = yield call(requestHelper.sendGet, url);
-    yield put(actions.setToMessagesListAction({ messageList: messages }));
+    yield put(actions.setToMessagesListAction( messages ));
 }
 
 export function* addEmoji(action) {
@@ -73,7 +73,7 @@ export function* clickButtonSend(action) {
 
     yield put(actions.updateMessageValueAction({ message: '' }));
     const messageList = [...yield select(selectors.getMessagesList), myMessage];
-    yield put(actions.updateMessageListAction({ messageList : messageList }));
+    yield put(actions.updateMessageListAction( messageList ));
 }
 
 export function* openPrivateChat (action) {
@@ -93,5 +93,5 @@ export function* openPrivateChat (action) {
     const idSender = yield select(selectors.getIdSender);
     const url = `${constants.LOCALHOST}/messages?chat=${chat}&sender=${idSender}&receiver=${idReceiver}`;
     const messages = yield call(requestHelper.sendGet, url);
-    yield put(actions.setToMessagesListAction({ messageList: messages }));
+    yield put(actions.setToMessagesListAction( messages ));
 }

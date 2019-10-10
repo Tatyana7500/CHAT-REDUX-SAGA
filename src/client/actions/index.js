@@ -5,6 +5,7 @@ export const createUser = payload => ({ type: constants.CREATE_USER, payload });
 export const showModalAction = payload => ({ type: constants.SHOW_MODAL, payload });
 export const handleHideModal = payload => ({ type: constants.HANDLE_HIDE_MODAL, payload});
 export const handleOpenModal = payload => ({ type: constants.HANDLE_OPEN_MODAL, payload});
+export const addUserOnlineAction = payload => ({ type: constants.USER_ONLINE, payload });
 
 export const settingsAction = payload => ({ type: constants.SETTINGS, payload });
 export const changeThemeAction = payload => ({ type: constants.THEME, payload });
@@ -24,3 +25,5 @@ export const changeStateChat = payload => ({ type: constants.STATE_CHAT, payload
 export const showEmojiAction = payload => ({ type: constants.OPEN_MENU_EMOJI, payload });
 export const updateMessageListAction = payload => ({ type: constants.MESSAGE_LIST, payload });
 export const updateMessageValueAction = payload => ({ type: constants.MESSAGE_VALUE, payload });
+export const initSocketChanelAction = payload => ({ type: constants.INIT_SOCKETS, payload });
+export const socketMessageAction = payload => ({ type: 'SOCKET_MESSAGE', payload })

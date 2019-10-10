@@ -4,6 +4,7 @@ import settings from './settingsSaga';
 import modal from './modalSaga';
 import user from './usersSaga';
 import chat from './chatSaga';
+import socketSaga from './socketsSaga'
 
 export default function* rootSaga() {
     yield all([
@@ -11,6 +12,7 @@ export default function* rootSaga() {
         chat(),
         modal(),
         settings(),
-        themeManager()
-    ])
+        themeManager(),
+        socketSaga(),
+    ]);
 }

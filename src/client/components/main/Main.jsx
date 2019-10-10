@@ -7,7 +7,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class MainPage extends React.Component {
+    constructor(props) {
+        super(props);
 
+        const { initSockets } = props;
+
+        initSockets();
+    }
+    static propTypes = {
+        initSockets: PropTypes.func.isRequired,
+    }
     // static propTypes = {
     //     theme: PropTypes.object.isRequired,
     // };

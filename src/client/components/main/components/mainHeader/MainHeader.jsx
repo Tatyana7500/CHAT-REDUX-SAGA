@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Logo from './components/Logo';
-import ButtonSettings from './../buttonSettings/ButtonSettings';
+import ButtonSettings from './../buttonSettings/';
 import { Wrapper, Button, Nav, UserInfo } from './styledComponent';
 
 const MainHeader = props => {

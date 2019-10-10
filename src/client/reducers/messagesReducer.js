@@ -8,11 +8,17 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+
     switch (action.type) {
         case constants.MESSAGE_LIST:
             return {
                 ...state,
-                messageList: action.payload.messageList,
+                messageList: action.payload,
+            };
+        case 'SOCKET_MESSAGE':
+            return {
+                ...state,
+                messageList: [...state.messageList, action.payload],
             };
         case constants.OPEN_MENU_EMOJI:
             return {
@@ -34,6 +40,7 @@ export default function (state = initialState, action) {
                 ...state,
                 chat: action.payload.chat,
             };
+
         default: {
             return state;
         }
