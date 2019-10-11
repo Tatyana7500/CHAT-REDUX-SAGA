@@ -11,8 +11,8 @@ const MainHeader = props => {
         <Wrapper>
             <Logo />
             <Wrapper.UserInfo>
-                <UserInfo.name children ={`Name:${name}`} />
-                <UserInfo.name children = {`Email:${email}`} />
+                <UserInfo.name children ={`Name: ${name}`} />
+                <UserInfo.name children = {`Email: ${email}`} />
             </Wrapper.UserInfo>
             <Wrapper.Nav>
                 <Nav.users children = {'USERS'} onClick = {getUsers}/>
@@ -21,7 +21,6 @@ const MainHeader = props => {
             <Wrapper.Settings>
                 <ButtonSettings />
             </Wrapper.Settings>
-
             <Wrapper.Button>
                 <Button.logout href = '#' children = {'LOGOUT'} onClick = {leaveAccount}/>
             </Wrapper.Button>

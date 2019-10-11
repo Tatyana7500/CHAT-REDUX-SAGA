@@ -12,7 +12,7 @@ class UsersList extends React.Component {
     };
 
     render() {
-        const {id, users, openPrivateChat, usersOnline, theme} = this.props;
+        const { id, users, openPrivateChat, usersOnline, theme } = this.props;
 
         return (
             <Wrapper>

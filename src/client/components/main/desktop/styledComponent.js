@@ -4,9 +4,9 @@ export const Wrapper = styled.div`
    position: relative;
    width: 90vw;
    height: 95vh ;
-   margin: 0 auto;
-   background-color: #D4493E;
-   border-radius: 30px;
+   margin: 20px auto;
+   background-color: ${props => props.theme.main.backgroundWrapper};
+   border-radius: 10px;
    display:flex;
    flex-direction: column;
 `;
@@ -17,19 +17,23 @@ const Header = styled.div`
 
 const Content = styled.div`
     width: 96%;
-    align-self:center;
-    background-color:#fff;
-    border-radius:30px;
+    align-self: center;
+    background-color: #fff;
+    border-radius: 10px;
     height:80%;
 `;
 
-export const Window = styled.div`
-position:absolute;
-width:100%;
-height:100%;
-background-color: #FDDD83;
+export const Root = styled.div`
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image: ${props => props.theme.main.background};
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 `;
-
 
 Wrapper.Header = Header;
 Wrapper.Content = Content;
+
+Root.Wrapper = Wrapper;
