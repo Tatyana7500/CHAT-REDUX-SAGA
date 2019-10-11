@@ -1,62 +1,51 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Content, Users, Lonely } from './styledComponent';
-import { ThemeProvider } from 'styled-components';
+import { Wrapper, Users, Title, User } from './styledComponent';
 
 class UsersList extends React.Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
         users: PropTypes.array.isRequired,
-        theme: PropTypes.object.isRequired,
         usersOnline: PropTypes.array.isRequired,
         openPrivateChat: PropTypes.func.isRequired,
     };
 
     render() {
-        const { id, users, openPrivateChat, usersOnline, theme } = this.props;
+        const { id, users, openPrivateChat, usersOnline } = this.props;
 
         return (
-            <ThemeProvider theme={theme}>
-                <Content>
-                    <Users>
-                        <Users.title>
-                            <Users.info>name</Users.info>
-                            <Users.info>email</Users.info>
-                        </Users.title>
-                        { users.map((item, index) => {
-                            if (users.length !== 1) {
-                                if (id !== item._id) {
-                                    const isOnline = usersOnline.includes(item._id);
+            <Wrapper>
+                <Wrapper.Users>
+                    <Users.Title>
+                        <Title.span>name</Title.span>
+                        <Title.span>email</Title.span>
+                    </Users.Title>
+                    { users.map((item, index) => {
+                        if (users.length !== 1) {
+                            if (id !== item._id) {
+                                const isOnline = usersOnline.includes(item._id);
 
-                                    if (isOnline) {
-                                        return (
-                                            <Users.card>
-                                                <Users.online key={index}>
-                                                    <Users.info id={item._id} onClick={openPrivateChat}>{item.name}</Users.info>
-                                                    <Users.info id={item._id} onClick={openPrivateChat}>{item.email}</Users.info>
-                                                </Users.online>
-                                            </Users.card>
-                                        );
-                                    } else {
-                                        return (
-                                            <Users.card key={index}>
-                                                <Users.info id={item._id} onClick={openPrivateChat}>{item.name} </Users.info >
-                                                <Users.info id={item._id} onClick={openPrivateChat}>{item.email}</Users.info >
-                                            </Users.card>
-                                        );
-                                    }
+                                    return (
+                                        <Users.User key={index}
+                                              id={item._id}
+                                              isOnline = { isOnline }
+                                              onClick={openPrivateChat}>
+                                            <User.name id={item._id}>{item.name}</User.name>
+                                            <User.email id={item._id}>{item.email}</User.email>
+                                        </Users.User>
+                                    );
                                 }
-                            } else {
-                                return (
-                                    <Lonely key={ index }>
-                                        You're lonely!
-                                    </Lonely>
-                                );
-                            }
-                        })}
-                    </Users>
-                </Content>
-            </ThemeProvider>
+
+                        } else {
+                            return (
+                                <Users.Lonely key={ index }>
+                                    You're lonely!
+                                </Users.Lonely>
+                            );
+                        }
+                    })}
+                </Wrapper.Users>
+            </Wrapper>
         );
     }
 }

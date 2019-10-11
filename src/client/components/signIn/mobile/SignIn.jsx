@@ -25,6 +25,10 @@ class SignInForm extends React.Component {
         }
     };
 
+    hrefToLogin = () => {
+        window.location.href = '/login';
+    };
+
     render() {
         const { t } = this.props;
 
@@ -50,7 +54,7 @@ class SignInForm extends React.Component {
                     </Form.Email>
                     <Wrapper.Navigation>
                         <Navigation.Login>
-                            <Login.button onClick={this.hrefToSignIn} children={t('notAccount')}/>
+                            <Login.button onClick={this.hrefToLogin} children={t('notAccount')}/>
                         </Navigation.Login>
                     </Wrapper.Navigation>
                     <Form.Submit>

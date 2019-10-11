@@ -1,30 +1,22 @@
 import ButtonSettings from '../components/buttonSettings/mobile';
 import ContentBlock from '../components/contentBlock/mobile';
 import MainHeader from '../components/mainHeader/mobile';
+import { Wrapper, Header } from './styledComponent';
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import { Header, Main, Logo } from './styledComponent';
 
 class MainPage extends React.Component {
-    static propTypes = {
-        theme: PropTypes.object.isRequired,
-    };
-
     render() {
-        const { theme } = this.props;
-
         return (
-            <ThemeProvider theme={theme}>
-                <Header>
-                    <Logo />
+            <Wrapper>
+                <Wrapper.Header>
+                    <Header.logo />
                     <ButtonSettings />
-                </Header>
-                <Main>
+                </Wrapper.Header>
+                <Wrapper.Main>
                     <MainHeader />
                     <ContentBlock />
-                </Main>
-            </ThemeProvider>
+                </Wrapper.Main>
+            </Wrapper>
         )
     }
 }

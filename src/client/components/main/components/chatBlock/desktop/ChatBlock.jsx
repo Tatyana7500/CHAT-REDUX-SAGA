@@ -13,13 +13,10 @@ const ChatBlock = props => {
     } = props;
 
     return (
-
         <Wrapper>
-
             <Wrapper.Messages>
                 <HatCloud />
             </Wrapper.Messages>
-
             <Wrapper.Footer>
                 <Footer.textMessage
                     value={messageAreaValue}

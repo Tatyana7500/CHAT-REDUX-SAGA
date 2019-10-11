@@ -17,7 +17,7 @@ export const Input = styled.input.attrs(props => ({
     
     
     &:before{
-        content:'😊';
+        content:'🌞';
         position: absolute;
         text-align: center;
         line-height: 25px;

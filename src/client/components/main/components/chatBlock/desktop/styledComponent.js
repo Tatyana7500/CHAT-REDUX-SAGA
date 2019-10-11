@@ -23,7 +23,7 @@ const send = styled.button`
 `;
 
 const Messages = styled.div`
-    overflow: auto;
+   overflow: auto;
    height:100%;
    
 `;

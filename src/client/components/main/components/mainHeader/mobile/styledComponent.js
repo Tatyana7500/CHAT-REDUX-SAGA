@@ -7,14 +7,13 @@ export const Wrapper = styled.div.attrs(props => ({}))`
     color: ${props => props.theme.mainHeader.colorText};
 `;
 
-export const Info = styled.div``;
+export const InfoUser = styled.div``;
 
-Wrapper.info = Info;
+Wrapper.InfoUser = InfoUser;
 
-export const InfoItem = styled.div``;
+export const spanTitle = styled.span``;
 
-Wrapper.infoItem = InfoItem;
+export const spanValue = styled.span``;
 
-export const SpanTitle = styled.span``;
-
-export const SpanValue = styled.span``;
+InfoUser.spanTitle = spanTitle;
+InfoUser.spanValue = spanValue;

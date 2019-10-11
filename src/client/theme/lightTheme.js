@@ -1,5 +1,5 @@
 const colors = {
-    color_01: '#35A298',
+    color_01: '#dddddd',
     color_02: '#d1dae8',
     color_03: '#000000',
     color_04: '#8080b4',
@@ -49,8 +49,8 @@ export default {
             colorText: colors.color_11,
         },
         mainHeader: {
-            colorText: colors.color_04,
-            backgroundColor: colors._13,
+            colorText: colors.color_03,
+            backgroundColor: colors.color_02,
         },
         main: {
             backgroundColor: colors.color_04,
@@ -61,21 +61,31 @@ export default {
             colorText: colors.color_03,
         },
         usersList: {
-            backgroundColorTitle: colors.color_01,
+            backgroundColorTitle: colors.color_06,
             border: colors.color_13,
+            colorText: colors.color_03,
+            backgroundColor: colors.color_08,
         },
         chatBlock: {
+            backgroundWrapper: colors.color_17,
             backgroundColor: colors.color_08,
             sendBottom: colors.color_16,
         },
         chatCloud: {
             colorText: colors.color_03,
             messageBackground: colors.color_08,
+            colorTextName: colors.color_14,
         },
         menu: {
             buttonActive: colors.color_16,
             textActive: colors.color_02,
             backgroundColor: colors.color_05,
+        },
+        settings: {
+            backgroundColor: colors.color_10,
+            color: colors.color_11,
+            button: colors.color_11,
+            buttonText: colors.color_08,
         }
     },
     desktop: {
@@ -83,7 +93,7 @@ export default {
         login: {
             borderColor: colors.color_01,
             shadowColor: colors.color_09,
-            backgroundLogin: colors.color_15,
+            backgroundColor: colors.color_15,
             buttonsWrapperColor: colors.color_05,
             settingsBorderBottom: colors.color_07,
             buttonHover: colors.color_15,

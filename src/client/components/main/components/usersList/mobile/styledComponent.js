@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
-export const Content = styled.div`
+export const Wrapper = styled.div`
     position: relative;
     margin: 0 auto;
-    background-color: #D2DADF;
+    background-color: ${props => props.theme.usersList.backgroundColor};
     border: 1px solid #397A94;
 `;
 
 export const Users = styled.div`
     width: 99.9%;
     overflow: auto;
+    margin-top: -2px;
 `;
+
+Wrapper.Users = Users;
 
 export const Title = styled.div`
     display: flex;
@@ -18,39 +21,44 @@ export const Title = styled.div`
     justify-content: space-around;
 `;
 
-Users.title = Title;
+Users.Title = Title;
 
-export const Info = styled.div.attrs(props => ({
-    id: props.id ? props.id : '',
-}))`
+export const Info = styled.div`
     flex: 1;
     text-align: center;
-    color: #000000;
+    color: ${props => props.theme.usersList.colorText};
     padding: 10px;
     background-color: ${props => props.theme.usersList.backgroundColorTitle};
 `;
 
-Users.info = Info;
+Title.span = Info;
 
-export const Card = styled.div.attrs(props => ({
-    id: props.id,
-}))`
-    margin: 0 auto;
+export const User = styled.div`
     height: 7%;
     display: flex;
-    border-bottom:1px solid ${props => props.theme.usersList.border};
-    cursor: pointer;
+    ${props => props.isOnline ? ' background-color: #EFBF62' : `background-color:inherit`};
+    ${props => props.isOnline ? ' color: #D4493E' : `color:inherit`};
     padding: 5px;
     font-size: 14px;
+    border: 1px solid ${props => props.theme.usersList.border};
+    margin: 5px;
+    justify-content: space-between;
 `;
 
-export const Online = styled(Card)`
-    background-color:#54ff5c;
+Users.User = User;
+
+const name = styled(User)`
+    border:none;
+`;
+const email = styled(User)`
+    border: none;
 `;
 
-Users.card = Card;
-Users.online = Online;
+User.email = email;
+User.name = name;
 
 export const Lonely = styled.div.attrs(props => ({
     key: props.key,
 }))``;
+
+Users.Lonely = Lonely;

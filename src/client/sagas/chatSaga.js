@@ -15,7 +15,6 @@ export default function* watchSaga() {
 }
 
 export function* drawChat() {
-    console.log('chat');
     yield put(actions.idReceiverAction({ idReceiver: constants.ALL }));
     yield put(actions.changeWindowState({ state: constants.CHAT }));
     yield put(actions.changeStateChat({ chat: constants.PUBLIC }));
@@ -30,11 +29,8 @@ export function* drawChat() {
 
 export function* addEmoji(action) {
     const { native: emoji } = action.payload;
-    console.log(action.payload.native);
-    console.log(yield select(selectors.getMessage));
     const messageValue = yield select(selectors.getMessage);
     const message = `${messageValue}${emoji}`;
-    console.log(message);
     yield put(actions.updateMessageValueAction({ message: message }));
 }
 

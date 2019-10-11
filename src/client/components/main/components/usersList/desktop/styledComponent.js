@@ -42,6 +42,8 @@ export const User = styled.div`
 const name = styled(User)``;
 const email = styled(User)``;
 
+export const Lonely = styled.div``;
+
 User.email = email;
 User.name = name;
 Wrapper.Users = Users;

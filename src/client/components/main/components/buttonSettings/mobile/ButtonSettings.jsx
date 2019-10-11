@@ -6,7 +6,7 @@ const ButtonSettings = (props) => {
     const { openModal } = props;
 
     return (
-        <Burger onSelect={openModal} />
+        <Burger onClick={ openModal } />
     );
 };
 

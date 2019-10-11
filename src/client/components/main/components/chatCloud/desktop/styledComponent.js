@@ -34,13 +34,11 @@ export const Message = styled.div`
 const name = styled.p`
     color: #EFBF62;
     position:relative;
-    //left:3%;
 `;
 
 const email = styled.p`
     color: #EFBF62;
     position:relative;
-    //left:3%;
 `;
 
 const text = styled.span`

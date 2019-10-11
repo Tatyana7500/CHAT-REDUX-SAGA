@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 
-export const Main = styled.div.attrs(props => ({}))`
+export const Wrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+`;
+
+export const Main = styled.div`
     background-color: #ffffff;
     width: 100%;
     color: #000;
     position: absolute;
 `;
 
-export const Header = styled.div.attrs(props => ({
-}))`
+Wrapper.Main = Main;
+
+export const Header = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -16,7 +23,9 @@ export const Header = styled.div.attrs(props => ({
     flex:1;
 `;
 
-export const Logo = styled.img.attrs(props => ({
+Wrapper.Header = Header;
+
+Header.logo = styled.img.attrs(props => ({
     src: 'src/client/assets/icons/logo.png',
     width: '150px',
     height: '50px'

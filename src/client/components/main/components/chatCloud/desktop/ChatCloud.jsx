@@ -7,10 +7,8 @@ const ChatCloud = props => {
     const { messages, name } = props;
 
     return (
-
         <Wrapper>
-            {
-                messages.map((item, index) => {
+            {   messages.map((item, index) => {
                     const float = item.name === name;
                     const date = logic.parseDate(item.date);
 

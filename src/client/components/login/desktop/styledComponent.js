@@ -7,7 +7,9 @@ export const Root = styled.div`
     overflow: hidden;
     display: flex;
     justify-content: center;
-    background-image: url('/src/client/assets/icons/background.jpg');
+    background-color: ${props => props.theme.login.backgroundColor};
+
+    //background-image: url('/src/client/assets/icons/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
