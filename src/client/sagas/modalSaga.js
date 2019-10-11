@@ -1,4 +1,4 @@
-import {takeEvery, put, call, apply} from 'redux-saga/effects';
+import {takeEvery, put } from 'redux-saga/effects';
 import * as constants from '../../constants';
 import * as actions from "../actions";
 
@@ -18,11 +18,7 @@ export function* handleHide(action) {
 }
 
 export function* handleOpenMenu(action) {
-    yield put(actions.showMenuAction({ isOpenMenu: true }));
-}
-
-export function* handleCloseMenu(action) {
-    yield put(actions.showMenuAction({ isOpenMenu: false }));
+    yield put(actions.showModalAction({ isOpen: true, modalType: constants.MENU_MODAL_TYPE}));
 }
 
 export function* handleOpenModalError(action) {

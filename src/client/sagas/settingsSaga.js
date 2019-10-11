@@ -13,6 +13,8 @@ export default function* watchSaga() {
     yield takeEvery(constants.CHANGE_ACTIVE_EMOJI, changeActiveEmoji);
     yield takeEvery(constants.CHANGE_ACTIVE_PRIVATE_CHAT, changeActivePrivateChat);
     yield takeEvery(constants.TRANSLATE, translate);
+    yield takeEvery(constants.SETTINGS_MOBILE, settingsMobile);
+    yield takeEvery(constants.HREF_MAIN_PAGE, hrefMainPage);
 }
 
 export function* changeTheme(action) {
@@ -99,4 +101,12 @@ export function* setAttributeDataTheme(theme) {
 
 export function* setAttributeStyleDirection(direction) {
     yield document.body.setAttribute('style', `direction:${direction}`);
+}
+
+export function* settingsMobile() {
+    window.location.href = '/settings';
+}
+
+export function* hrefMainPage() {
+    window.location.href = '/main';
 }

@@ -6,7 +6,6 @@ class Modal extends PureComponent {
     constructor(props) {
         super(props);
         this.modalContainer = document.createElement('div');
-        this.modalContainer.className = 'modal-container';
     }
 
     static propTypes = {

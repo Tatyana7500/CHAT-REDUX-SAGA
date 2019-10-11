@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
       justify-content: center;
       flex-direction: column;
       align-items: center;
+      position: absolute;
 `;
 
 Wrapper.logo = styled.img.attrs(props => ({

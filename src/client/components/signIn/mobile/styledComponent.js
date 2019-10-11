@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
       justify-content: center;
       flex-direction: column;
       align-items: center;
+      position: absolute;
 `;
 
 Wrapper.logo = styled.img.attrs(props => ({
@@ -72,6 +73,7 @@ Email.input = styled.input`
 Email.label = styled.label`
     color: ${props => props.theme.login.textForm};
 `;
+
 Form.Email = Email;
 
 export const Password = styled.div`
@@ -118,7 +120,7 @@ ConfirmPassword.label = styled.label`
     color: ${props => props.theme.login.textForm};
 `;
 
-Form.Password = ConfirmPassword;
+Form.ConfirmPassword = ConfirmPassword;
 
 export const Submit = styled.div``;
 

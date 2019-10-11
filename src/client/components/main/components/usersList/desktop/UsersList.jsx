@@ -1,7 +1,6 @@
+import { User, Wrapper, Lonely } from './styledComponent';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import { User, Wrapper } from './styledComponent';
 
 class UsersList extends React.Component {
     static propTypes = {
@@ -12,7 +11,7 @@ class UsersList extends React.Component {
     };
 
     render() {
-        const { id, users, openPrivateChat, usersOnline, theme } = this.props;
+        const {id, users, openPrivateChat, usersOnline} = this.props;
 
         return (
             <Wrapper>
@@ -33,6 +32,12 @@ class UsersList extends React.Component {
 
                                 );
                             }
+                        } else {
+                            return (
+                                <Lonely key={ index }>
+                                    You're lonely!
+                                </Lonely>
+                            );
                         }
 
                     })}

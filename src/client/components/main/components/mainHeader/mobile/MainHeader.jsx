@@ -1,33 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { Wrapper, SpanTitle, SpanValue } from './styledComponent';
+import { Wrapper, InfoUser } from './styledComponent';
 
 const MainHeader = (props) => {
-    const { name, email, theme } = props;
+    const { name, email, t } = props;
 
     return (
-        <ThemeProvider theme={theme}>
-            <Wrapper>
-                <Wrapper.info>
-                    <Wrapper.infoItem>
-                        <SpanTitle>name:</SpanTitle>
-                        <SpanValue>{name}</SpanValue>
-                    </Wrapper.infoItem>
-                    <Wrapper.infoItem>
-                        <SpanTitle>email:</SpanTitle>
-                        <SpanValue>{email}</SpanValue>
-                    </Wrapper.infoItem>
-                </Wrapper.info>
-            </Wrapper>
-        </ThemeProvider>
+        <Wrapper>
+            <Wrapper.InfoUser>
+                <InfoUser.spanTitle>name:</InfoUser.spanTitle>
+                <InfoUser.spanValue>{name}</InfoUser.spanValue>
+            </Wrapper.InfoUser>
+            <Wrapper.InfoUser>
+                <InfoUser.spanTitle>email:</InfoUser.spanTitle>
+                <InfoUser.spanValue>{email}</InfoUser.spanValue>
+            </Wrapper.InfoUser>
+        </Wrapper>
     );
 };
 
 MainHeader.propTypes = {
     name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    theme: PropTypes.object.isRequired,
 };
 
 export default MainHeader;

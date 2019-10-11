@@ -1,5 +1,5 @@
 const colors = {
-    color_01: '#35A298',
+    color_01: '#dddddd',
     color_02: '#d1dae8',
     color_03: '#000000',
     color_04: '#8080b4',
@@ -56,8 +56,8 @@ export default {
             colorText: colors.color_08,
         },
         mainHeader: {
-            colorText: colors.color_13,
-            backgroundColor: colors._13,
+            colorText: colors.color_08,
+            backgroundColor: colors.color_13,
         },
         main: {
             backgroundColor: colors.color_04,
@@ -68,26 +68,48 @@ export default {
             colorText: colors.color_08,
         },
         usersList: {
-            backgroundColorTitle: colors.color_01,
-            border: colors.color_13,
+            backgroundColorTitle: colors.color_12,
+            border: colors.color_08,
+            colorText: colors.color_08,
+            backgroundColor: colors.color_16,
         },
         chatBlock: {
             backgroundColor: colors.color_08,
+            backgroundWrapper: colors.color_17,
             sendBottom: colors.color_16,
         },
         chatCloud: {
             colorText: colors.color_08,
             messageBackground: colors.color_14,
+            colorTextName: colors.color_08,
         },
         menu: {
             buttonActive: colors.color_07,
             textActive: colors.color_03,
             backgroundColor: colors.color_11,
         },
+        settings: {
+            backgroundColor: colors.color_11,
+            color: colors.color_08,
+            button: colors.color_08,
+            buttonText: colors.color_11,
+        }
     },
     desktop: {
         app: {},
         login: {
+            borderColor: colors.color_03,
+            shadowColor: colors.color_03,
+            backgroundLogin: colors.color_15,
+            backgroundColor: colors.color_15,
+            buttonsWrapperColor: colors.color_15,
+            settingsBorderBottom: colors.color_07,
+            buttonHover: colors.color_15,
+            textNotActive: colors.color_08,
+            buttonShadow: colors.color_16,
+            textForm: colors.color_16,
+            buttonActive: colors.color_08,
+            textActive: colors.color_14,
             background: colors.image,
             backgroundWrapper: colors.color_18,
             color: colors.color_08,

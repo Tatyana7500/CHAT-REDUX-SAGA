@@ -4,7 +4,6 @@ import Component from './ModalContainer.jsx';
 import constants from "../../../../constants";
 
 export const mapStateToProps = state => ({
-    theme: selectors.getTheme(state),
     modalType: selectors.getModalType(state),
     isModalOpen: selectors.getIsModalOpen(state),
     modalContent: selectors.getModalContent(state),

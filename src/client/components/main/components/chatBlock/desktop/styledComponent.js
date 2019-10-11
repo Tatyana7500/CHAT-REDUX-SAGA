@@ -40,8 +40,8 @@ const send = styled.button`
 `;
 
 const Messages = styled.div`
-    overflow: auto;
-    height:100%;
+   overflow: auto;
+   height:100%;
 `;
 
 Wrapper.Footer = Footer;

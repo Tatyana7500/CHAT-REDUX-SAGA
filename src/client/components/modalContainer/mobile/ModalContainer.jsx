@@ -1,24 +1,27 @@
 import ErrorWindow from '../../common/errorWindow/mobile';
-import Settings from "../../main/components/settings/desktop";
+import Menu from "../../main/components/menu";
 import * as constants from '../../../../constants';
 import Modal from "../../../libs/modal/mobile/Modal";
+import { ModalWrapper, ModalMenu } from './styledComponent';
 import React from "react";
-import { ModalWrapper } from './styledComponent';
 
 const ModalContainer = props => {
     const {
-        theme,
         modalType,
         isModalOpen,
     } = props;
 
     return isModalOpen ? (
         <Modal>
-            <ModalWrapper theme={ theme }>
-                {modalType === constants.ERROR_MODAL_TYPE ?
-                    <ErrorWindow /> : <Settings />
-                }
-            </ModalWrapper>
+            {modalType === constants.ERROR_MODAL_TYPE ?
+                <ModalWrapper>
+                    <ErrorWindow/>
+                </ModalWrapper>
+                :
+                <ModalMenu>
+                    <Menu/>
+                </ModalMenu>
+            }
         </Modal>
     ) : null;
 };

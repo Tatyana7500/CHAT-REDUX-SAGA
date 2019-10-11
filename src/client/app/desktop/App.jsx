@@ -6,9 +6,8 @@ import Login from '../../components/login/desktop';
 import { ThemeProvider } from 'styled-components';
 import Main from '../../components/main/desktop';
 import React, { Component } from 'react';
-import '../../theme/matrix.css';
-import '../../theme/index.css';
 import PropTypes from 'prop-types';
+import '../../theme/index.css';
 
 class App extends Component {
     static propTypes = {
