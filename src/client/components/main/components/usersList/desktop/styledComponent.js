@@ -6,12 +6,11 @@ export const Wrapper = styled.div`
 `;
 
 const Users = styled.div`
-  width:100%;
-  display:flex;
-  flex-direction: column;
-  background-color: #EEE;
-  color: #777;
-   
+      width:100%;
+      display:flex;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000;
 `;
 
 export const User = styled.div`
@@ -25,18 +24,17 @@ export const User = styled.div`
     ${props => props.isOnline ? ' color: #D4493E' : `color:inherit`};
     border-bottom:1px solid #D4493E;
     
-    :hover {
-     background-color: #DFDFDF;
-    ;
-  }
-    
+    &:hover {
+        background-color: rgba(235, 193, 13, 0.1);
+    }
+            
     justify-content: space-evenly;
-    @media (max-width: 1500px) {
-    font-size:3vw;
-  }
-   @media (max-width: 700px) {
-    font-size:5vw;
-  }
+            @media (max-width: 1500px) {
+            font-size:3vw;
+          }
+           @media (max-width: 700px) {
+            font-size:5vw;
+          }
 `;
 
 const name = styled(User)``;

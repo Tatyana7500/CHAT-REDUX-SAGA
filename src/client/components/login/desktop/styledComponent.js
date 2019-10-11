@@ -7,17 +7,15 @@ export const Root = styled.div`
     overflow: hidden;
     display: flex;
     justify-content: center;
-    background-color: ${props => props.theme.login.backgroundColor};
-
-    //background-image: url('/src/client/assets/icons/background.jpg');
+    background-image: ${props => props.theme.login.background};
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 `;
 
 export const Wrapper = styled.div`
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #000;
+    background-color: ${props => props.theme.login.backgroundWrapper};
+    color: ${props => props.theme.login.color};
     width: 30%;
     height: 40%;
     display: flex;
@@ -39,9 +37,9 @@ Wrapper.settings = styled.div`
     display: flex;
     justify-content: center;
     flex: 1;
-    background-color: rgba(255, 255, 255, 0.8);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-bottom: 1px solid #fff;
 `;
 
 export const Navigation = styled.div`
@@ -55,7 +53,7 @@ export const Navigation = styled.div`
 `;
 
 export const Login = styled.div`
-    width: 20%;
+    width: 30%;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -64,20 +62,16 @@ export const Login = styled.div`
 Login.button = styled.button`
     width: 100%;
     margin: 0;
-    background-color: steelblue;
+    background-color: ${props => props.theme.login.colorButtonActive};
     text-transform: uppercase;
     color: #fff;
     border: none;
     height: 100%;
-    
-    &:hover{
-        background-color: khaki;
-        color: #000;
-    }
+    border-radius: 5px;
 `;
 
 export const Signin = styled.div`
-    width: 20%;
+    width: 30%;
     padding: 0;
     margin: 0;
     height: 100%;
@@ -86,15 +80,15 @@ export const Signin = styled.div`
 Signin.button = styled.button`
     width: 100%;
     margin: 0;
-    background-color: steelblue;
+    background-color: ${props => props.theme.login.colorButton};
     text-transform: uppercase;
     color: #fff;
     border: none;
     height: 100%;
+    border-radius: 5px;
     
     &:hover{
-        background-color: khaki;
-        color: #000;
+         background-color: ${props => props.theme.login.colorButtonHover};
     }
 `;
 
@@ -144,7 +138,7 @@ Password.label = styled.label``;
 Form.Password = Password;
 
 export const Submit = styled.div`
-    width: 20%;
+    width: 30%;
     padding: 0;
     margin: 0;
 `;
@@ -152,15 +146,15 @@ export const Submit = styled.div`
 Submit.button = styled.button`
     width: 100%;
     margin: 0;
-    background-color: steelblue;
+    background-color: ${props => props.theme.login.colorButton};
     text-transform: uppercase;
     color: #fff;
     border: none;
     height: 100%;
+    border-radius: 5px;
     
     &:hover{
-        background-color: khaki;
-        color: #000;
+        background-color: ${props => props.theme.login.colorButtonHover};
     }
 `;
 

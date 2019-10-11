@@ -1,4 +1,4 @@
-import HatCloud from '../../chatCloud/desktop';
+import ChatCloud from '../../chatCloud/desktop';
 import Emoji from '../../emoji/desktop';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -15,17 +15,18 @@ const ChatBlock = props => {
     return (
         <Wrapper>
             <Wrapper.Messages>
-                <HatCloud />
+                <ChatCloud />
             </Wrapper.Messages>
             <Wrapper.Footer>
                 <Footer.textMessage
                     value={messageAreaValue}
                     onChange={updateMessageValue}
                 />
+                { emoji === true && <Emoji /> }
                 <Footer.send
                     onClick={clickButtonSend}
-                    children ={'send'}/>
-                { emoji === true && <Emoji /> }
+                    children ={'send'}
+                />
             </Wrapper.Footer>
         </Wrapper>
     );

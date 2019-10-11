@@ -15,10 +15,11 @@ export const Message = styled.div`
     border-radius:20px;
     margin-top:20px;
     padding: 15px;
-    background-color: #D4493E;
+    background-color: ${props => props.theme.chatCloud.messageBackground};
     color:#fff;
-    ${props => props.float ?`align-self: flex-end;` : 'align-self: flex-start;' }
-    :before {
+    ${props => props.float ?`align-self: flex-end;` : 'align-self: flex-start;' };
+    
+    &:before {
         content: '';
         position: absolute;
         width:20px;
@@ -27,7 +28,8 @@ export const Message = styled.div`
         border-top-color: transparent;
         background-color: inherit;
         top:70%;
-    }
+    };
+    
    ${props => props.float ? `:before { right:-10px; transform:rotate(-45deg)}`: `:before { left:-10px; transform:rotate(135deg)}`}
 `;
 
@@ -47,7 +49,7 @@ const text = styled.span`
 `;
 
 const time = styled.p`
-position:relative;
+    position:relative;
 `;
 
 Wrapper.Message = Message;

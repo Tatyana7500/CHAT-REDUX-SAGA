@@ -8,10 +8,9 @@ import { Wrapper } from './styledComponent';
 const ContentBlock = props => {
     const { windowState } = props;
 
-
     return (
         <Wrapper>
-            {windowState === constants.USERS && <UsersList />}
+            {windowState === constants.USERS && <UsersList/>}
             {windowState === constants.CHAT && <ChatBlock/>}
         </Wrapper>
     );

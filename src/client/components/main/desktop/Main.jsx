@@ -1,6 +1,6 @@
 import ContentBlock from '../components/contentBlock/desktop';
 import MainHeader from '../components/mainHeader/desktop';
-import { Wrapper, Window } from './styledComponent';
+import { Wrapper, Root } from './styledComponent';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -18,16 +18,16 @@ class MainPage extends React.Component {
 
     render() {
         return (
-            <Window>
-                <Wrapper>
+            <Root>
+                <Root.Wrapper>
                     <Wrapper.Header>
                         <MainHeader/>
                     </Wrapper.Header>
                     <Wrapper.Content>
                         <ContentBlock/>
                     </Wrapper.Content>
-                </Wrapper>
-            </Window>
+                </Root.Wrapper>
+            </Root>
         );
     }
 }
